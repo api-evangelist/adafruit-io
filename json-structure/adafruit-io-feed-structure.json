@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/schema/v1.json",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adafruit-io/main/json-structure/adafruit-io-feed-structure.json",
+  "title": "Adafruit IO Feed Structure",
+  "description": "JSON Structure description of an Adafruit IO Feed resource.",
+  "type": "object",
+  "structure": {
+    "properties": {
+      "id": { "type": "integer", "scope": "system" },
+      "key": { "type": "string", "scope": "system", "constraint": "URL-safe slug, derived from name when omitted." },
+      "name": { "type": "string", "scope": "user", "required": true },
+      "description": { "type": "string", "scope": "user" },
+      "unit_type": { "type": "string", "scope": "user" },
+      "unit_symbol": { "type": "string", "scope": "user" },
+      "visibility": { "type": "enum", "values": ["public", "private"], "scope": "user" },
+      "history": { "type": "boolean", "scope": "user" },
+      "license": { "type": "string", "scope": "user" },
+      "last_value": { "type": "string", "scope": "system" },
+      "status": { "type": "enum", "values": ["active", "inactive"], "scope": "system" },
+      "created_at": { "type": "datetime", "scope": "system" },
+      "updated_at": { "type": "datetime", "scope": "system" }
+    }
+  },
+  "relationships": [
+    { "from": "feed", "to": "data", "type": "one-to-many", "via": "feed_id" },
+    { "from": "feed", "to": "group", "type": "many-to-many", "via": "feed_group" },
+    { "from": "feed", "to": "block", "type": "one-to-many", "via": "block_feeds" },
+    { "from": "feed", "to": "permission", "type": "one-to-many", "via": "object_id where model = feed" }
+  ]
+}

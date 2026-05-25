@@ -1,0 +1,38 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://io.adafruit.com/api/v2/io_username/feeds/temperature/data",
+    "headers": {
+      "X-AIO-Key": "io_key_12345",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "value": "72.4",
+      "lat": 37.7749,
+      "lon": -122.4194,
+      "ele": 16,
+      "created_at": "2026-05-25T10:00:00Z"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "id": "0HW7T8K9NRDZJBM8PT3K3M2EXC",
+      "value": "72.4",
+      "feed_id": 12345,
+      "feed_key": "temperature",
+      "group_id": null,
+      "expiration": null,
+      "lat": 37.7749,
+      "lon": -122.4194,
+      "ele": 16,
+      "created_at": "2026-05-25T10:00:00Z",
+      "created_epoch": 1779948000,
+      "completed_at": "2026-05-25T10:00:00Z",
+      "updated_at": "2026-05-25T10:00:00Z"
+    }
+  }
+}

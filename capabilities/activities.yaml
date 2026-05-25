@@ -1,0 +1,96 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adafruit IO REST API — Activities
+  description: 'Adafruit IO Activities — read the audit/activity log for the authenticated account, optionally
+    filtered by activity type. Self-contained Naftiko capability.'
+  tags:
+  - Adafruit IO
+  - Activities
+  - Audit
+  - IoT
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    ADAFRUIT_IO_USERNAME: ADAFRUIT_IO_USERNAME
+    ADAFRUIT_IO_KEY: ADAFRUIT_IO_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: adafruit-io-activities
+    baseUri: https://io.adafruit.com/api/v2
+    description: Adafruit IO Activities REST surface.
+    resources:
+    - name: activities
+      path: /{username}/activities
+      operations:
+      - name: listactivities
+        method: GET
+        description: List All Activities for the Authenticated User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+      - name: deleteactivities
+        method: DELETE
+        description: Delete All Activities for the Authenticated User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: activities-type
+      path: /{username}/activities/{type}
+      operations:
+      - name: listactivitiesbytype
+        method: GET
+        description: List Activities Filtered by Type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+    authentication:
+      type: apikey
+      key: X-AIO-Key
+      value: '{{env.ADAFRUIT_IO_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: adafruit-io-activities-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Adafruit IO Activities.
+    tools:
+    - name: adafruit-io-list-activities
+      description: List All Activities
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adafruit-io-activities.listactivities
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: adafruit-io-list-activities-by-type
+      description: List Activities Filtered by Type
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adafruit-io-activities.listactivitiesbytype
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: adafruit-io-delete-activities
+      description: Delete All Activities
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: adafruit-io-activities.deleteactivities
+      outputParameters:
+      - type: object
+        mapping: $.

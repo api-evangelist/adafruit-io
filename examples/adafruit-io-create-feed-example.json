@@ -1,0 +1,39 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://io.adafruit.com/api/v2/io_username/feeds",
+    "headers": {
+      "X-AIO-Key": "io_key_12345",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "feed": {
+        "name": "Living Room Temperature",
+        "key": "living-room-temperature",
+        "description": "Temperature in the living room, sampled every 60s by a Feather Huzzah ESP8266.",
+        "license": "CC BY-SA 4.0",
+        "unit_type": "temperature",
+        "unit_symbol": "°F",
+        "visibility": "private"
+      }
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "id": 9876,
+      "name": "Living Room Temperature",
+      "key": "living-room-temperature",
+      "description": "Temperature in the living room, sampled every 60s by a Feather Huzzah ESP8266.",
+      "unit_type": "temperature",
+      "unit_symbol": "°F",
+      "visibility": "private",
+      "history": true,
+      "enabled": true,
+      "status": "active",
+      "last_value": null,
+      "created_at": "2026-05-25T10:00:00Z",
+      "updated_at": "2026-05-25T10:00:00Z"
+    }
+  }
+}

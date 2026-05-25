@@ -1,0 +1,158 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adafruit IO REST API — Dashboards
+  description: 'Adafruit IO Dashboards — create, list, update, and delete dashboards that hold visualization blocks
+    bound to feeds. Self-contained Naftiko capability.'
+  tags:
+  - Adafruit IO
+  - Dashboards
+  - IoT
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    ADAFRUIT_IO_USERNAME: ADAFRUIT_IO_USERNAME
+    ADAFRUIT_IO_KEY: ADAFRUIT_IO_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: adafruit-io-dashboards
+    baseUri: https://io.adafruit.com/api/v2
+    description: Adafruit IO Dashboards REST surface.
+    resources:
+    - name: dashboards
+      path: /{username}/dashboards
+      operations:
+      - name: listdashboards
+        method: GET
+        description: List All Dashboards
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+      - name: createdashboard
+        method: POST
+        description: Create a New Dashboard
+        outputRawFormat: json
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dashboards-id
+      path: /{username}/dashboards/{id}
+      operations:
+      - name: getdashboard
+        method: GET
+        description: Get a Dashboard by ID or Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatedashboard
+        method: PUT
+        description: Replace a Dashboard (PUT)
+        outputRawFormat: json
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchdashboard
+        method: PATCH
+        description: Partially Update a Dashboard
+        outputRawFormat: json
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletedashboard
+        method: DELETE
+        description: Delete a Dashboard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-AIO-Key
+      value: '{{env.ADAFRUIT_IO_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: adafruit-io-dashboards-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Adafruit IO Dashboards.
+    tools:
+    - name: adafruit-io-list-dashboards
+      description: List All Dashboards
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adafruit-io-dashboards.listdashboards
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: adafruit-io-create-dashboard
+      description: Create a New Dashboard
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adafruit-io-dashboards.createdashboard
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adafruit-io-get-dashboard
+      description: Get a Dashboard by ID or Key
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adafruit-io-dashboards.getdashboard
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adafruit-io-update-dashboard
+      description: Replace a Dashboard
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: adafruit-io-dashboards.updatedashboard
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adafruit-io-delete-dashboard
+      description: Delete a Dashboard
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: adafruit-io-dashboards.deletedashboard
+      outputParameters:
+      - type: object
+        mapping: $.

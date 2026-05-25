@@ -1,0 +1,117 @@
+vocabulary: Adafruit IO
+provider: Adafruit IO
+providerId: adafruit-io
+created: '2026-05-25'
+modified: '2026-05-25'
+description: |
+  Domain vocabulary mapping the operational, dashboard, identity, and IoT-protocol concepts used by Adafruit IO
+  across its REST API, MQTT broker, and dashboard UI.
+namespaces:
+  - prefix: aio
+    uri: https://io.adafruit.com/ns#
+  - prefix: schema
+    uri: https://schema.org/
+  - prefix: sosa
+    uri: http://www.w3.org/ns/sosa/
+  - prefix: qudt
+    uri: http://qudt.org/schema/qudt/
+dimensions:
+  - id: operational
+    label: Operational
+    terms:
+      - id: feed
+        label: Feed
+        definition: A named, keyed channel that stores time-ordered values for one sensor, actuator, or signal.
+        relatedTo:
+          - sosa:ObservableProperty
+      - id: data
+        label: Data Point
+        definition: A single value submitted to or retrieved from a feed.
+        relatedTo:
+          - sosa:Observation
+      - id: group
+        label: Group
+        definition: A collection of feeds that share ACL and can be batch-written.
+        relatedTo:
+          - schema:Collection
+      - id: trigger
+        label: Trigger
+        definition: A reactive or scheduled action that fires on feed value comparisons or on a schedule.
+        relatedTo:
+          - schema:Action
+      - id: action
+        label: Action
+        definition: Synonym for trigger in the Adafruit IO UI; the user-facing label for triggers.
+      - id: webhook
+        label: Webhook
+        definition: A token-authenticated inbound endpoint for pushing data into a feed without an API key.
+        relatedTo:
+          - schema:WebAPI
+  - id: dashboard
+    label: Dashboard
+    terms:
+      - id: dashboard
+        label: Dashboard
+        definition: A grid layout of visualization blocks bound to feeds.
+        relatedTo:
+          - schema:WebPage
+      - id: block
+        label: Block
+        definition: A single visualization (gauge, line chart, toggle, slider, map, color picker, etc.) on a dashboard.
+      - id: visual-type
+        label: Visual Type
+        definition: The kind of block visualization. Includes gauge, line_chart, toggle_button, slider, momentary_button,
+          text, color_picker, map, stream, image, remote_control, multiline_text, rich_text, icon, indicator,
+          number_pad, selector, dashboard_link, battery, divider, line_gauge.
+      - id: block-feed
+        label: Block Feed
+        definition: A binding between a dashboard block and the feed(s) it visualizes.
+  - id: identity
+    label: Identity & Access
+    terms:
+      - id: api-key
+        label: API Key
+        definition: The primary `X-AIO-Key` credential associated with an Adafruit IO account.
+      - id: token
+        label: Token
+        definition: A scoped, revocable personal access token managed separately from the main API key.
+      - id: permission
+        label: Permission (ACL)
+        definition: A scoped grant on a feed, group, or dashboard. Scopes include secret, public, user, organization.
+        relatedTo:
+          - schema:DigitalDocumentPermission
+      - id: username
+        label: Username
+        definition: The Adafruit IO account identifier used in REST paths and MQTT topics.
+  - id: protocol
+    label: Protocol
+    terms:
+      - id: mqtt-topic
+        label: MQTT Topic
+        definition: An MQTT topic addressing a feed or group, in the form `{username}/feeds/{feed_key}` (or compact
+          `{username}/f/{feed_key}`).
+      - id: throttle-topic
+        label: Throttle Topic
+        definition: The `{username}/throttle` MQTT topic on which rate-limit warnings are published.
+      - id: errors-topic
+        label: Errors Topic
+        definition: The `{username}/errors` MQTT topic on which broker-side error notifications are published.
+      - id: get-modifier
+        label: /get Modifier
+        definition: A topic modifier (e.g. `{username}/feeds/{feed_key}/get`) that asks the broker to publish the
+          last retained value on the feed. Used because Adafruit IO does not honor the MQTT retain flag.
+  - id: services
+    label: Built-in Services
+    terms:
+      - id: time-service
+        label: Time Service
+        definition: '`/api/v2/services/time` — returns server time in multiple formats.'
+      - id: weather-service
+        label: Weather Service
+        definition: '`/api/v2/services/weather` — current conditions and forecast for a configured location.'
+      - id: randomizer-service
+        label: Randomizer
+        definition: '`/api/v2/services/randomizer` — random integers / words within configured parameters.'
+      - id: air-quality-service
+        label: Air Quality
+        definition: '`/api/v2/services/air-quality` — air quality data for a configured location.'

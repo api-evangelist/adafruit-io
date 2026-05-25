@@ -1,0 +1,44 @@
+specification: FinOps Framework / FOCUS
+specificationVersion: '1.0'
+provider: Adafruit IO
+providerId: adafruit-io
+created: '2026-05-25'
+modified: '2026-05-25'
+description: |
+  Adafruit IO uses a simple flat-subscription billing model. The Free tier costs nothing and is bounded by hard
+  quota limits (30 data points/minute, 30 days retention, 10 feeds, 5 dashboards, 5 actions). The Plus tier costs
+  $10/month or $99/year (a ~17% annual discount) and removes most quota caps. There is no per-call or per-data-point
+  metering and no overage billing — exceeding the rate cap simply causes throttling. Adafruit IO does not publish
+  a FOCUS-conformant Cost-and-Usage export; FinOps reporting is limited to the in-product activities log
+  (/api/v2/{username}/activities) and the account-level subscription record.
+billingModel:
+  type: flat-subscription
+  currencies: [USD]
+  billingFrequencies: [monthly, annual]
+  meteredOverage: false
+  taxBehavior: exclusive
+serviceCategories:
+  - id: iot-platform
+    name: Adafruit IO Cloud
+    description: Cloud IoT platform — feeds, data, dashboards, actions, MQTT broker, webhooks.
+    serviceLabel: Adafruit IO
+chargeCategories:
+  - category: Usage
+    description: Not applicable; usage is bounded by per-plan quotas, not metered to a bill line.
+  - category: Subscription
+    description: Flat monthly or annual subscription fee per user.
+costDrivers:
+  - name: subscription
+    description: Number of Plus subscriptions and their billing cadence (monthly vs. annual).
+  - name: quota-utilization
+    description: |
+      No direct cost driver, but exceeding Free tier quotas (data rate, retention, feeds, dashboards, actions)
+      is the typical trigger for an upgrade from Free to Plus.
+exports:
+  available: false
+  description: Adafruit IO does not provide a FOCUS-conformant CSV/JSON cost export. Subscription invoices are
+    available via Adafruit account billing history.
+sources:
+  - https://io.adafruit.com/plus
+  - https://www.adafruit.com/privacy
+  - https://io.adafruit.com/api/docs/

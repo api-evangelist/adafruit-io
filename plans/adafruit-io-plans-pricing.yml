@@ -1,0 +1,144 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Adafruit IO
+providerId: adafruit-io
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - IoT
+  - Maker
+  - Hobbyist
+description: 'Reconciled plans for Adafruit IO. Source: io.adafruit.com/plus and the Adafruit IO API docs.'
+sources:
+  - https://io.adafruit.com/plus
+  - https://io.adafruit.com/api/docs/
+  - https://learn.adafruit.com/welcome-to-adafruit-io/free-vs-plus
+plans:
+  - id: adafruit-io-free
+    name: Adafruit IO Free
+    type: free
+    description: Free tier intended for makers, learners, and STEM projects.
+    entries:
+      - label: Subscription
+        name: subscription
+        type: recurring
+        metric: user
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        limit: 1
+        userMultiplied: false
+        description: Free of charge.
+      - label: Data points per minute
+        name: data-rate
+        type: included
+        metric: data-points
+        timeFrame: minute
+        unit: 1
+        limit: 30
+      - label: Data retention
+        name: data-retention
+        type: included
+        metric: days
+        unit: 1
+        limit: 30
+      - label: Feeds
+        name: feeds
+        type: included
+        metric: feeds
+        unit: 1
+        limit: 10
+      - label: Dashboards
+        name: dashboards
+        type: included
+        metric: dashboards
+        unit: 1
+        limit: 5
+      - label: Actions
+        name: actions
+        type: included
+        metric: actions
+        unit: 1
+        limit: 5
+      - label: Group permissions
+        name: group-permissions
+        type: included
+        metric: permissions
+        unit: 1
+        limit: 5
+  - id: adafruit-io-plus-monthly
+    name: Adafruit IO Plus (Monthly)
+    type: recurring
+    description: Monthly Plus subscription with unlimited feeds, dashboards, and actions plus SMS/voice notifications.
+    entries:
+      - label: Subscription
+        name: subscription
+        type: recurring
+        metric: user
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '10.00'
+        userMultiplied: false
+        description: Monthly Plus subscription.
+      - label: Data points per minute
+        name: data-rate
+        type: included
+        metric: data-points
+        timeFrame: minute
+        unit: 1
+        limit: 60
+      - label: Data retention
+        name: data-retention
+        type: included
+        metric: days
+        unit: 1
+        limit: 60
+      - label: Feeds
+        name: feeds
+        type: included
+        metric: feeds
+        unit: 1
+        limit: -1
+      - label: Dashboards
+        name: dashboards
+        type: included
+        metric: dashboards
+        unit: 1
+        limit: -1
+      - label: Actions
+        name: actions
+        type: included
+        metric: actions
+        unit: 1
+        limit: -1
+      - label: Group permissions
+        name: group-permissions
+        type: included
+        metric: permissions
+        unit: 1
+        limit: -1
+      - label: SMS / Voice action notifications
+        name: sms-voice
+        type: feature
+  - id: adafruit-io-plus-annual
+    name: Adafruit IO Plus (Annual)
+    type: recurring
+    description: Annual Plus subscription billed once per year (~17% discount vs. monthly).
+    entries:
+      - label: Subscription
+        name: subscription
+        type: recurring
+        metric: user
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: '99.00'
+        userMultiplied: false
+        description: Annual Plus subscription.
+      - label: Includes all Plus monthly features
+        name: bundled
+        type: feature

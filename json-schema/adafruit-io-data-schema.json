@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adafruit-io/main/json-schema/adafruit-io-data-schema.json",
+  "title": "Adafruit IO Data Point",
+  "description": "A single value submitted to or retrieved from an Adafruit IO feed. Values are always serialized as strings on the wire; consumers parse them according to the feed's unit/type.",
+  "type": "object",
+  "required": ["value"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "readOnly": true,
+      "description": "Server-assigned data point identifier."
+    },
+    "value": {
+      "type": ["string", "number", "boolean"],
+      "description": "The value being recorded. Always converted to a string server-side."
+    },
+    "feed_id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "feed_key": {
+      "type": "string",
+      "readOnly": true
+    },
+    "group_id": {
+      "type": ["integer", "null"],
+      "readOnly": true
+    },
+    "expiration": {
+      "type": ["string", "null"],
+      "description": "ISO 8601 expiration time after which this data point is purged."
+    },
+    "lat": {
+      "type": ["number", "null"],
+      "minimum": -90,
+      "maximum": 90,
+      "description": "Optional latitude attached to the data point for map-block plotting."
+    },
+    "lon": {
+      "type": ["number", "null"],
+      "minimum": -180,
+      "maximum": 180,
+      "description": "Optional longitude attached to the data point."
+    },
+    "ele": {
+      "type": ["number", "null"],
+      "description": "Optional elevation (meters)."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "created_epoch": {
+      "type": "number",
+      "readOnly": true,
+      "description": "Unix epoch (seconds) for the data point creation."
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,87 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adafruit IO REST API — Webhooks
+  description: 'Adafruit IO Inbound Webhooks — token-authenticated endpoints for pushing data into an Adafruit IO
+    feed without an API key. Three variants: standard JSON, raw payload, and ping/notify. Self-contained Naftiko
+    capability.'
+  tags:
+  - Adafruit IO
+  - Webhooks
+  - Feeds
+  - IoT
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds: []
+capability:
+  consumes:
+  - type: http
+    namespace: adafruit-io-webhooks
+    baseUri: https://io.adafruit.com/api/v2
+    description: Adafruit IO Webhooks endpoints. Authentication is encoded in the URL token; no API key required.
+    resources:
+    - name: webhook-feed
+      path: /webhooks/feed/{token}
+      operations:
+      - name: postfeedwebhook
+        method: POST
+        description: Push a Data Point into a Feed via Webhook (JSON Body)
+        outputRawFormat: json
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: '{ "value": ... }'
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: webhook-feed-raw
+      path: /webhooks/feed/{token}/raw
+      operations:
+      - name: postfeedwebhookraw
+        method: POST
+        description: Push a Raw Payload into a Feed (Entire Request Body Becomes the Value)
+        outputRawFormat: json
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: none
+  exposes:
+  - type: mcp
+    namespace: adafruit-io-webhooks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Adafruit IO inbound webhooks. Token-authenticated; no API key required.
+    tools:
+    - name: adafruit-io-post-feed-webhook
+      description: Push a Data Point into a Feed via Webhook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adafruit-io-webhooks.postfeedwebhook
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adafruit-io-post-feed-webhook-raw
+      description: Push a Raw Payload into a Feed via Webhook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adafruit-io-webhooks.postfeedwebhookraw
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

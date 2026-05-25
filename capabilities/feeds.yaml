@@ -1,0 +1,254 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adafruit IO REST API — Feeds
+  description: 'Adafruit IO Feeds — list, create, read, update, and delete the named feed channels that hold time-series
+    data. Self-contained Naftiko capability covering the feeds business surface.'
+  tags:
+  - Adafruit IO
+  - Feeds
+  - IoT
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    ADAFRUIT_IO_USERNAME: ADAFRUIT_IO_USERNAME
+    ADAFRUIT_IO_KEY: ADAFRUIT_IO_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: adafruit-io-feeds
+    baseUri: https://io.adafruit.com/api/v2
+    description: Adafruit IO Feeds REST surface. Self-contained, no shared references.
+    resources:
+    - name: feeds
+      path: /{username}/feeds
+      operations:
+      - name: listfeeds
+        method: GET
+        description: List All Feeds for the Authenticated User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+      - name: createfeed
+        method: POST
+        description: Create a New Feed
+        outputRawFormat: json
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Feed payload — name (required), key, description, license, visibility, unit_type, unit_symbol.
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: feeds-feed_key
+      path: /{username}/feeds/{feed_key}
+      operations:
+      - name: getfeed
+        method: GET
+        description: Get a Feed by Key or ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatefeed
+        method: PUT
+        description: Replace a Feed (PUT)
+        outputRawFormat: json
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchfeed
+        method: PATCH
+        description: Partially Update a Feed
+        outputRawFormat: json
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletefeed
+        method: DELETE
+        description: Delete a Feed
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: feeds-feed_key-details
+      path: /{username}/feeds/{feed_key}/details
+      operations:
+      - name: getfeeddetails
+        method: GET
+        description: Get Extended Feed Details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-AIO-Key
+      value: '{{env.ADAFRUIT_IO_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: adafruit-io-feeds-rest
+    port: 8080
+    description: REST adapter for Adafruit IO Feeds. One Spectral-compliant resource per consumed operation.
+    resources:
+    - path: /v2/{username}/feeds
+      name: feeds
+      operations:
+      - method: GET
+        name: listfeeds
+        call: adafruit-io-feeds.listfeeds
+        outputParameters:
+        - type: array
+          mapping: $.
+      - method: POST
+        name: createfeed
+        call: adafruit-io-feeds.createfeed
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v2/{username}/feeds/{feed-key}
+      name: feed
+      operations:
+      - method: GET
+        name: getfeed
+        call: adafruit-io-feeds.getfeed
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatefeed
+        call: adafruit-io-feeds.updatefeed
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchfeed
+        call: adafruit-io-feeds.patchfeed
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletefeed
+        call: adafruit-io-feeds.deletefeed
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v2/{username}/feeds/{feed-key}/details
+      name: feed-details
+      operations:
+      - method: GET
+        name: getfeeddetails
+        call: adafruit-io-feeds.getfeeddetails
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: adafruit-io-feeds-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter exposing one tool per Adafruit IO Feeds operation.
+    tools:
+    - name: adafruit-io-list-feeds
+      description: List All Feeds for the Authenticated User
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adafruit-io-feeds.listfeeds
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: adafruit-io-create-feed
+      description: Create a New Feed
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adafruit-io-feeds.createfeed
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adafruit-io-get-feed
+      description: Get a Feed by Key or ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adafruit-io-feeds.getfeed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adafruit-io-update-feed
+      description: Replace a Feed (PUT)
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: adafruit-io-feeds.updatefeed
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adafruit-io-patch-feed
+      description: Partially Update a Feed
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adafruit-io-feeds.patchfeed
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adafruit-io-delete-feed
+      description: Delete a Feed
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: adafruit-io-feeds.deletefeed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adafruit-io-get-feed-details
+      description: Get Extended Feed Details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adafruit-io-feeds.getfeeddetails
+      outputParameters:
+      - type: object
+        mapping: $.

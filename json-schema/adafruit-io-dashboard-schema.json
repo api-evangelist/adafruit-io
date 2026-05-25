@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adafruit-io/main/json-schema/adafruit-io-dashboard-schema.json",
+  "title": "Adafruit IO Dashboard",
+  "description": "A dashboard is a grid layout of visualization blocks bound to feeds. Dashboards are the primary user-facing surface in Adafruit IO.",
+  "type": "object",
+  "required": ["name"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "key": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "description": {
+      "type": "string"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": ["public", "private"]
+    },
+    "header_image_url": {
+      "type": ["string", "null"]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "blocks": {
+      "type": "array",
+      "readOnly": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "readOnly": true },
+          "name": { "type": "string" },
+          "visual_type": {
+            "type": "string",
+            "enum": [
+              "gauge",
+              "line_chart",
+              "toggle_button",
+              "slider",
+              "momentary_button",
+              "text",
+              "color_picker",
+              "map",
+              "stream",
+              "image",
+              "remote_control",
+              "multiline_text",
+              "rich_text",
+              "icon",
+              "indicator",
+              "number_pad",
+              "selector",
+              "dashboard_link",
+              "battery",
+              "divider",
+              "line_gauge"
+            ]
+          },
+          "column": { "type": "integer", "minimum": 0 },
+          "row": { "type": "integer", "minimum": 0 },
+          "size_x": { "type": "integer", "minimum": 1 },
+          "size_y": { "type": "integer", "minimum": 1 },
+          "properties": { "type": "object" },
+          "block_feeds": {
+            "type": "array",
+            "items": { "type": "object" }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

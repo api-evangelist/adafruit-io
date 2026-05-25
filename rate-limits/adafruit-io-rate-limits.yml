@@ -1,0 +1,61 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Adafruit IO
+providerId: adafruit-io
+created: '2026-05-25'
+modified: '2026-05-25'
+sources:
+  - https://io.adafruit.com/api/docs/#rate-limiting
+  - https://io.adafruit.com/api/docs/mqtt.html#rate-limiting
+description: |
+  Adafruit IO enforces a per-account "data points per minute" rate limit that applies across both the HTTP REST
+  API and the MQTT broker. The rate is the same regardless of transport; concurrent HTTP and MQTT clients share
+  the same per-minute budget. Free accounts get 30 data points per minute; Plus accounts get 60. When throttled,
+  the broker publishes a notification to the `{username}/throttle` MQTT topic, and the REST API returns
+  HTTP 429.
+limits:
+  - id: free-tier-data-rate
+    plan: adafruit-io-free
+    scope: account
+    metric: data-points
+    window: minute
+    limit: 30
+    description: Free accounts can publish up to 30 data points per minute across HTTP + MQTT combined.
+  - id: plus-tier-data-rate
+    plan: adafruit-io-plus
+    scope: account
+    metric: data-points
+    window: minute
+    limit: 60
+    description: Plus accounts can publish up to 60 data points per minute across HTTP + MQTT combined.
+  - id: pagination
+    plan: all
+    scope: request
+    metric: records
+    window: per-page
+    limit: 1000
+    description: The REST API returns at most 1000 records per page. Use the Link header (rel="next") to paginate.
+  - id: mqtt-qos
+    plan: all
+    scope: protocol
+    metric: qos
+    description: |
+      MQTT broker supports QoS 0 (at most once) and QoS 1 (at least once). QoS 2 is not supported. MQTT retain
+      flag is not honored — use the /get topic modifier instead.
+signals:
+  - kind: HttpHeader
+    name: X-Pagination-Total
+    description: Total record count for the current paged query.
+  - kind: HttpHeader
+    name: X-Pagination-Limit
+    description: Maximum number of records per page (capped at 1000).
+  - kind: HttpHeader
+    name: Link
+    description: Pagination link header, including the `rel="next"` URL when more pages are available.
+  - kind: MqttTopic
+    name: '{username}/throttle'
+    description: Per-account throttle notification topic. Subscribe to receive notice when data rate is exceeded.
+  - kind: HttpStatus
+    name: '429'
+    description: Returned when the per-minute data rate has been exceeded.

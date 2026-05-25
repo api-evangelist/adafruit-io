@@ -1,0 +1,77 @@
+extends: spectral:oas
+formats:
+  - oas3
+documentationUrl: https://github.com/api-evangelist/adafruit-io
+description: >
+  Spectral ruleset enforcing the conventions used by the Adafruit IO REST API:
+  username-scoped resource paths, X-AIO-Key API key auth, Title Case operation
+  summaries, snake_case resource path segments, and HTTPS base URL.
+rules:
+  adafruit-io-https-only:
+    description: All servers must use HTTPS.
+    severity: error
+    given: $.servers[*]
+    then:
+      field: url
+      function: pattern
+      functionOptions:
+        match: '^https://'
+
+  adafruit-io-base-path-v2:
+    description: API base path must start with /api/v2.
+    severity: warn
+    given: $.servers[*]
+    then:
+      field: url
+      function: pattern
+      functionOptions:
+        match: '/api/v2$|/api/v2/'
+
+  adafruit-io-username-scoped:
+    description: Every account-scoped path must be parameterized on {username}.
+    severity: warn
+    given: $.paths[?(@property != '/user' && @property !~ '^/webhooks')]~
+    then:
+      function: pattern
+      functionOptions:
+        match: '\{username\}'
+
+  adafruit-io-operation-summary-title-case:
+    description: Operation summaries should use Title Case.
+    severity: warn
+    given: '$.paths[*][get,post,put,patch,delete].summary'
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[A-Z][A-Za-z0-9 /()\-]+$'
+
+  adafruit-io-api-key-security:
+    description: Operations must declare the X-AIO-Key API key security scheme (except inbound webhooks).
+    severity: warn
+    given: $.paths[?(!@property.match('^/webhooks'))][*][get,post,put,patch,delete]
+    then:
+      field: security
+      function: truthy
+
+  adafruit-io-snake-case-path-params:
+    description: Path parameters use snake_case (feed_key, group_key, dashboard_id).
+    severity: hint
+    given: '$.paths[*][get,post,put,patch,delete].parameters[?(@.in == "path")].name'
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-z0-9_]*$'
+
+  adafruit-io-pagination-headers:
+    description: List endpoints should document the X-Pagination-* and Link headers.
+    severity: hint
+    given: '$.paths[*][get].responses[200].headers'
+    then:
+      function: truthy
+
+  adafruit-io-response-schema:
+    description: 2xx responses should reference a schema component.
+    severity: warn
+    given: '$.paths[*][get,post,put,patch].responses[200,201].content[application/json].schema'
+    then:
+      function: truthy

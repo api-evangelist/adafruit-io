@@ -1,0 +1,367 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adafruit IO REST API — Data
+  description: 'Adafruit IO Data — write and read individual time-series values on a feed, including batch writes,
+    chart-aggregated reads, and positional queries (first/last/previous/next/retain). Self-contained Naftiko
+    capability covering the data business surface.'
+  tags:
+  - Adafruit IO
+  - Data
+  - Time Series
+  - IoT
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    ADAFRUIT_IO_USERNAME: ADAFRUIT_IO_USERNAME
+    ADAFRUIT_IO_KEY: ADAFRUIT_IO_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: adafruit-io-data
+    baseUri: https://io.adafruit.com/api/v2
+    description: Adafruit IO Data REST surface. Self-contained.
+    resources:
+    - name: feed-data
+      path: /{username}/feeds/{feed_key}/data
+      operations:
+      - name: listdata
+        method: GET
+        description: List Data Points on a Feed (paginated, up to 1000 records)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+      - name: createdata
+        method: POST
+        description: Create a Data Point on a Feed
+        outputRawFormat: json
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: 'Data payload: value (required), optional lat/lon/ele, optional created_at, optional expiration.'
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: feed-data-chart
+      path: /{username}/feeds/{feed_key}/data/chart
+      operations:
+      - name: getchart
+        method: GET
+        description: Get Chart-Aggregated Data for a Feed
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: feed-data-batch
+      path: /{username}/feeds/{feed_key}/data/batch
+      operations:
+      - name: createbatchdata
+        method: POST
+        description: Create Multiple Data Points on a Feed in One Request
+        outputRawFormat: json
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: 'Batch payload: { "data": [{ "value": ... }, ...] }'
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+    - name: feed-data-first
+      path: /{username}/feeds/{feed_key}/data/first
+      operations:
+      - name: getfirst
+        method: GET
+        description: Get the First (Oldest) Data Point on a Feed
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: feed-data-last
+      path: /{username}/feeds/{feed_key}/data/last
+      operations:
+      - name: getlast
+        method: GET
+        description: Get the Most Recent Data Point on a Feed
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: feed-data-previous
+      path: /{username}/feeds/{feed_key}/data/previous
+      operations:
+      - name: getprevious
+        method: GET
+        description: Get the Previous (Older Than Cursor) Data Point on a Feed
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: feed-data-next
+      path: /{username}/feeds/{feed_key}/data/next
+      operations:
+      - name: getnext
+        method: GET
+        description: Get the Next (Newer Than Cursor) Data Point on a Feed
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: feed-data-retain
+      path: /{username}/feeds/{feed_key}/data/retain
+      operations:
+      - name: getretain
+        method: GET
+        description: Get the Retained Value for a Feed (Equivalent to MQTT /get Modifier)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: feed-data-id
+      path: /{username}/feeds/{feed_key}/data/{id}
+      operations:
+      - name: getdatapoint
+        method: GET
+        description: Get a Specific Data Point by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatedatapoint
+        method: PUT
+        description: Replace a Data Point
+        outputRawFormat: json
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchdatapoint
+        method: PATCH
+        description: Partially Update a Data Point
+        outputRawFormat: json
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletedatapoint
+        method: DELETE
+        description: Delete a Data Point
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-AIO-Key
+      value: '{{env.ADAFRUIT_IO_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: adafruit-io-data-rest
+    port: 8080
+    description: REST adapter for Adafruit IO Data.
+    resources:
+    - path: /v2/{username}/feeds/{feed-key}/data
+      name: feed-data
+      operations:
+      - method: GET
+        name: listdata
+        call: adafruit-io-data.listdata
+        outputParameters:
+        - type: array
+          mapping: $.
+      - method: POST
+        name: createdata
+        call: adafruit-io-data.createdata
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v2/{username}/feeds/{feed-key}/data/batch
+      name: feed-data-batch
+      operations:
+      - method: POST
+        name: createbatchdata
+        call: adafruit-io-data.createbatchdata
+        with:
+          body: rest.body
+        outputParameters:
+        - type: array
+          mapping: $.
+    - path: /v2/{username}/feeds/{feed-key}/data/chart
+      name: feed-data-chart
+      operations:
+      - method: GET
+        name: getchart
+        call: adafruit-io-data.getchart
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v2/{username}/feeds/{feed-key}/data/last
+      name: feed-data-last
+      operations:
+      - method: GET
+        name: getlast
+        call: adafruit-io-data.getlast
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: adafruit-io-data-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter exposing one tool per Adafruit IO Data operation.
+    tools:
+    - name: adafruit-io-list-data
+      description: List Data Points on a Feed
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adafruit-io-data.listdata
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: adafruit-io-create-data
+      description: Create a Data Point on a Feed
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adafruit-io-data.createdata
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adafruit-io-create-batch-data
+      description: Create Multiple Data Points in One Request
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adafruit-io-data.createbatchdata
+      with:
+        body: tools.body
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: adafruit-io-get-chart
+      description: Get Chart-Aggregated Data for a Feed
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adafruit-io-data.getchart
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adafruit-io-get-last
+      description: Get the Most Recent Data Point on a Feed
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adafruit-io-data.getlast
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adafruit-io-get-first
+      description: Get the First (Oldest) Data Point on a Feed
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adafruit-io-data.getfirst
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adafruit-io-get-previous
+      description: Get the Previous Data Point on a Feed
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adafruit-io-data.getprevious
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adafruit-io-get-next
+      description: Get the Next Data Point on a Feed
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adafruit-io-data.getnext
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adafruit-io-get-retain
+      description: Get the Retained Value for a Feed
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adafruit-io-data.getretain
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adafruit-io-get-data-point
+      description: Get a Specific Data Point by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adafruit-io-data.getdatapoint
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adafruit-io-update-data-point
+      description: Replace a Data Point
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: adafruit-io-data.updatedatapoint
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adafruit-io-delete-data-point
+      description: Delete a Data Point
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: adafruit-io-data.deletedatapoint
+      outputParameters:
+      - type: object
+        mapping: $.

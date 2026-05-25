@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adafruit-io/main/json-schema/adafruit-io-feed-schema.json",
+  "title": "Adafruit IO Feed",
+  "description": "A feed is the basic Adafruit IO container: a named, keyed channel that stores time-ordered values for one sensor, actuator, or signal.",
+  "type": "object",
+  "required": ["name"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "readOnly": true,
+      "description": "Server-assigned numeric identifier."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-friendly feed name."
+    },
+    "key": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "URL-safe feed key (auto-derived from name if omitted)."
+    },
+    "description": {
+      "type": "string"
+    },
+    "unit_type": {
+      "type": "string",
+      "description": "Optional unit category (e.g. temperature, pressure)."
+    },
+    "unit_symbol": {
+      "type": "string",
+      "description": "Display symbol for the value (e.g. °C, %)."
+    },
+    "history": {
+      "type": "boolean",
+      "description": "Whether to persist historical values. When false, only the current value is stored."
+    },
+    "visibility": {
+      "type": "string",
+      "enum": ["public", "private"],
+      "description": "Public feeds are world-readable; private feeds require the API key."
+    },
+    "license": {
+      "type": ["string", "null"],
+      "description": "Optional license assigned to public feed data."
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "last_value": {
+      "type": ["string", "null"],
+      "readOnly": true
+    },
+    "status": {
+      "type": "string",
+      "readOnly": true,
+      "enum": ["active", "inactive"]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "groups": {
+      "type": "array",
+      "readOnly": true,
+      "items": { "type": "object" }
+    }
+  },
+  "additionalProperties": true
+}

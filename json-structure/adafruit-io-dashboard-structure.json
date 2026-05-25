@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/schema/v1.json",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adafruit-io/main/json-structure/adafruit-io-dashboard-structure.json",
+  "title": "Adafruit IO Dashboard Structure",
+  "description": "JSON Structure description of an Adafruit IO Dashboard and its block grid.",
+  "type": "object",
+  "structure": {
+    "properties": {
+      "id": { "type": "integer", "scope": "system" },
+      "key": { "type": "string", "scope": "system" },
+      "name": { "type": "string", "scope": "user", "required": true },
+      "description": { "type": "string", "scope": "user" },
+      "visibility": { "type": "enum", "values": ["public", "private"], "scope": "user" },
+      "header_image_url": { "type": "url", "scope": "user" },
+      "blocks": {
+        "type": "array",
+        "items": {
+          "id": { "type": "integer", "scope": "system" },
+          "name": { "type": "string" },
+          "visual_type": { "type": "string" },
+          "column": { "type": "integer" },
+          "row": { "type": "integer" },
+          "size_x": { "type": "integer" },
+          "size_y": { "type": "integer" }
+        }
+      }
+    }
+  },
+  "relationships": [
+    { "from": "dashboard", "to": "block", "type": "one-to-many", "via": "dashboard_id" },
+    { "from": "block", "to": "feed", "type": "many-to-many", "via": "block_feeds" }
+  ]
+}
