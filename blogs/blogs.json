@@ -1,0 +1,14 @@
+{
+  "repo": "adafruit-io",
+  "feeds": [
+    {
+      "source": "https://io.adafruit.com/blog",
+      "feed_url": "https://io.adafruit.com/blog/feed.xml",
+      "title": "",
+      "saved": 1,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 1,
+  "fetched": "2026-06-01T23:35:02Z"
+}
