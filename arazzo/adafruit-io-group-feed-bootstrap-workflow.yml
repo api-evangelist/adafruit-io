@@ -1,0 +1,127 @@
+arazzo: 1.0.1
+info:
+  title: Adafruit IO Group Feed Bootstrap
+  summary: Create a group, add a new feed inside it, then write a data point to that grouped feed.
+  description: >-
+    Stands up an organized device namespace in Adafruit IO. The workflow creates
+    a group to hold related feeds, creates a feed inside that group, and writes
+    an initial data point to the grouped feed using the group and feed keys
+    together. This is the standard pattern for a multi-sensor device where each
+    sensor is a feed under one group. Every step spells out its request inline —
+    including the username path parameter and the X-AIO-Key authentication
+    header.
+  version: 1.0.0
+sourceDescriptions:
+- name: adafruitIoApi
+  url: ../openapi/adafruit-io-rest-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: group-feed-bootstrap
+  summary: Create a group, create a feed within it, and seed the grouped feed with data.
+  description: >-
+    Provisions a group, then a feed inside that group, then writes a first data
+    point addressed by both the group key and feed key.
+  inputs:
+    type: object
+    required:
+    - username
+    - aioKey
+    - groupName
+    - feedName
+    - value
+    properties:
+      username:
+        type: string
+        description: A valid Adafruit IO username.
+      aioKey:
+        type: string
+        description: The Adafruit IO API key, sent in the X-AIO-Key header.
+      groupName:
+        type: string
+        description: Display name for the new group (e.g. "Greenhouse").
+      groupDescription:
+        type: string
+        description: Optional description for the group.
+      feedName:
+        type: string
+        description: Display name for the feed created inside the group.
+      value:
+        type: string
+        description: Initial data point value to write to the grouped feed.
+  steps:
+  - stepId: createGroup
+    description: >-
+      Create the group that will contain the new feed.
+    operationId: createGroup
+    parameters:
+    - name: username
+      in: path
+      value: $inputs.username
+    - name: X-AIO-Key
+      in: header
+      value: $inputs.aioKey
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.groupName
+        description: $inputs.groupDescription
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      groupKey: $response.body#/key
+      groupId: $response.body#/id
+  - stepId: createFeedInGroup
+    description: >-
+      Create a new feed inside the group just created, addressed by the group
+      key.
+    operationId: createGroupFeed
+    parameters:
+    - name: username
+      in: path
+      value: $inputs.username
+    - name: group_key
+      in: path
+      value: $steps.createGroup.outputs.groupKey
+    - name: X-AIO-Key
+      in: header
+      value: $inputs.aioKey
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.feedName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      feedKey: $response.body#/key
+      feedId: $response.body#/id
+  - stepId: seedGroupFeed
+    description: >-
+      Write the first data point to the grouped feed, addressed by both the
+      group key and the feed key.
+    operationId: createGroupFeedData
+    parameters:
+    - name: username
+      in: path
+      value: $inputs.username
+    - name: group_key
+      in: path
+      value: $steps.createGroup.outputs.groupKey
+    - name: feed_key
+      in: path
+      value: $steps.createFeedInGroup.outputs.feedKey
+    - name: X-AIO-Key
+      in: header
+      value: $inputs.aioKey
+    requestBody:
+      contentType: application/json
+      payload:
+        value: $inputs.value
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      dataId: $response.body#/id
+      storedValue: $response.body#/value
+  outputs:
+    groupKey: $steps.createGroup.outputs.groupKey
+    feedKey: $steps.createFeedInGroup.outputs.feedKey
+    dataId: $steps.seedGroupFeed.outputs.dataId

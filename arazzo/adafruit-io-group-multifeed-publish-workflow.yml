@@ -1,0 +1,111 @@
+arazzo: 1.0.1
+info:
+  title: Adafruit IO Group Multi-Feed Publish
+  summary: Publish values to several feeds in a group at once, then read one feed's data back.
+  description: >-
+    The efficient ingest path for a multi-sensor device. The workflow writes a
+    value to every feed in a group in a single request — each feed addressed by
+    its key inside the feeds array, with an optional shared location — and then
+    reads the data history of one of those feeds back to confirm the batch
+    publish succeeded. Every step spells out its request inline — including the
+    username path parameter and the X-AIO-Key authentication header.
+  version: 1.0.0
+sourceDescriptions:
+- name: adafruitIoApi
+  url: ../openapi/adafruit-io-rest-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: group-multifeed-publish
+  summary: Write data to multiple feeds in a group in one call, then verify one feed.
+  description: >-
+    Publishes an array of key/value records across the feeds of a group in a
+    single group data call, then reads back the recent data for one feed in the
+    group to confirm.
+  inputs:
+    type: object
+    required:
+    - username
+    - aioKey
+    - groupKey
+    - feeds
+    - verifyFeedKey
+    properties:
+      username:
+        type: string
+        description: A valid Adafruit IO username.
+      aioKey:
+        type: string
+        description: The Adafruit IO API key, sent in the X-AIO-Key header.
+      groupKey:
+        type: string
+        description: The key of the group whose feeds receive the data.
+      feeds:
+        type: array
+        description: >-
+          Array of records, each with a required `key` (the feed key) and
+          `value` to write to that feed.
+        items:
+          type: object
+      location:
+        type: object
+        description: Optional shared location (lat, lon, optional ele) applied to the records.
+      verifyFeedKey:
+        type: string
+        description: A feed key in the group to read data back from for verification.
+      limit:
+        type: integer
+        description: Optional limit on the number of records returned by the verification read.
+  steps:
+  - stepId: publishGroupData
+    description: >-
+      Write the array of feed values to the group in a single request, including
+      the optional shared location.
+    operationId: createGroupData
+    parameters:
+    - name: username
+      in: path
+      value: $inputs.username
+    - name: group_key
+      in: path
+      value: $inputs.groupKey
+    - name: X-AIO-Key
+      in: header
+      value: $inputs.aioKey
+    requestBody:
+      contentType: application/json
+      payload:
+        feeds: $inputs.feeds
+        location: $inputs.location
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstRecordId: $response.body#/0/id
+  - stepId: verifyFeedData
+    description: >-
+      Read recent data for one feed in the group to confirm the group publish
+      reached that feed.
+    operationId: allGroupFeedData
+    parameters:
+    - name: username
+      in: path
+      value: $inputs.username
+    - name: group_key
+      in: path
+      value: $inputs.groupKey
+    - name: feed_key
+      in: path
+      value: $inputs.verifyFeedKey
+    - name: limit
+      in: query
+      value: $inputs.limit
+    - name: X-AIO-Key
+      in: header
+      value: $inputs.aioKey
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      latestValue: $response.body#/0/value
+      latestDataId: $response.body#/0/id
+  outputs:
+    firstRecordId: $steps.publishGroupData.outputs.firstRecordId
+    latestValue: $steps.verifyFeedData.outputs.latestValue

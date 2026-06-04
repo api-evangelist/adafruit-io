@@ -1,0 +1,82 @@
+arazzo: 1.0.1
+info:
+  title: Adafruit IO Create and Verify Trigger
+  summary: Create a reactive trigger for the user, then read it back to confirm it exists.
+  description: >-
+    Sets up a reactive automation in Adafruit IO. The workflow creates a trigger
+    by name and then reads it back by id to confirm it was registered, giving an
+    integration a verified handle to the trigger it just created. Every step
+    spells out its request inline — including the username path parameter and the
+    X-AIO-Key authentication header. Note: the Trigger response schema in the
+    OpenAPI description documents only the `name` field, but the trigger `id`
+    returned by the create call is required as the id path parameter on read, so
+    it is captured here from the response body.
+  version: 1.0.0
+sourceDescriptions:
+- name: adafruitIoApi
+  url: ../openapi/adafruit-io-rest-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-and-verify-trigger
+  summary: Create a trigger and read it back by its id.
+  description: >-
+    Registers a new trigger for the user, then fetches it by id to verify the
+    creation succeeded.
+  inputs:
+    type: object
+    required:
+    - username
+    - aioKey
+    - name
+    properties:
+      username:
+        type: string
+        description: A valid Adafruit IO username.
+      aioKey:
+        type: string
+        description: The Adafruit IO API key, sent in the X-AIO-Key header.
+      name:
+        type: string
+        description: The name of the trigger to create.
+  steps:
+  - stepId: createTrigger
+    description: >-
+      Create a new trigger for the user with the supplied name.
+    operationId: createTrigger
+    parameters:
+    - name: username
+      in: path
+      value: $inputs.username
+    - name: X-AIO-Key
+      in: header
+      value: $inputs.aioKey
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.name
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      triggerId: $response.body#/id
+      triggerName: $response.body#/name
+  - stepId: verifyTrigger
+    description: >-
+      Read the trigger back by its id to confirm it was registered.
+    operationId: getTrigger
+    parameters:
+    - name: username
+      in: path
+      value: $inputs.username
+    - name: id
+      in: path
+      value: $steps.createTrigger.outputs.triggerId
+    - name: X-AIO-Key
+      in: header
+      value: $inputs.aioKey
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      verifiedName: $response.body#/name
+  outputs:
+    triggerId: $steps.createTrigger.outputs.triggerId
+    verifiedName: $steps.verifyTrigger.outputs.verifiedName

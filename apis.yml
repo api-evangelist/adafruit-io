@@ -111,6 +111,36 @@ kind: contract
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
+- type: ArazzoWorkflows
+  url: arazzo/
+  workflows:
+  - url: arazzo/adafruit-io-attach-feed-to-group-workflow.yml
+    name: Adafruit IO Attach Feed to Group
+    summary: Add an existing feed to a group, then list the group's feeds to confirm membership.
+  - url: arazzo/adafruit-io-batch-ingest-and-chart-workflow.yml
+    name: Adafruit IO Batch Ingest and Chart
+    summary: Bulk upload many data points to a feed, then fetch aggregated chart data for it.
+  - url: arazzo/adafruit-io-build-dashboard-with-block-workflow.yml
+    name: Adafruit IO Build Dashboard with Block
+    summary: Create a dashboard, add a visualization block to it, then read the block back.
+  - url: arazzo/adafruit-io-create-and-verify-trigger-workflow.yml
+    name: Adafruit IO Create and Verify Trigger
+    summary: Create a reactive trigger for the user, then read it back to confirm it exists.
+  - url: arazzo/adafruit-io-ensure-feed-exists-workflow.yml
+    name: Adafruit IO Ensure Feed Exists
+    summary: Look up a feed by key and create it only when it is missing, then push a value.
+  - url: arazzo/adafruit-io-group-feed-bootstrap-workflow.yml
+    name: Adafruit IO Group Feed Bootstrap
+    summary: Create a group, add a new feed inside it, then write a data point to that grouped feed.
+  - url: arazzo/adafruit-io-group-multifeed-publish-workflow.yml
+    name: Adafruit IO Group Multi-Feed Publish
+    summary: Publish values to several feeds in a group at once, then read one feed's data back.
+  - url: arazzo/adafruit-io-issue-and-verify-token-workflow.yml
+    name: Adafruit IO Issue and Verify Token
+    summary: Create a device token for the user, then read it back to confirm it was issued.
+  - url: arazzo/adafruit-io-provision-feed-and-seed-data-workflow.yml
+    name: Adafruit IO Provision Feed and Seed Data
+    summary: Create a feed, push an initial data point to it, then read the last value back.
 - url: https://io.adafruit.com
   name: Adafruit IO Portal
   type: Portal

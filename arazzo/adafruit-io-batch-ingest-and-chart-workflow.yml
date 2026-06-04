@@ -1,0 +1,105 @@
+arazzo: 1.0.1
+info:
+  title: Adafruit IO Batch Ingest and Chart
+  summary: Bulk upload many data points to a feed, then fetch aggregated chart data for it.
+  description: >-
+    A backfill-and-visualize flow for time series data. The workflow uploads a
+    batch of historical data records to an existing feed in a single request,
+    then pulls aggregated chart data over a window of hours so the caller can
+    immediately render or verify the uploaded series. Every step spells out its
+    request inline — including the username path parameter and the X-AIO-Key
+    authentication header.
+  version: 1.0.0
+sourceDescriptions:
+- name: adafruitIoApi
+  url: ../openapi/adafruit-io-rest-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: batch-ingest-and-chart
+  summary: Batch upload data records to a feed and retrieve aggregated chart data.
+  description: >-
+    Sends an array of data records to a feed in one batch call, then requests
+    chart data aggregated over the requested number of hours.
+  inputs:
+    type: object
+    required:
+    - username
+    - aioKey
+    - feedKey
+    - records
+    properties:
+      username:
+        type: string
+        description: A valid Adafruit IO username.
+      aioKey:
+        type: string
+        description: The Adafruit IO API key, sent in the X-AIO-Key header.
+      feedKey:
+        type: string
+        description: The feed key to ingest data into and chart.
+      records:
+        type: array
+        description: >-
+          Array of data records, each with a required `value` and optional
+          `created_at`, `lat`, `lon`, `ele`, and `epoch` fields.
+        items:
+          type: object
+      hours:
+        type: integer
+        description: Number of hours of history the chart should cover (default 1).
+      resolution:
+        type: integer
+        description: Aggregation resolution in minutes (1, 5, 10, 30, 60, or 120).
+  steps:
+  - stepId: batchUpload
+    description: >-
+      Upload the full array of data records to the feed in a single batch
+      create call.
+    operationId: batchCreateData
+    parameters:
+    - name: username
+      in: path
+      value: $inputs.username
+    - name: feed_key
+      in: path
+      value: $inputs.feedKey
+    - name: X-AIO-Key
+      in: header
+      value: $inputs.aioKey
+    requestBody:
+      contentType: application/json
+      payload: $inputs.records
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstRecordId: $response.body#/0/id
+  - stepId: fetchChart
+    description: >-
+      Retrieve aggregated chart data for the feed over the requested time
+      window so the freshly ingested series can be rendered.
+    operationId: chartData
+    parameters:
+    - name: username
+      in: path
+      value: $inputs.username
+    - name: feed_key
+      in: path
+      value: $inputs.feedKey
+    - name: hours
+      in: query
+      value: $inputs.hours
+    - name: resolution
+      in: query
+      value: $inputs.resolution
+    - name: X-AIO-Key
+      in: header
+      value: $inputs.aioKey
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      columns: $response.body#/columns
+      chartData: $response.body#/data
+  outputs:
+    firstRecordId: $steps.batchUpload.outputs.firstRecordId
+    columns: $steps.fetchChart.outputs.columns
+    chartData: $steps.fetchChart.outputs.chartData

@@ -1,0 +1,126 @@
+arazzo: 1.0.1
+info:
+  title: Adafruit IO Ensure Feed Exists
+  summary: Look up a feed by key and create it only when it is missing, then push a value.
+  description: >-
+    An idempotent feed bootstrap. The workflow tries to fetch a feed by its key
+    and branches on the result: when the feed already exists it skips straight
+    to writing data, and when the feed is not found it creates the feed first.
+    Either branch ends by writing a data point so a device can call this on
+    every boot without worrying about whether the feed has been provisioned yet.
+    Every step spells out its request inline — including the username path
+    parameter and the X-AIO-Key authentication header.
+  version: 1.0.0
+sourceDescriptions:
+- name: adafruitIoApi
+  url: ../openapi/adafruit-io-rest-api-openapi.yml
+  type: openapi
+workflows:
+- workflowId: ensure-feed-exists
+  summary: Get-or-create a feed by key, then write a data point to it.
+  description: >-
+    Fetches a feed by key; if it is missing (404) the feed is created, otherwise
+    the existing feed is reused. Both paths converge on writing a single value.
+  inputs:
+    type: object
+    required:
+    - username
+    - aioKey
+    - feedKey
+    - value
+    properties:
+      username:
+        type: string
+        description: A valid Adafruit IO username.
+      aioKey:
+        type: string
+        description: The Adafruit IO API key, sent in the X-AIO-Key header.
+      feedKey:
+        type: string
+        description: The feed key to look up or create (e.g. "living-room-temp").
+      name:
+        type: string
+        description: Display name used when the feed has to be created.
+      value:
+        type: string
+        description: The data point value to write once the feed is known to exist.
+  steps:
+  - stepId: lookupFeed
+    description: >-
+      Attempt to read the feed by its key. A 200 means it already exists; a 404
+      means it must be created.
+    operationId: getFeed
+    parameters:
+    - name: username
+      in: path
+      value: $inputs.username
+    - name: feed_key
+      in: path
+      value: $inputs.feedKey
+    - name: X-AIO-Key
+      in: header
+      value: $inputs.aioKey
+    successCriteria:
+    - condition: $statusCode == 200 || $statusCode == 404
+    outputs:
+      existingKey: $response.body#/key
+    onSuccess:
+    - name: feedExists
+      type: goto
+      stepId: writeData
+      criteria:
+      - condition: $statusCode == 200
+    - name: feedMissing
+      type: goto
+      stepId: createMissingFeed
+      criteria:
+      - condition: $statusCode == 404
+  - stepId: createMissingFeed
+    description: >-
+      Create the feed when the lookup returned 404, using the requested feed key
+      and display name.
+    operationId: createFeed
+    parameters:
+    - name: username
+      in: path
+      value: $inputs.username
+    - name: X-AIO-Key
+      in: header
+      value: $inputs.aioKey
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.name
+        key: $inputs.feedKey
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      createdKey: $response.body#/key
+  - stepId: writeData
+    description: >-
+      Write the data point to the feed, which now exists whether it was found or
+      just created.
+    operationId: createData
+    parameters:
+    - name: username
+      in: path
+      value: $inputs.username
+    - name: feed_key
+      in: path
+      value: $inputs.feedKey
+    - name: X-AIO-Key
+      in: header
+      value: $inputs.aioKey
+    requestBody:
+      contentType: application/json
+      payload:
+        value: $inputs.value
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      dataId: $response.body#/id
+      storedValue: $response.body#/value
+  outputs:
+    feedKey: $inputs.feedKey
+    dataId: $steps.writeData.outputs.dataId
+    storedValue: $steps.writeData.outputs.storedValue
