@@ -1,0 +1,889 @@
+"""
+Adafruit IO GraphQL Schema
+Conceptual schema derived from the Adafruit IO REST and MQTT APIs.
+Source: https://io.adafruit.com/api/docs/
+"""
+
+# ─── Scalars ────────────────────────────────────────────────────────────────
+
+scalar DateTime
+scalar JSON
+
+# ─── Enums ──────────────────────────────────────────────────────────────────
+
+enum FeedType {
+  NUMERIC
+  TEXT
+  LOCATION
+  JSON
+  IMAGE
+}
+
+enum FeedStatus {
+  ENABLED
+  DISABLED
+  ARCHIVED
+}
+
+enum BlockType {
+  TEXT
+  GAUGE
+  CHART
+  SLIDER
+  BUTTON
+  TOGGLE
+  MAP
+  IMAGE
+  COLOR
+  INDICATOR
+  NUMBER_PAD
+  SELECTOR
+  STREAM
+  BATTERY
+}
+
+enum TriggerCondition {
+  EQUAL
+  GREATER_THAN
+  LESS_THAN
+  CHANGED
+  ON_INSERT
+}
+
+enum TriggerAction {
+  NOTIFICATION
+  WEBHOOK
+  SMS
+  VOICE
+  EMAIL
+  FEED_WRITE
+}
+
+enum ScheduleInterval {
+  MINUTELY
+  HOURLY
+  DAILY
+  WEEKLY
+  MONTHLY
+}
+
+enum UserPlan {
+  FREE
+  IO_PLUS
+}
+
+enum LogEntryType {
+  FEED_CREATED
+  FEED_UPDATED
+  FEED_DELETED
+  DATA_WRITTEN
+  DASHBOARD_CREATED
+  DASHBOARD_DELETED
+  TRIGGER_FIRED
+  TOKEN_CREATED
+  TOKEN_REVOKED
+  LOGIN
+}
+
+# ─── Feed Types ──────────────────────────────────────────────────────────────
+
+type FeedKey {
+  key: String!
+  label: String
+}
+
+type FeedUnit {
+  abbreviation: String
+  symbol: String
+}
+
+type FeedStatus {
+  enabled: Boolean!
+  message: String
+}
+
+type Feed {
+  id: ID!
+  key: String!
+  name: String!
+  description: String
+  type: FeedType
+  status: String
+  unit: FeedUnit
+  historyEnabled: Boolean
+  visibility: String
+  license: String
+  statusNotify: Boolean
+  statusTimeout: Int
+  group: Group
+  groups: [Group!]
+  lastValue: String
+  latestData: Data
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type FeedDetails {
+  id: ID!
+  key: String!
+  name: String!
+  description: String
+  type: FeedType
+  status: String
+  unit: FeedUnit
+  historyEnabled: Boolean
+  visibility: String
+  license: String
+  statusNotify: Boolean
+  statusTimeout: Int
+  groups: [GroupDetails!]
+  lastValue: String
+  latestData: DataDetails
+  dataCount: Int
+  webhookToken: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Data Types ──────────────────────────────────────────────────────────────
+
+type DataValue {
+  raw: String
+  numeric: Float
+  text: String
+}
+
+type DataCreated {
+  at: DateTime!
+  epoch: Float!
+}
+
+type DataExpiration {
+  expiresAt: DateTime
+  retentionDays: Int
+}
+
+type DataLimit {
+  perMinute: Int
+  current: Int
+  remaining: Int
+}
+
+type Data {
+  id: ID!
+  value: String!
+  feedId: ID!
+  feedKey: String
+  createdAt: DateTime!
+  updatedAt: DateTime
+  expiredAt: DateTime
+  lat: Float
+  lon: Float
+  ele: Float
+}
+
+type DataDetails {
+  id: ID!
+  value: String!
+  feedId: ID!
+  feedKey: String
+  parsed: DataValue
+  created: DataCreated
+  expiration: DataExpiration
+  lat: Float
+  lon: Float
+  ele: Float
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+# ─── Group Types ─────────────────────────────────────────────────────────────
+
+type GroupKey {
+  key: String!
+  label: String
+}
+
+type GroupFeeds {
+  count: Int!
+  feeds: [Feed!]!
+}
+
+type Group {
+  id: ID!
+  key: String!
+  name: String!
+  description: String
+  visibility: String
+  license: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type GroupDetails {
+  id: ID!
+  key: String!
+  name: String!
+  description: String
+  visibility: String
+  license: String
+  feeds: GroupFeeds
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Stream Types ────────────────────────────────────────────────────────────
+
+type StreamData {
+  id: ID!
+  value: String!
+  feedId: ID!
+  feedKey: String
+  createdAt: DateTime!
+  lat: Float
+  lon: Float
+  ele: Float
+}
+
+type StreamDetails {
+  feedKey: String!
+  feedName: String
+  lastData: StreamData
+  totalPoints: Int
+  ratePerMinute: Float
+}
+
+type Stream {
+  id: ID!
+  feedKey: String!
+  name: String
+  data: [StreamData!]
+  details: StreamDetails
+}
+
+# ─── Dashboard Types ──────────────────────────────────────────────────────────
+
+type DashboardKey {
+  key: String!
+  label: String
+}
+
+type Dashboard {
+  id: ID!
+  key: String!
+  name: String!
+  description: String
+  visibility: String
+  pinned: Boolean
+  blocks: [Block!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type DashboardDetails {
+  id: ID!
+  key: String!
+  name: String!
+  description: String
+  visibility: String
+  pinned: Boolean
+  blocks: [BlockDetails!]
+  embedUrl: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Block Types ─────────────────────────────────────────────────────────────
+
+type Block {
+  id: ID!
+  name: String!
+  type: BlockType!
+  dashboardId: ID!
+  visualType: String
+  column: Int
+  row: Int
+  sizeX: Int
+  sizeY: Int
+  properties: JSON
+  feedIds: [ID!]
+  feedKey: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type BlockDetails {
+  id: ID!
+  name: String!
+  type: BlockType!
+  dashboardId: ID!
+  visualType: String
+  column: Int
+  row: Int
+  sizeX: Int
+  sizeY: Int
+  properties: JSON
+  feeds: [Feed!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type TextBlock {
+  id: ID!
+  name: String!
+  dashboardId: ID!
+  value: String
+  fontSize: Int
+  textColor: String
+  backgroundColor: String
+  column: Int
+  row: Int
+  sizeX: Int
+  sizeY: Int
+}
+
+type GaugeBlock {
+  id: ID!
+  name: String!
+  dashboardId: ID!
+  feedKey: String!
+  min: Float
+  max: Float
+  label: String
+  unit: String
+  column: Int
+  row: Int
+  sizeX: Int
+  sizeY: Int
+}
+
+type ChartBlock {
+  id: ID!
+  name: String!
+  dashboardId: ID!
+  feedKeys: [String!]!
+  xAxisLabel: String
+  yAxisLabel: String
+  chartType: String
+  hours: Int
+  column: Int
+  row: Int
+  sizeX: Int
+  sizeY: Int
+}
+
+type SliderBlock {
+  id: ID!
+  name: String!
+  dashboardId: ID!
+  feedKey: String!
+  min: Float
+  max: Float
+  step: Float
+  column: Int
+  row: Int
+  sizeX: Int
+  sizeY: Int
+}
+
+type ButtonBlock {
+  id: ID!
+  name: String!
+  dashboardId: ID!
+  feedKey: String!
+  pressValue: String
+  releaseValue: String
+  column: Int
+  row: Int
+  sizeX: Int
+  sizeY: Int
+}
+
+type ToggleBlock {
+  id: ID!
+  name: String!
+  dashboardId: ID!
+  feedKey: String!
+  onValue: String
+  offValue: String
+  column: Int
+  row: Int
+  sizeX: Int
+  sizeY: Int
+}
+
+type MapBlock {
+  id: ID!
+  name: String!
+  dashboardId: ID!
+  feedKey: String!
+  mapType: String
+  zoom: Int
+  column: Int
+  row: Int
+  sizeX: Int
+  sizeY: Int
+}
+
+type ImageBlock {
+  id: ID!
+  name: String!
+  dashboardId: ID!
+  imageUrl: String
+  feedKey: String
+  column: Int
+  row: Int
+  sizeX: Int
+  sizeY: Int
+}
+
+type Color {
+  r: Int!
+  g: Int!
+  b: Int!
+  hex: String!
+  name: String
+}
+
+# ─── Webhook Types ────────────────────────────────────────────────────────────
+
+type FeedWebhook {
+  id: ID!
+  feedId: ID!
+  feedKey: String!
+  token: String!
+  url: String!
+  rawUrl: String!
+  notifyUrl: String!
+  createdAt: DateTime!
+}
+
+# ─── Trigger / Action Types ──────────────────────────────────────────────────
+
+type TriggerDetails {
+  id: ID!
+  name: String!
+  condition: TriggerCondition!
+  action: TriggerAction!
+  feedKey: String!
+  value: String
+  notifyTo: String
+  webhookUrl: String
+  enabled: Boolean!
+  lastFiredAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Trigger {
+  id: ID!
+  name: String!
+  condition: TriggerCondition!
+  action: TriggerAction!
+  feedKey: String!
+  enabled: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Schedule Types ───────────────────────────────────────────────────────────
+
+type ScheduleAction {
+  type: TriggerAction!
+  feedKey: String
+  value: String
+  notifyTo: String
+  webhookUrl: String
+}
+
+type ScheduleDetails {
+  id: ID!
+  name: String!
+  interval: ScheduleInterval!
+  intervalValue: Int
+  hour: Int
+  minute: Int
+  dayOfWeek: Int
+  timezone: String
+  action: ScheduleAction!
+  enabled: Boolean!
+  nextRunAt: DateTime
+  lastRunAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Schedule {
+  id: ID!
+  name: String!
+  interval: ScheduleInterval!
+  enabled: Boolean!
+  nextRunAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Throttle / Limit Types ──────────────────────────────────────────────────
+
+type ThrottleDetails {
+  username: String!
+  dataRatePerMinute: Int!
+  currentRate: Float!
+  remaining: Int!
+  resetAt: DateTime!
+}
+
+type Throttle {
+  active: Boolean!
+  dataRatePerMinute: Int!
+  currentRate: Float!
+  remaining: Int!
+}
+
+type Limit {
+  type: String!
+  allowed: Int!
+  used: Int!
+  remaining: Int!
+  resetAt: DateTime
+}
+
+# ─── User / Auth Types ────────────────────────────────────────────────────────
+
+type UserPlanDetails {
+  plan: UserPlan!
+  name: String!
+  feedLimit: Int
+  dashboardLimit: Int
+  actionLimit: Int
+  dataRatePerMinute: Int
+  retentionDays: Int
+  price: Float
+  billingCycle: String
+}
+
+type UserDetails {
+  id: ID!
+  username: String!
+  email: String
+  name: String
+  bio: String
+  location: String
+  timezone: String
+  plan: UserPlanDetails!
+  feedCount: Int
+  dashboardCount: Int
+  dataPointCount: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type User {
+  id: ID!
+  username: String!
+  name: String
+  plan: UserPlan!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Logging / Activity Types ─────────────────────────────────────────────────
+
+type LogEntry {
+  id: ID!
+  type: LogEntryType!
+  message: String!
+  model: String
+  modelId: String
+  username: String
+  ip: String
+  createdAt: DateTime!
+}
+
+type ActivityLog {
+  entries: [LogEntry!]!
+  total: Int!
+  page: Int!
+  perPage: Int!
+}
+
+# ─── Credential / Token Types ─────────────────────────────────────────────────
+
+type APIKey {
+  id: ID!
+  username: String!
+  keyType: String!
+  maskedKey: String!
+  createdAt: DateTime!
+}
+
+type Token {
+  id: ID!
+  name: String!
+  username: String!
+  maskedToken: String!
+  scopes: [String!]
+  expiresAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type MQTTCredentials {
+  host: String!
+  tlsPort: Int!
+  plainPort: Int!
+  websocketPort: Int!
+  username: String!
+  password: String!
+  clientId: String
+}
+
+# ─── Pagination Types ─────────────────────────────────────────────────────────
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type FeedConnection {
+  nodes: [Feed!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type DataConnection {
+  nodes: [Data!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type GroupConnection {
+  nodes: [Group!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type DashboardConnection {
+  nodes: [Dashboard!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type TriggerConnection {
+  nodes: [Trigger!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type TokenConnection {
+  nodes: [Token!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+# ─── Input Types ─────────────────────────────────────────────────────────────
+
+input FeedInput {
+  key: String!
+  name: String!
+  description: String
+  type: FeedType
+  unit: FeedUnitInput
+  historyEnabled: Boolean
+  visibility: String
+  license: String
+  statusNotify: Boolean
+  statusTimeout: Int
+}
+
+input FeedUnitInput {
+  abbreviation: String
+  symbol: String
+}
+
+input DataInput {
+  value: String!
+  lat: Float
+  lon: Float
+  ele: Float
+  createdAt: DateTime
+}
+
+input GroupInput {
+  key: String!
+  name: String!
+  description: String
+  visibility: String
+  license: String
+}
+
+input DashboardInput {
+  key: String!
+  name: String!
+  description: String
+  visibility: String
+  pinned: Boolean
+}
+
+input BlockInput {
+  name: String!
+  type: BlockType!
+  dashboardId: ID!
+  column: Int
+  row: Int
+  sizeX: Int
+  sizeY: Int
+  properties: JSON
+  feedIds: [ID!]
+}
+
+input TriggerInput {
+  name: String!
+  condition: TriggerCondition!
+  action: TriggerAction!
+  feedKey: String!
+  value: String
+  notifyTo: String
+  webhookUrl: String
+  enabled: Boolean
+}
+
+input ScheduleInput {
+  name: String!
+  interval: ScheduleInterval!
+  intervalValue: Int
+  hour: Int
+  minute: Int
+  dayOfWeek: Int
+  timezone: String
+  action: ScheduleActionInput!
+  enabled: Boolean
+}
+
+input ScheduleActionInput {
+  type: TriggerAction!
+  feedKey: String
+  value: String
+  notifyTo: String
+  webhookUrl: String
+}
+
+input TokenInput {
+  name: String!
+  scopes: [String!]
+  expiresAt: DateTime
+}
+
+# ─── Query Root ───────────────────────────────────────────────────────────────
+
+type Query {
+  # User
+  currentUser: UserDetails!
+
+  # Feeds
+  feeds(page: Int, perPage: Int): FeedConnection!
+  feed(key: String!): FeedDetails
+  feedByKey(username: String!, key: String!): FeedDetails
+
+  # Data
+  feedData(feedKey: String!, start: DateTime, end: DateTime, limit: Int, page: Int): DataConnection!
+  feedDataPoint(feedKey: String!, id: ID!): DataDetails
+  feedLastValue(feedKey: String!): DataDetails
+  feedFirstValue(feedKey: String!): DataDetails
+  feedPreviousValue(feedKey: String!): DataDetails
+  feedNextValue(feedKey: String!, currentId: ID!): DataDetails
+  feedRetainValue(feedKey: String!): DataDetails
+  feedChartData(feedKey: String!, hours: Int, resolution: Int): [DataDetails!]!
+
+  # Groups
+  groups(page: Int, perPage: Int): GroupConnection!
+  group(key: String!): GroupDetails
+  groupFeeds(groupKey: String!): [Feed!]!
+
+  # Dashboards
+  dashboards(page: Int, perPage: Int): DashboardConnection!
+  dashboard(key: String!): DashboardDetails
+
+  # Blocks
+  dashboardBlocks(dashboardId: ID!): [BlockDetails!]!
+  dashboardBlock(dashboardId: ID!, blockId: ID!): BlockDetails
+
+  # Triggers
+  triggers(page: Int, perPage: Int): TriggerConnection!
+  trigger(id: ID!): TriggerDetails
+
+  # Schedules
+  schedules: [Schedule!]!
+  schedule(id: ID!): ScheduleDetails
+
+  # Throttle & Limits
+  throttle: ThrottleDetails!
+  limits: [Limit!]!
+
+  # Activity
+  activities(type: LogEntryType, page: Int, perPage: Int): ActivityLog!
+
+  # Tokens
+  tokens(page: Int, perPage: Int): TokenConnection!
+  token(id: ID!): Token
+
+  # MQTT
+  mqttCredentials: MQTTCredentials!
+}
+
+# ─── Mutation Root ────────────────────────────────────────────────────────────
+
+type Mutation {
+  # Feeds
+  createFeed(input: FeedInput!): Feed!
+  updateFeed(key: String!, input: FeedInput!): Feed!
+  deleteFeed(key: String!): Boolean!
+
+  # Data
+  createDataPoint(feedKey: String!, input: DataInput!): Data!
+  createDataPoints(feedKey: String!, inputs: [DataInput!]!): [Data!]!
+  deleteDataPoint(feedKey: String!, id: ID!): Boolean!
+
+  # Groups
+  createGroup(input: GroupInput!): Group!
+  updateGroup(key: String!, input: GroupInput!): Group!
+  deleteGroup(key: String!): Boolean!
+  addFeedToGroup(groupKey: String!, feedKey: String!): Group!
+  removeFeedFromGroup(groupKey: String!, feedKey: String!): Group!
+  publishToGroup(groupKey: String!, feeds: JSON!): Boolean!
+
+  # Dashboards
+  createDashboard(input: DashboardInput!): Dashboard!
+  updateDashboard(key: String!, input: DashboardInput!): Dashboard!
+  deleteDashboard(key: String!): Boolean!
+
+  # Blocks
+  createBlock(input: BlockInput!): Block!
+  updateBlock(dashboardId: ID!, blockId: ID!, input: BlockInput!): Block!
+  deleteBlock(dashboardId: ID!, blockId: ID!): Boolean!
+
+  # Triggers
+  createTrigger(input: TriggerInput!): Trigger!
+  updateTrigger(id: ID!, input: TriggerInput!): Trigger!
+  deleteTrigger(id: ID!): Boolean!
+
+  # Schedules
+  createSchedule(input: ScheduleInput!): Schedule!
+  updateSchedule(id: ID!, input: ScheduleInput!): Schedule!
+  deleteSchedule(id: ID!): Boolean!
+
+  # Tokens
+  createToken(input: TokenInput!): Token!
+  revokeToken(id: ID!): Boolean!
+}
+
+# ─── Subscription Root ────────────────────────────────────────────────────────
+
+type Subscription {
+  feedDataUpdated(feedKey: String!): Data!
+  groupDataUpdated(groupKey: String!): Data!
+  throttleUpdated: Throttle!
+  triggerFired(triggerId: ID): TriggerDetails!
+}

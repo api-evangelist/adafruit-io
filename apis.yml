@@ -1,345 +1,365 @@
 aid: adafruit-io
 url: https://raw.githubusercontent.com/api-evangelist/adafruit-io/refs/heads/main/apis.yml
 apis:
-  - aid: adafruit-io:adafruit-io-rest-api
-    name: Adafruit IO REST API
-    tags:
-      - IoT
-      - Internet of Things
-      - Feeds
-      - Data
-      - Dashboards
-      - Maker
-    humanURL: https://io.adafruit.com/api/docs/
-    baseURL: https://io.adafruit.com/api/v2
-    properties:
-      - url: https://io.adafruit.com/api/docs/
-        type: Documentation
-      - url: https://io.adafruit.com/api/docs/#adafruit-io-http-api
-        type: Documentation
-      - url: openapi/adafruit-io-rest-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/adafruit-io-feed-schema.json
-        type: JSONSchema
-      - url: json-schema/adafruit-io-data-schema.json
-        type: JSONSchema
-      - url: json-schema/adafruit-io-dashboard-schema.json
-        type: JSONSchema
-      - url: json-ld/adafruit-io-context.jsonld
-        type: JSONLD
-    description: >-
-      REST API for Adafruit IO providing CRUD operations across feeds, time-series data points, groups, dashboards,
-      dashboard blocks, triggers (reactive and scheduled actions), API tokens, permissions/ACL, account activities, and
-      inbound webhooks. Base URL https://io.adafruit.com/api/v2 — authenticated via the X-AIO-Key header or query
-      parameter using an Adafruit IO API key. Supports batch data writes, chart-aggregated reads, positional queries
-      (first/last/previous/next/retain), and Link-header pagination up to 1000 records per page.
-  - aid: adafruit-io:adafruit-io-mqtt-api
-    name: Adafruit IO MQTT API
-    tags:
-      - IoT
-      - Internet of Things
-      - MQTT
-      - Realtime
-      - Feeds
-    humanURL: https://io.adafruit.com/api/docs/mqtt.html
-    baseURL: mqtts://io.adafruit.com:8883
-    properties:
-      - url: https://io.adafruit.com/api/docs/mqtt.html
-        type: Documentation
-      - url: https://io.adafruit.com/api/docs/mqtt.html#mqtt-topics
-        type: Documentation
-    description: >-
-      MQTT broker at io.adafruit.com for publish/subscribe access to Adafruit IO feeds and groups. TLS on port 8883,
-      plaintext on 1883, and MQTT-over-WebSocket on port 443. Authenticate with your Adafruit IO username and API key.
-      Supports QoS 0 and QoS 1 (QoS 2 not supported); MQTT retain flag is not honored — use the /get topic modifier to
-      fetch the last value of a feed instead. Topic structure includes feed topics ({username}/feeds/{key}), compact
-      aliases ({username}/f/{key}), JSON/CSV suffixes, group topics ({username}/groups/{key}), throttle
-      ({username}/throttle), and errors ({username}/errors). Wildcard subscriptions with `+` and `#` are supported for
-      feed discovery.
-  - aid: adafruit-io:adafruit-io-webhooks-api
-    name: Adafruit IO Webhooks API
-    tags:
-      - IoT
-      - Internet of Things
-      - Webhooks
-      - Feeds
-    humanURL: https://io.adafruit.com/api/docs/#webhooks
-    baseURL: https://io.adafruit.com/api/v2/webhooks
-    properties:
-      - url: https://io.adafruit.com/api/docs/#webhooks
-        type: Documentation
-      - url: openapi/adafruit-io-rest-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Token-authenticated inbound webhook endpoints that allow third-party services (IFTTT, Zapier, Make, or any HTTP
-      client) to push data into an Adafruit IO feed without an API key. Endpoints include the standard JSON webhook
-      (POST /webhooks/feed/:token), the raw-payload webhook (POST /webhooks/feed/:token/raw) for arbitrary request
-      bodies, and a notify webhook (POST /webhooks/feed/:token/notify) for ping-style triggers. Tokens are generated
-      per-feed and managed in the Adafruit IO UI.
-name: Adafruit IO
-tags:
+- aid: adafruit-io:adafruit-io-rest-api
+  name: Adafruit IO REST API
+  tags:
+  - IoT
+  - Internet of Things
+  - Feeds
+  - Data
+  - Dashboards
+  - Maker
+  humanURL: https://io.adafruit.com/api/docs/
+  baseURL: https://io.adafruit.com/api/v2
+  properties:
+  - url: https://io.adafruit.com/api/docs/
+    type: Documentation
+  - url: https://io.adafruit.com/api/docs/#adafruit-io-http-api
+    type: Documentation
+  - url: openapi/adafruit-io-rest-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/adafruit-io-feed-schema.json
+    type: JSONSchema
+  - url: json-schema/adafruit-io-data-schema.json
+    type: JSONSchema
+  - url: json-schema/adafruit-io-dashboard-schema.json
+    type: JSONSchema
+  - url: json-ld/adafruit-io-context.jsonld
+    type: JSONLD
+  - url: graphql/adafruit-io-graphql.md
+    type: GraphQL
+  description: REST API for Adafruit IO providing CRUD operations across feeds, time-series
+    data points, groups, dashboards, dashboard blocks, triggers (reactive and scheduled
+    actions), API tokens, permissions/ACL, account activities, and inbound webhooks.
+    Base URL https://io.adafruit.com/api/v2 — authenticated via the X-AIO-Key header
+    or query parameter using an Adafruit IO API key. Supports batch data writes, chart-aggregated
+    reads, positional queries (first/last/previous/next/retain), and Link-header pagination
+    up to 1000 records per page.
+- aid: adafruit-io:adafruit-io-mqtt-api
+  name: Adafruit IO MQTT API
+  tags:
   - IoT
   - Internet of Things
   - MQTT
-  - Maker
-  - Hobbyist
-  - CircuitPython
-  - Arduino
-  - ESP32
-  - Feather
-  - Dashboards
-  - Time Series
+  - Realtime
+  - Feeds
+  humanURL: https://io.adafruit.com/api/docs/mqtt.html
+  baseURL: mqtts://io.adafruit.com:8883
+  properties:
+  - url: https://io.adafruit.com/api/docs/mqtt.html
+    type: Documentation
+  - url: https://io.adafruit.com/api/docs/mqtt.html#mqtt-topics
+    type: Documentation
+  description: MQTT broker at io.adafruit.com for publish/subscribe access to Adafruit
+    IO feeds and groups. TLS on port 8883, plaintext on 1883, and MQTT-over-WebSocket
+    on port 443. Authenticate with your Adafruit IO username and API key. Supports
+    QoS 0 and QoS 1 (QoS 2 not supported); MQTT retain flag is not honored — use the
+    /get topic modifier to fetch the last value of a feed instead. Topic structure
+    includes feed topics ({username}/feeds/{key}), compact aliases ({username}/f/{key}),
+    JSON/CSV suffixes, group topics ({username}/groups/{key}), throttle ({username}/throttle),
+    and errors ({username}/errors). Wildcard subscriptions with `+` and `#` are supported
+    for feed discovery.
+- aid: adafruit-io:adafruit-io-webhooks-api
+  name: Adafruit IO Webhooks API
+  tags:
+  - IoT
+  - Internet of Things
+  - Webhooks
+  - Feeds
+  humanURL: https://io.adafruit.com/api/docs/#webhooks
+  baseURL: https://io.adafruit.com/api/v2/webhooks
+  properties:
+  - url: https://io.adafruit.com/api/docs/#webhooks
+    type: Documentation
+  - url: openapi/adafruit-io-rest-api-openapi.yml
+    type: OpenAPI
+  description: Token-authenticated inbound webhook endpoints that allow third-party
+    services (IFTTT, Zapier, Make, or any HTTP client) to push data into an Adafruit
+    IO feed without an API key. Endpoints include the standard JSON webhook (POST
+    /webhooks/feed/:token), the raw-payload webhook (POST /webhooks/feed/:token/raw)
+    for arbitrary request bodies, and a notify webhook (POST /webhooks/feed/:token/notify)
+    for ping-style triggers. Tokens are generated per-feed and managed in the Adafruit
+    IO UI.
+name: Adafruit IO
+tags:
+- IoT
+- Internet of Things
+- MQTT
+- Maker
+- Hobbyist
+- CircuitPython
+- Arduino
+- ESP32
+- Feather
+- Dashboards
+- Time Series
 kind: contract
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
-  - type: PostmanWorkspace
-    url: https://www.postman.com/kinlaneapi/adafruit-io/overview
-  - type: ArazzoWorkflows
-    url: arazzo/
-    workflows:
-      - url: arazzo/adafruit-io-attach-feed-to-group-workflow.yml
-        name: Adafruit IO Attach Feed to Group
-        summary: Add an existing feed to a group, then list the group's feeds to confirm membership.
-      - url: arazzo/adafruit-io-batch-ingest-and-chart-workflow.yml
-        name: Adafruit IO Batch Ingest and Chart
-        summary: Bulk upload many data points to a feed, then fetch aggregated chart data for it.
-      - url: arazzo/adafruit-io-build-dashboard-with-block-workflow.yml
-        name: Adafruit IO Build Dashboard with Block
-        summary: Create a dashboard, add a visualization block to it, then read the block back.
-      - url: arazzo/adafruit-io-create-and-verify-trigger-workflow.yml
-        name: Adafruit IO Create and Verify Trigger
-        summary: Create a reactive trigger for the user, then read it back to confirm it exists.
-      - url: arazzo/adafruit-io-ensure-feed-exists-workflow.yml
-        name: Adafruit IO Ensure Feed Exists
-        summary: Look up a feed by key and create it only when it is missing, then push a value.
-      - url: arazzo/adafruit-io-group-feed-bootstrap-workflow.yml
-        name: Adafruit IO Group Feed Bootstrap
-        summary: Create a group, add a new feed inside it, then write a data point to that grouped feed.
-      - url: arazzo/adafruit-io-group-multifeed-publish-workflow.yml
-        name: Adafruit IO Group Multi-Feed Publish
-        summary: Publish values to several feeds in a group at once, then read one feed's data back.
-      - url: arazzo/adafruit-io-issue-and-verify-token-workflow.yml
-        name: Adafruit IO Issue and Verify Token
-        summary: Create a device token for the user, then read it back to confirm it was issued.
-      - url: arazzo/adafruit-io-provision-feed-and-seed-data-workflow.yml
-        name: Adafruit IO Provision Feed and Seed Data
-        summary: Create a feed, push an initial data point to it, then read the last value back.
-  - url: https://io.adafruit.com
-    name: Adafruit IO Portal
-    type: Portal
-  - url: https://io.adafruit.com/api/docs/
-    name: Adafruit IO API Documentation
-    type: Documentation
-  - url: https://io.adafruit.com/api/docs/cookbook.html
-    name: API Cookbook
-    type: Documentation
-  - url: https://io.adafruit.com/api/docs/mqtt.html
-    name: MQTT API Documentation
-    type: Documentation
-  - url: https://learn.adafruit.com/series/adafruit-io-basics
-    name: Adafruit IO Basics Series
-    type: GettingStarted
-  - url: https://learn.adafruit.com/welcome-to-adafruit-io
-    name: Welcome to Adafruit IO
-    type: GettingStarted
-  - url: https://io.adafruit.com/blog
-    name: Adafruit IO Blog
-    type: Blog
-  - url: https://io.adafruit.com/blog/changelog/
-    name: Adafruit IO Changelog
-    type: ChangeLog
-  - url: https://forums.adafruit.com/viewforum.php?f=56
-    name: Adafruit IO Forums
-    type: Forum
-  - url: https://discord.gg/adafruit
-    name: Adafruit Discord —
-    type: Forum
-  - url: https://io.adafruit.com/signup
-    name: Sign Up for Adafruit IO
-    type: SignUp
-  - url: https://io.adafruit.com/login
-    name: Sign In
-    type: Login
-  - url: https://www.adafruit.com/iot
-    name: Adafruit IoT Products
-    type: Documentation
-  - url: https://io.adafruit.com/plus
-    name: Adafruit IO Plus
-    type: Pricing
-  - url: https://io.adafruit.com/api/docs/#rate-limiting
-    name: Adafruit IO Rate Limits
-    type: RateLimits
-  - url: https://io.adafruit.com/api/docs/#errors
-    name: Adafruit IO API Errors
-    type: Errors
-  - url: https://io.adafruit.com/api/docs/#authentication
-    name: Authentication
-    type: Authentication
-  - url: https://www.adafruit.com/privacy
-    type: PrivacyPolicy
-  - url: https://www.adafruit.com/termsofservice
-    type: TermsOfService
-  - url: https://github.com/adafruit
-    type: GitHubOrganization
-  - url: https://github.com/adafruit/io-api
-    name: Adafruit IO API Documentation (source)
-    type: SourceCode
-  - url: https://github.com/adafruit/Adafruit_IO_Python
-    name: Adafruit IO Python Client
-    type: SDK
-  - url: https://github.com/adafruit/Adafruit_IO_Arduino
-    name: Adafruit IO Arduino Library
-    type: SDK
-  - url: https://github.com/adafruit/Adafruit_CircuitPython_AdafruitIO
-    name: Adafruit IO CircuitPython Library
-    type: SDK
-  - url: https://github.com/adafruit/io-client-ruby
-    name: Adafruit IO Ruby Client
-    type: SDK
-  - url: https://github.com/adafruit/adafruit-io-node
-    name: Adafruit IO Node.js Client
-    type: SDK
-  - url: https://github.com/adafruit/io-client-go
-    name: Adafruit IO Go Client
-    type: SDK
-  - url: https://github.com/adafruit/Adafruit_MQTT_Library
-    name: Adafruit MQTT Library (Arduino)
-    type: Tool
-  - url: https://github.com/adafruit/adafruit-io-basics
-    name: Adafruit IO Basics Examples
-    type: CodeExamples
-  - url: https://github.com/adafruit/io-swagger-templates
-    name: Swagger Codegen Templates for Adafruit IO
-    type: Tool
-  - url: https://github.com/adafruit/adafruit-io-node-tunnel
-    name: Adafruit IO TLS Tunnel
-    type: Tool
-  - url: https://www.adafruit.com/category/1011
-    name: Adafruit IO-Compatible Hardware
-    type: Documentation
-  - url: https://www.adafruit.com/category/943
-    name: Feather Boards
-    type: Documentation
-  - url: https://learn.adafruit.com/welcome-to-circuitpython
-    name: CircuitPython Documentation
-    type: Documentation
-  - url: https://ifttt.com/adafruit
-    name: Adafruit on IFTTT
-    type: Integrations
-  - url: https://zapier.com/apps/adafruit-io/integrations
-    name: Adafruit IO on Zapier
-    type: Integrations
-  - url: https://io.adafruit.com/plus
-    data:
-      - id: free
-        name: Free
-        entries:
-          - geo: US
-            unit: 1
-            label: User
-            limit: 1
-            price: Free
-            metric: user
-            timeFrame: month
-            description: Free Adafruit IO account.
-        elements:
-          - name: Up to 30 data points per minute
-          - name: 30 days of data retention
-          - name: Up to 10 feeds
-          - name: Up to 5 dashboards
-          - name: Up to 5 actions (reactive triggers + scheduled feeds)
-          - name: Up to 5 group permissions
-          - name: MQTT, HTTP, and WebSocket access
-        description: Free tier for hobbyists and learners.
-      - id: io-plus
-        name: Adafruit IO Plus (Monthly)
-        entries:
-          - geo: US
-            unit: 1
-            label: User
-            limit: 1
-            price: 10
-            metric: user
-            timeFrame: month
-            description: Monthly Adafruit IO Plus subscription.
-        elements:
-          - name: 60 data points per minute
-          - name: 60 days of data retention
-          - name: Unlimited feeds
-          - name: Unlimited dashboards
-          - name: Unlimited actions
-          - name: Unlimited group permissions
-          - name: SMS and voice action notifications
-          - name: Priority support
-        description: Monthly Plus subscription for makers and projects that exceed the free tier.
-      - id: io-plus-annual
-        name: Adafruit IO Plus (Yearly)
-        entries:
-          - geo: US
-            unit: 1
-            label: User
-            limit: 1
-            price: 99
-            metric: user
-            timeFrame: year
-            description: Annual Adafruit IO Plus subscription (discounted vs. monthly).
-        elements:
-          - name: All Adafruit IO Plus monthly features
-          - name: ~17% savings vs. monthly billing
-        description: Annual Plus subscription billed once per year.
-    name: Plans
-    type: Plans
-  - url: plans/adafruit-io-plans-pricing.yml
-    type: Plans
-  - url: rate-limits/adafruit-io-rate-limits.yml
-    type: RateLimits
-  - url: finops/adafruit-io-finops.yml
-    type: FinOps
-  - type: Features
-    data:
-      - Feed-centric time-series datastore for IoT sensor and actuator values
-      - >-
-        Drag-and-drop dashboards with 20+ block types (gauges, charts, toggles, sliders, maps, color pickers, image,
-        indicators, text, number pad, selector, etc.)
-      - Feed groups for organizing related feeds and batch group writes
-      - >-
-        Actions/Triggers — reactive triggers (threshold, equal, change) and scheduled actions (every N minutes, hours,
-        daily, weekly)
-      - Webhook-in endpoints (standard, raw, notify) for ingesting data without an API key
-      - SMS, voice, email, and webhook notifications via actions (Plus tier)
-      - Built-in services — time service, randomizer, weather forecasts, air quality
-      - MQTT broker at io.adafruit.com with TLS (8883), plain (1883), and WebSocket (443) transports
-      - Adafruit IO Wippersnapper firmware — no-code MQTT firmware for ESP32, ESP8266, and Pico
-      - First-class Arduino and CircuitPython client libraries
-      - Public feed sharing and embeddable dashboards
-      - Permission/ACL primitive for fine-grained sharing of feeds, dashboards, and groups
-      - Personal access tokens for scoped, revocable credentials separate from the main API key
-      - Account activities log with type filtering
-      - Throttle topic to monitor rate-limit pressure programmatically
-      - Single comprehensive Swagger 2.0 / OpenAPI spec published in adafruit/io-api on GitHub
-      - IFTTT and Zapier integrations for cross-service automation
-      - Optimized for makers, hobbyists, and STEM education with Adafruit Feather, Metro, and Raspberry Pi hardware
-    sources:
-      - https://io.adafruit.com/api/docs/
-      - https://io.adafruit.com/api/docs/mqtt.html
-      - https://io.adafruit.com/plus
-      - https://github.com/adafruit/io-api
-    updated: '2026-05-25'
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/adafruit-io/overview
+- type: ArazzoWorkflows
+  url: arazzo/
+  workflows:
+  - url: arazzo/adafruit-io-attach-feed-to-group-workflow.yml
+    name: Adafruit IO Attach Feed to Group
+    summary: Add an existing feed to a group, then list the group's feeds to confirm
+      membership.
+  - url: arazzo/adafruit-io-batch-ingest-and-chart-workflow.yml
+    name: Adafruit IO Batch Ingest and Chart
+    summary: Bulk upload many data points to a feed, then fetch aggregated chart data
+      for it.
+  - url: arazzo/adafruit-io-build-dashboard-with-block-workflow.yml
+    name: Adafruit IO Build Dashboard with Block
+    summary: Create a dashboard, add a visualization block to it, then read the block
+      back.
+  - url: arazzo/adafruit-io-create-and-verify-trigger-workflow.yml
+    name: Adafruit IO Create and Verify Trigger
+    summary: Create a reactive trigger for the user, then read it back to confirm
+      it exists.
+  - url: arazzo/adafruit-io-ensure-feed-exists-workflow.yml
+    name: Adafruit IO Ensure Feed Exists
+    summary: Look up a feed by key and create it only when it is missing, then push
+      a value.
+  - url: arazzo/adafruit-io-group-feed-bootstrap-workflow.yml
+    name: Adafruit IO Group Feed Bootstrap
+    summary: Create a group, add a new feed inside it, then write a data point to
+      that grouped feed.
+  - url: arazzo/adafruit-io-group-multifeed-publish-workflow.yml
+    name: Adafruit IO Group Multi-Feed Publish
+    summary: Publish values to several feeds in a group at once, then read one feed's
+      data back.
+  - url: arazzo/adafruit-io-issue-and-verify-token-workflow.yml
+    name: Adafruit IO Issue and Verify Token
+    summary: Create a device token for the user, then read it back to confirm it was
+      issued.
+  - url: arazzo/adafruit-io-provision-feed-and-seed-data-workflow.yml
+    name: Adafruit IO Provision Feed and Seed Data
+    summary: Create a feed, push an initial data point to it, then read the last value
+      back.
+- url: https://io.adafruit.com
+  name: Adafruit IO Portal
+  type: Portal
+- url: https://io.adafruit.com/api/docs/
+  name: Adafruit IO API Documentation
+  type: Documentation
+- url: https://io.adafruit.com/api/docs/cookbook.html
+  name: API Cookbook
+  type: Documentation
+- url: https://io.adafruit.com/api/docs/mqtt.html
+  name: MQTT API Documentation
+  type: Documentation
+- url: https://learn.adafruit.com/series/adafruit-io-basics
+  name: Adafruit IO Basics Series
+  type: GettingStarted
+- url: https://learn.adafruit.com/welcome-to-adafruit-io
+  name: Welcome to Adafruit IO
+  type: GettingStarted
+- url: https://io.adafruit.com/blog
+  name: Adafruit IO Blog
+  type: Blog
+- url: https://io.adafruit.com/blog/changelog/
+  name: Adafruit IO Changelog
+  type: ChangeLog
+- url: https://forums.adafruit.com/viewforum.php?f=56
+  name: Adafruit IO Forums
+  type: Forum
+- url: https://discord.gg/adafruit
+  name: Adafruit Discord —
+  type: Forum
+- url: https://io.adafruit.com/signup
+  name: Sign Up for Adafruit IO
+  type: SignUp
+- url: https://io.adafruit.com/login
+  name: Sign In
+  type: Login
+- url: https://www.adafruit.com/iot
+  name: Adafruit IoT Products
+  type: Documentation
+- url: https://io.adafruit.com/plus
+  name: Adafruit IO Plus
+  type: Pricing
+- url: https://io.adafruit.com/api/docs/#rate-limiting
+  name: Adafruit IO Rate Limits
+  type: RateLimits
+- url: https://io.adafruit.com/api/docs/#errors
+  name: Adafruit IO API Errors
+  type: Errors
+- url: https://io.adafruit.com/api/docs/#authentication
+  name: Authentication
+  type: Authentication
+- url: https://www.adafruit.com/privacy
+  type: PrivacyPolicy
+- url: https://www.adafruit.com/termsofservice
+  type: TermsOfService
+- url: https://github.com/adafruit
+  type: GitHubOrganization
+- url: https://github.com/adafruit/io-api
+  name: Adafruit IO API Documentation (source)
+  type: SourceCode
+- url: https://github.com/adafruit/Adafruit_IO_Python
+  name: Adafruit IO Python Client
+  type: SDK
+- url: https://github.com/adafruit/Adafruit_IO_Arduino
+  name: Adafruit IO Arduino Library
+  type: SDK
+- url: https://github.com/adafruit/Adafruit_CircuitPython_AdafruitIO
+  name: Adafruit IO CircuitPython Library
+  type: SDK
+- url: https://github.com/adafruit/io-client-ruby
+  name: Adafruit IO Ruby Client
+  type: SDK
+- url: https://github.com/adafruit/adafruit-io-node
+  name: Adafruit IO Node.js Client
+  type: SDK
+- url: https://github.com/adafruit/io-client-go
+  name: Adafruit IO Go Client
+  type: SDK
+- url: https://github.com/adafruit/Adafruit_MQTT_Library
+  name: Adafruit MQTT Library (Arduino)
+  type: Tool
+- url: https://github.com/adafruit/adafruit-io-basics
+  name: Adafruit IO Basics Examples
+  type: CodeExamples
+- url: https://github.com/adafruit/io-swagger-templates
+  name: Swagger Codegen Templates for Adafruit IO
+  type: Tool
+- url: https://github.com/adafruit/adafruit-io-node-tunnel
+  name: Adafruit IO TLS Tunnel
+  type: Tool
+- url: https://www.adafruit.com/category/1011
+  name: Adafruit IO-Compatible Hardware
+  type: Documentation
+- url: https://www.adafruit.com/category/943
+  name: Feather Boards
+  type: Documentation
+- url: https://learn.adafruit.com/welcome-to-circuitpython
+  name: CircuitPython Documentation
+  type: Documentation
+- url: https://ifttt.com/adafruit
+  name: Adafruit on IFTTT
+  type: Integrations
+- url: https://zapier.com/apps/adafruit-io/integrations
+  name: Adafruit IO on Zapier
+  type: Integrations
+- url: https://io.adafruit.com/plus
+  data:
+  - id: free
+    name: Free
+    entries:
+    - geo: US
+      unit: 1
+      label: User
+      limit: 1
+      price: Free
+      metric: user
+      timeFrame: month
+      description: Free Adafruit IO account.
+    elements:
+    - name: Up to 30 data points per minute
+    - name: 30 days of data retention
+    - name: Up to 10 feeds
+    - name: Up to 5 dashboards
+    - name: Up to 5 actions (reactive triggers + scheduled feeds)
+    - name: Up to 5 group permissions
+    - name: MQTT, HTTP, and WebSocket access
+    description: Free tier for hobbyists and learners.
+  - id: io-plus
+    name: Adafruit IO Plus (Monthly)
+    entries:
+    - geo: US
+      unit: 1
+      label: User
+      limit: 1
+      price: 10
+      metric: user
+      timeFrame: month
+      description: Monthly Adafruit IO Plus subscription.
+    elements:
+    - name: 60 data points per minute
+    - name: 60 days of data retention
+    - name: Unlimited feeds
+    - name: Unlimited dashboards
+    - name: Unlimited actions
+    - name: Unlimited group permissions
+    - name: SMS and voice action notifications
+    - name: Priority support
+    description: Monthly Plus subscription for makers and projects that exceed the
+      free tier.
+  - id: io-plus-annual
+    name: Adafruit IO Plus (Yearly)
+    entries:
+    - geo: US
+      unit: 1
+      label: User
+      limit: 1
+      price: 99
+      metric: user
+      timeFrame: year
+      description: Annual Adafruit IO Plus subscription (discounted vs. monthly).
+    elements:
+    - name: All Adafruit IO Plus monthly features
+    - name: ~17% savings vs. monthly billing
+    description: Annual Plus subscription billed once per year.
+  name: Plans
+  type: Plans
+- url: plans/adafruit-io-plans-pricing.yml
+  type: Plans
+- url: rate-limits/adafruit-io-rate-limits.yml
+  type: RateLimits
+- url: finops/adafruit-io-finops.yml
+  type: FinOps
+- type: Features
+  data:
+  - Feed-centric time-series datastore for IoT sensor and actuator values
+  - Drag-and-drop dashboards with 20+ block types (gauges, charts, toggles, sliders,
+    maps, color pickers, image, indicators, text, number pad, selector, etc.)
+  - Feed groups for organizing related feeds and batch group writes
+  - Actions/Triggers — reactive triggers (threshold, equal, change) and scheduled
+    actions (every N minutes, hours, daily, weekly)
+  - Webhook-in endpoints (standard, raw, notify) for ingesting data without an API
+    key
+  - SMS, voice, email, and webhook notifications via actions (Plus tier)
+  - Built-in services — time service, randomizer, weather forecasts, air quality
+  - MQTT broker at io.adafruit.com with TLS (8883), plain (1883), and WebSocket (443)
+    transports
+  - Adafruit IO Wippersnapper firmware — no-code MQTT firmware for ESP32, ESP8266,
+    and Pico
+  - First-class Arduino and CircuitPython client libraries
+  - Public feed sharing and embeddable dashboards
+  - Permission/ACL primitive for fine-grained sharing of feeds, dashboards, and groups
+  - Personal access tokens for scoped, revocable credentials separate from the main
+    API key
+  - Account activities log with type filtering
+  - Throttle topic to monitor rate-limit pressure programmatically
+  - Single comprehensive Swagger 2.0 / OpenAPI spec published in adafruit/io-api on
+    GitHub
+  - IFTTT and Zapier integrations for cross-service automation
+  - Optimized for makers, hobbyists, and STEM education with Adafruit Feather, Metro,
+    and Raspberry Pi hardware
+  sources:
+  - https://io.adafruit.com/api/docs/
+  - https://io.adafruit.com/api/docs/mqtt.html
+  - https://io.adafruit.com/plus
+  - https://github.com/adafruit/io-api
+  updated: '2026-05-25'
 created: '2026-05-25T00:00:00.000Z'
 modified: '2026-05-25'
 position: Consuming
-description: >-
-  Adafruit IO is a cloud Internet of Things platform from Adafruit Industries built for makers, hobbyists, students, and
-  STEM educators. It provides feed-based time-series storage, drag-and-drop dashboards with 20+ visualization block
-  types, actions/triggers for SMS/voice/email/webhook notifications, built-in services (time, weather, randomizer, air
-  quality), and a complete REST + MQTT API surface for Adafruit Feather and Metro boards, ESP32 / ESP8266 / Pico
-  microcontrollers, Raspberry Pi, and any other HTTP- or MQTT-capable hardware. First-class Arduino, CircuitPython, and
-  Python client libraries plus the no-code Wippersnapper firmware make it the easiest way for hobbyists to get their
-  projects onto the Internet of Things.
+description: Adafruit IO is a cloud Internet of Things platform from Adafruit Industries
+  built for makers, hobbyists, students, and STEM educators. It provides feed-based
+  time-series storage, drag-and-drop dashboards with 20+ visualization block types,
+  actions/triggers for SMS/voice/email/webhook notifications, built-in services (time,
+  weather, randomizer, air quality), and a complete REST + MQTT API surface for Adafruit
+  Feather and Metro boards, ESP32 / ESP8266 / Pico microcontrollers, Raspberry Pi,
+  and any other HTTP- or MQTT-capable hardware. First-class Arduino, CircuitPython,
+  and Python client libraries plus the no-code Wippersnapper firmware make it the
+  easiest way for hobbyists to get their projects onto the Internet of Things.
 maintainers:
-  - FN: Kin Lane
-    email: info@apievangelist.com
-    X: apievangelist
-    url: https://apievangelist.com
+- FN: Kin Lane
+  email: info@apievangelist.com
+  X: apievangelist
+  url: https://apievangelist.com
 specificationVersion: '0.16'
