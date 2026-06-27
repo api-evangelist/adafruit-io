@@ -100,45 +100,33 @@ access: 3rd-Party
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/adafruit-io/overview
-- type: ArazzoWorkflows
-  url: arazzo/
-  workflows:
-  - url: arazzo/adafruit-io-attach-feed-to-group-workflow.yml
-    name: Adafruit IO Attach Feed to Group
-    summary: Add an existing feed to a group, then list the group's feeds to confirm
-      membership.
-  - url: arazzo/adafruit-io-batch-ingest-and-chart-workflow.yml
-    name: Adafruit IO Batch Ingest and Chart
-    summary: Bulk upload many data points to a feed, then fetch aggregated chart data
-      for it.
-  - url: arazzo/adafruit-io-build-dashboard-with-block-workflow.yml
-    name: Adafruit IO Build Dashboard with Block
-    summary: Create a dashboard, add a visualization block to it, then read the block
-      back.
-  - url: arazzo/adafruit-io-create-and-verify-trigger-workflow.yml
-    name: Adafruit IO Create and Verify Trigger
-    summary: Create a reactive trigger for the user, then read it back to confirm
-      it exists.
-  - url: arazzo/adafruit-io-ensure-feed-exists-workflow.yml
-    name: Adafruit IO Ensure Feed Exists
-    summary: Look up a feed by key and create it only when it is missing, then push
-      a value.
-  - url: arazzo/adafruit-io-group-feed-bootstrap-workflow.yml
-    name: Adafruit IO Group Feed Bootstrap
-    summary: Create a group, add a new feed inside it, then write a data point to
-      that grouped feed.
-  - url: arazzo/adafruit-io-group-multifeed-publish-workflow.yml
-    name: Adafruit IO Group Multi-Feed Publish
-    summary: Publish values to several feeds in a group at once, then read one feed's
-      data back.
-  - url: arazzo/adafruit-io-issue-and-verify-token-workflow.yml
-    name: Adafruit IO Issue and Verify Token
-    summary: Create a device token for the user, then read it back to confirm it was
-      issued.
-  - url: arazzo/adafruit-io-provision-feed-and-seed-data-workflow.yml
-    name: Adafruit IO Provision Feed and Seed Data
-    summary: Create a feed, push an initial data point to it, then read the last value
-      back.
+- type: Arazzo
+  url: arazzo/adafruit-io-attach-feed-to-group-workflow.yml
+  name: Adafruit IO Attach Feed to Group
+- type: Arazzo
+  url: arazzo/adafruit-io-batch-ingest-and-chart-workflow.yml
+  name: Adafruit IO Batch Ingest and Chart
+- type: Arazzo
+  url: arazzo/adafruit-io-build-dashboard-with-block-workflow.yml
+  name: Adafruit IO Build Dashboard with Block
+- type: Arazzo
+  url: arazzo/adafruit-io-create-and-verify-trigger-workflow.yml
+  name: Adafruit IO Create and Verify Trigger
+- type: Arazzo
+  url: arazzo/adafruit-io-ensure-feed-exists-workflow.yml
+  name: Adafruit IO Ensure Feed Exists
+- type: Arazzo
+  url: arazzo/adafruit-io-group-feed-bootstrap-workflow.yml
+  name: Adafruit IO Group Feed Bootstrap
+- type: Arazzo
+  url: arazzo/adafruit-io-group-multifeed-publish-workflow.yml
+  name: Adafruit IO Group Multi-Feed Publish
+- type: Arazzo
+  url: arazzo/adafruit-io-issue-and-verify-token-workflow.yml
+  name: Adafruit IO Issue and Verify Token
+- type: Arazzo
+  url: arazzo/adafruit-io-provision-feed-and-seed-data-workflow.yml
+  name: Adafruit IO Provision Feed and Seed Data
 - url: https://io.adafruit.com
   name: Adafruit IO Portal
   type: Portal
@@ -165,13 +153,13 @@ common:
   type: ChangeLog
 - url: https://forums.adafruit.com/viewforum.php?f=56
   name: Adafruit IO Forums
-  type: Forum
+  type: Forums
 - url: https://discord.gg/adafruit
   name: Adafruit Discord —
-  type: Forum
+  type: Forums
 - url: https://io.adafruit.com/signup
   name: Sign Up for Adafruit IO
-  type: SignUp
+  type: Signup
 - url: https://io.adafruit.com/login
   name: Sign In
   type: Login
@@ -186,7 +174,7 @@ common:
   type: RateLimits
 - url: https://io.adafruit.com/api/docs/#errors
   name: Adafruit IO API Errors
-  type: Errors
+  type: ErrorCodes
 - url: https://io.adafruit.com/api/docs/#authentication
   name: Authentication
   type: Authentication
@@ -201,34 +189,34 @@ common:
   type: SourceCode
 - url: https://github.com/adafruit/Adafruit_IO_Python
   name: Adafruit IO Python Client
-  type: SDK
+  type: SDKs
 - url: https://github.com/adafruit/Adafruit_IO_Arduino
   name: Adafruit IO Arduino Library
-  type: SDK
+  type: SDKs
 - url: https://github.com/adafruit/Adafruit_CircuitPython_AdafruitIO
   name: Adafruit IO CircuitPython Library
-  type: SDK
+  type: SDKs
 - url: https://github.com/adafruit/io-client-ruby
   name: Adafruit IO Ruby Client
-  type: SDK
+  type: SDKs
 - url: https://github.com/adafruit/adafruit-io-node
   name: Adafruit IO Node.js Client
-  type: SDK
+  type: SDKs
 - url: https://github.com/adafruit/io-client-go
   name: Adafruit IO Go Client
-  type: SDK
+  type: SDKs
 - url: https://github.com/adafruit/Adafruit_MQTT_Library
   name: Adafruit MQTT Library (Arduino)
-  type: Tool
+  type: Tools
 - url: https://github.com/adafruit/adafruit-io-basics
   name: Adafruit IO Basics Examples
   type: CodeExamples
 - url: https://github.com/adafruit/io-swagger-templates
   name: Swagger Codegen Templates for Adafruit IO
-  type: Tool
+  type: Tools
 - url: https://github.com/adafruit/adafruit-io-node-tunnel
   name: Adafruit IO TLS Tunnel
-  type: Tool
+  type: Tools
 - url: https://www.adafruit.com/category/1011
   name: Adafruit IO-Compatible Hardware
   type: Documentation
