@@ -1,0 +1,37 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/adafruit-io-rest-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  - query
+schemes:
+- name: HeaderKey
+  type: apiKey
+  in: header
+  parameter: X-AIO-Key
+  description: The AIO Key is used to restrict or grant access to your data. The key is unique,
+    and you can generate a key per feed, and control it in many different ways. The easiest
+    process is to just use your automatically generated master key. You can access this key
+    right from the right-hand side of your dashboard or from an individual feed page.
+  sources:
+  - openapi/adafruit-io-rest-api-openapi.yml
+- name: QueryKey
+  type: apiKey
+  in: query
+  parameter: X-AIO-Key
+  description: The AIO Key is used to restrict or grant access to your data. The key is unique,
+    and you can generate a key per feed, and control it in many different ways. The easiest
+    process is to just use your automatically generated master key. You can access this key
+    right from the right-hand side of your dashboard or from an individual feed page.
+  sources:
+  - openapi/adafruit-io-rest-api-openapi.yml
+- name: HeaderSignature
+  type: apiKey
+  in: header
+  parameter: X-AIO-Signature
+  description: The AIO Signature is an AWS inspired request signature.
+  sources:
+  - openapi/adafruit-io-rest-api-openapi.yml
