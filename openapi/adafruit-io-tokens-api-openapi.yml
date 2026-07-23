@@ -1,0 +1,256 @@
+openapi: 3.0.0
+info:
+  title: Adafruit IO REST Activities Tokens API
+  description: "### The Internet of Things for Everyone\n\nThe Adafruit IO HTTP API provides access to your Adafruit IO data from any programming language or hardware environment that can speak HTTP. The easiest way to get started is with [an Adafruit IO learn guide](https://learn.adafruit.com/series/adafruit-io-basics) and [a simple Internet of Things capable device like the Feather Huzzah](https://www.adafruit.com/product/2821).\n\nThis API documentation is hosted on GitHub Pages and is available at [https://github.com/adafruit/io-api](https://github.com/adafruit/io-api). For questions or comments visit the [Adafruit IO Forums](https://forums.adafruit.com/viewforum.php?f=56) or the [adafruit-io channel on the Adafruit Discord server](https://discord.gg/adafruit).\n\n#### Authentication\n\nAuthentication for every API request happens through the `X-AIO-Key` header or query parameter and your IO API key. A simple cURL request to get all available feeds for a user with the username \"io_username\" and the key \"io_key_12345\" could look like this:\n\n    $ curl -H \"X-AIO-Key: io_key_12345\" https://io.adafruit.com/api/v2/io_username/feeds\n\nOr like this:\n\n    $ curl \"https://io.adafruit.com/api/v2/io_username/feeds?X-AIO-Key=io_key_12345\n\nUsing the node.js [request](https://github.com/request/request) library, IO HTTP requests are as easy as:\n\n```js\nvar request = require('request');\n\nvar options = {\n  url: 'https://io.adafruit.com/api/v2/io_username/feeds',\n  headers: {\n    'X-AIO-Key': 'io_key_12345',\n    'Content-Type': 'application/json'\n  }\n};\n\nfunction callback(error, response, body) {\n  if (!error && response.statusCode == 200) {\n    var feeds = JSON.parse(body);\n    console.log(feeds.length + \" FEEDS AVAILABLE\");\n\n    feeds.forEach(function (feed) {\n      console.log(feed.name, feed.key);\n    })\n  }\n}\n\nrequest(options, callback);\n```\n\nUsing the ESP8266 Arduino HTTPClient library, an HTTPS GET request would look like this (replacing `---` with your own values in the appropriate locations):\n\n```arduino\n/// based on\n/// https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266HTTPClient/examples/Authorization/Authorization.ino\n\n#include <Arduino.h>\n#include <ESP8266WiFi.h>\n#include <ESP8266WiFiMulti.h>\n#include <ESP8266HTTPClient.h>\n\nESP8266WiFiMulti WiFiMulti;\n\nconst char* ssid = \"---\";\nconst char* password = \"---\";\n\nconst char* host = \"io.adafruit.com\";\n\nconst char* io_key = \"---\";\nconst char* path_with_username = \"/api/v2/---/dashboards\";\n\n// Use web browser to view and copy\n// SHA1 fingerprint of the certificate\nconst char* fingerprint = \"77 00 54 2D DA E7 D8 03 27 31 23 99 EB 27 DB CB A5 4C 57 18\";\n\nvoid setup() {\n  Serial.begin(115200);\n\n  for(uint8_t t = 4; t > 0; t--) {\n    Serial.printf(\"[SETUP] WAIT %d...\\n\", t);\n    Serial.flush();\n    delay(1000);\n  }\n\n  WiFi.mode(WIFI_STA);\n  WiFiMulti.addAP(ssid, password);\n\n  // wait for WiFi connection\n  while(WiFiMulti.run() != WL_CONNECTED) {\n    Serial.print('.');\n    delay(1000);\n  }\n\n  Serial.println(\"[WIFI] connected!\");\n\n  HTTPClient http;\n\n  // start request with URL and TLS cert fingerprint for verification\n  http.begin(\"https://\" + String(host) + String(path_with_username), fingerprint);\n\n  // IO API authentication\n  http.addHeader(\"X-AIO-Key\", io_key);\n\n  // start connection and send HTTP header\n  int httpCode = http.GET();\n\n  // httpCode will be negative on error\n  if(httpCode > 0) {\n    // HTTP header has been send and Server response header has been handled\n    Serial.printf(\"[HTTP] GET response: %d\\n\", httpCode);\n\n    // HTTP 200 OK\n    if(httpCode == HTTP_CODE_OK) {\n      String payload = http.getString();\n      Serial.println(payload);\n    }\n\n    http.end();\n  }\n}\n\nvoid loop() {}\n```\n\n#### Client Libraries\n\nWe have client libraries to help you get started with your project: [Python](https://github.com/adafruit/io-client-python), [Ruby](https://github.com/adafruit/io-client-ruby), [Arduino C++](https://github.com/adafruit/Adafruit_IO_Arduino), [Javascript](https://github.com/adafruit/adafruit-io-node), and [Go](https://github.com/adafruit/io-client-go) are available. They're all open source, so if they don't already do what you want, you can fork and add any feature you'd like.\n\n"
+  version: 2.0.0
+  x-logo:
+    url: https://io.adafruit.com/api/docs/adafruit-flower-left.png
+servers:
+- url: https://io.adafruit.com/api/v2
+- url: http://io.adafruit.com/api/v2
+security:
+- HeaderKey: []
+- HeaderSignature: []
+- QueryKey: []
+tags:
+- name: Tokens
+paths:
+  /{username}/tokens:
+    get:
+      summary: All tokens for current user
+      description: 'The Tokens endpoint returns information about the user''s tokens.
+
+        '
+      x-swagger-router-controller: Tokens
+      x-swagger-router-action: all
+      operationId: allTokens
+      tags:
+      - Tokens
+      parameters:
+      - $ref: '#/components/parameters/UsernamePath'
+      responses:
+        '200':
+          description: An array of tokens
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Token'
+            text/csv:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Token'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Server Error
+    post:
+      summary: Create a new Token
+      description: ''
+      x-swagger-router-controller: Tokens
+      x-swagger-router-action: create
+      operationId: createToken
+      parameters:
+      - $ref: '#/components/parameters/UsernamePath'
+      requestBody:
+        $ref: '#/components/requestBodies/createTokenToken'
+      tags:
+      - Tokens
+      responses:
+        '200':
+          description: New Token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Token'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Server Error
+  /{username}/tokens/{id}:
+    get:
+      summary: Returns Token based on ID
+      description: ''
+      x-swagger-router-controller: Tokens
+      x-swagger-router-action: get
+      operationId: getToken
+      tags:
+      - Tokens
+      parameters:
+      - $ref: '#/components/parameters/UsernamePath'
+      - $ref: '#/components/parameters/IDPath'
+      responses:
+        '200':
+          description: Token response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Token'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Server Error"
+    put:
+      summary: Replace an existing Token
+      x-swagger-router-controller: Tokens
+      x-swagger-router-action: replace
+      operationId: replaceToken
+      description: ''
+      parameters:
+      - $ref: '#/components/parameters/UsernamePath'
+      - $ref: '#/components/parameters/IDPath'
+      requestBody:
+        $ref: '#/components/requestBodies/createTokenToken'
+      tags:
+      - Tokens
+      responses:
+        '200':
+          description: Updated token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Token'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Server Error
+    patch:
+      summary: Update properties of an existing Token
+      description: ''
+      x-swagger-router-controller: Tokens
+      x-swagger-router-action: update
+      operationId: updateToken
+      parameters:
+      - $ref: '#/components/parameters/UsernamePath'
+      - $ref: '#/components/parameters/IDPath'
+      requestBody:
+        $ref: '#/components/requestBodies/createTokenToken'
+      tags:
+      - Tokens
+      responses:
+        '200':
+          description: Updated Token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/Token'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Server Error
+    delete:
+      summary: Delete an existing Token
+      description: ''
+      x-swagger-router-controller: Tokens
+      x-swagger-router-action: destroy
+      operationId: destroyToken
+      parameters:
+      - $ref: '#/components/parameters/UsernamePath'
+      - $ref: '#/components/parameters/IDPath'
+      tags:
+      - Tokens
+      responses:
+        '200':
+          description: Deleted Token successfully
+          content:
+            application/json:
+              schema:
+                type: string
+            text/csv:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Server Error
+components:
+  requestBodies:
+    createTokenToken:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              token:
+                type: string
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              token:
+                type: string
+      required: true
+  parameters:
+    IDPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    UsernamePath:
+      name: username
+      in: path
+      required: true
+      description: a valid username string
+      schema:
+        type: string
+  schemas:
+    Token:
+      type: object
+      properties:
+        token:
+          type: string
+  securitySchemes:
+    HeaderKey:
+      description: The AIO Key is used to restrict or grant access to your data. The key is unique, and you can generate a key per feed, and control it in many different ways. The easiest process is to just use your automatically generated master key. You can access this key right from the right-hand side of your dashboard or from an individual feed page.
+      type: apiKey
+      in: header
+      name: X-AIO-Key
+    QueryKey:
+      description: The AIO Key is used to restrict or grant access to your data. The key is unique, and you can generate a key per feed, and control it in many different ways. The easiest process is to just use your automatically generated master key. You can access this key right from the right-hand side of your dashboard or from an individual feed page.
+      type: apiKey
+      in: query
+      name: X-AIO-Key
+    HeaderSignature:
+      description: The AIO Signature is an AWS inspired request signature.
+      type: apiKey
+      in: header
+      name: X-AIO-Signature
