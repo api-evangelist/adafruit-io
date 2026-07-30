@@ -1,41 +1,6 @@
 aid: adafruit-io
 url: https://raw.githubusercontent.com/api-evangelist/adafruit-io/refs/heads/main/apis.yml
 apis:
-- aid: adafruit-io:adafruit-io-rest-api
-  name: Adafruit IO REST API
-  tags:
-  - IoT
-  - Internet of Things
-  - Feeds
-  - Data
-  - Dashboards
-  - Maker
-  humanURL: https://io.adafruit.com/api/docs/
-  baseURL: https://io.adafruit.com/api/v2
-  properties:
-  - url: https://io.adafruit.com/api/docs/
-    type: Documentation
-  - url: https://io.adafruit.com/api/docs/#adafruit-io-http-api
-    type: Documentation
-  - url: openapi/adafruit-io-rest-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/adafruit-io-feed-schema.json
-    type: JSONSchema
-  - url: json-schema/adafruit-io-data-schema.json
-    type: JSONSchema
-  - url: json-schema/adafruit-io-dashboard-schema.json
-    type: JSONSchema
-  - url: json-ld/adafruit-io-context.jsonld
-    type: JSONLD
-  - url: graphql/adafruit-io-graphql.md
-    type: GraphQL
-  description: REST API for Adafruit IO providing CRUD operations across feeds, time-series
-    data points, groups, dashboards, dashboard blocks, triggers (reactive and scheduled
-    actions), API tokens, permissions/ACL, account activities, and inbound webhooks.
-    Base URL https://io.adafruit.com/api/v2 — authenticated via the X-AIO-Key header
-    or query parameter using an Adafruit IO API key. Supports batch data writes, chart-aggregated
-    reads, positional queries (first/last/previous/next/retain), and Link-header pagination
-    up to 1000 records per page.
 - aid: adafruit-io:adafruit-io-mqtt-api
   name: Adafruit IO MQTT API
   tags:
@@ -51,36 +16,300 @@ apis:
     type: Documentation
   - url: https://io.adafruit.com/api/docs/mqtt.html#mqtt-topics
     type: Documentation
-  description: MQTT broker at io.adafruit.com for publish/subscribe access to Adafruit
-    IO feeds and groups. TLS on port 8883, plaintext on 1883, and MQTT-over-WebSocket
-    on port 443. Authenticate with your Adafruit IO username and API key. Supports
-    QoS 0 and QoS 1 (QoS 2 not supported); MQTT retain flag is not honored — use the
-    /get topic modifier to fetch the last value of a feed instead. Topic structure
-    includes feed topics ({username}/feeds/{key}), compact aliases ({username}/f/{key}),
-    JSON/CSV suffixes, group topics ({username}/groups/{key}), throttle ({username}/throttle),
-    and errors ({username}/errors). Wildcard subscriptions with `+` and `#` are supported
-    for feed discovery.
+  description: >-
+    MQTT broker at io.adafruit.com for publish/subscribe access to Adafruit IO feeds and groups. TLS on
+    port 8883, plaintext on 1883, and MQTT-over-WebSocket on port 443. Authenticate with your Adafruit
+    IO username and API key. Supports QoS 0 and QoS 1 (QoS 2 not supported); MQTT retain flag is not honored
+    — use the /get topic modifier to fetch the last value of a feed instead. Topic structure includes
+    feed topics ({username}/feeds/{key}), compact aliases ({username}/f/{key}), JSON/CSV suffixes, group
+    topics ({username}/groups/{key}), throttle ({username}/throttle), and errors ({username}/errors).
+    Wildcard subscriptions with `+` and `#` are supported for feed discovery.
+- aid: adafruit-io:adafruit-io-activities-api
+  name: Adafruit IO Activities API
+  description: The Activities API from Adafruit IO — 2 operation(s) for activities.
+  humanURL: https://io.adafruit.com/api/docs/
+  baseURL: https://io.adafruit.com/api/v2
+  tags:
+  - Activities
+  properties:
+  - type: OpenAPI
+    url: openapi/adafruit-io-activities-api-openapi.yml
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#adafruit-io-http-api
+  - type: JSONSchema
+    url: json-schema/adafruit-io-feed-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-data-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-dashboard-schema.json
+  - type: JSONLD
+    url: json-ld/adafruit-io-context.jsonld
+  - type: GraphQL
+    url: graphql/adafruit-io-graphql.md
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#webhooks
+- aid: adafruit-io:adafruit-io-blocks-api
+  name: Adafruit IO Blocks API
+  description: The Blocks API from Adafruit IO — 2 operation(s) for blocks.
+  humanURL: https://io.adafruit.com/api/docs/
+  baseURL: https://io.adafruit.com/api/v2
+  tags:
+  - Blocks
+  properties:
+  - type: OpenAPI
+    url: openapi/adafruit-io-blocks-api-openapi.yml
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#adafruit-io-http-api
+  - type: JSONSchema
+    url: json-schema/adafruit-io-feed-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-data-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-dashboard-schema.json
+  - type: JSONLD
+    url: json-ld/adafruit-io-context.jsonld
+  - type: GraphQL
+    url: graphql/adafruit-io-graphql.md
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#webhooks
+- aid: adafruit-io:adafruit-io-dashboards-api
+  name: Adafruit IO Dashboards API
+  description: The Dashboards API from Adafruit IO — 2 operation(s) for dashboards.
+  humanURL: https://io.adafruit.com/api/docs/
+  baseURL: https://io.adafruit.com/api/v2
+  tags:
+  - Dashboards
+  properties:
+  - type: OpenAPI
+    url: openapi/adafruit-io-dashboards-api-openapi.yml
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#adafruit-io-http-api
+  - type: JSONSchema
+    url: json-schema/adafruit-io-feed-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-data-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-dashboard-schema.json
+  - type: JSONLD
+    url: json-ld/adafruit-io-context.jsonld
+  - type: GraphQL
+    url: graphql/adafruit-io-graphql.md
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#webhooks
+- aid: adafruit-io:adafruit-io-data-api
+  name: Adafruit IO Data API
+  description: The Data API from Adafruit IO — 14 operation(s) for data.
+  humanURL: https://io.adafruit.com/api/docs/
+  baseURL: https://io.adafruit.com/api/v2
+  tags:
+  - Data
+  properties:
+  - type: OpenAPI
+    url: openapi/adafruit-io-data-api-openapi.yml
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#adafruit-io-http-api
+  - type: JSONSchema
+    url: json-schema/adafruit-io-feed-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-data-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-dashboard-schema.json
+  - type: JSONLD
+    url: json-ld/adafruit-io-context.jsonld
+  - type: GraphQL
+    url: graphql/adafruit-io-graphql.md
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#webhooks
+- aid: adafruit-io:adafruit-io-feeds-api
+  name: Adafruit IO Feeds API
+  description: The Feeds API from Adafruit IO — 6 operation(s) for feeds.
+  humanURL: https://io.adafruit.com/api/docs/
+  baseURL: https://io.adafruit.com/api/v2
+  tags:
+  - Feeds
+  properties:
+  - type: OpenAPI
+    url: openapi/adafruit-io-feeds-api-openapi.yml
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#adafruit-io-http-api
+  - type: JSONSchema
+    url: json-schema/adafruit-io-feed-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-data-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-dashboard-schema.json
+  - type: JSONLD
+    url: json-ld/adafruit-io-context.jsonld
+  - type: GraphQL
+    url: graphql/adafruit-io-graphql.md
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#webhooks
+- aid: adafruit-io:adafruit-io-groups-api
+  name: Adafruit IO Groups API
+  description: The Groups API from Adafruit IO — 5 operation(s) for groups.
+  humanURL: https://io.adafruit.com/api/docs/
+  baseURL: https://io.adafruit.com/api/v2
+  tags:
+  - Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/adafruit-io-groups-api-openapi.yml
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#adafruit-io-http-api
+  - type: JSONSchema
+    url: json-schema/adafruit-io-feed-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-data-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-dashboard-schema.json
+  - type: JSONLD
+    url: json-ld/adafruit-io-context.jsonld
+  - type: GraphQL
+    url: graphql/adafruit-io-graphql.md
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#webhooks
+- aid: adafruit-io:adafruit-io-permissions-api
+  name: Adafruit IO Permissions API
+  description: The Permissions API from Adafruit IO — 2 operation(s) for permissions.
+  humanURL: https://io.adafruit.com/api/docs/
+  baseURL: https://io.adafruit.com/api/v2
+  tags:
+  - Permissions
+  properties:
+  - type: OpenAPI
+    url: openapi/adafruit-io-permissions-api-openapi.yml
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#adafruit-io-http-api
+  - type: JSONSchema
+    url: json-schema/adafruit-io-feed-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-data-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-dashboard-schema.json
+  - type: JSONLD
+    url: json-ld/adafruit-io-context.jsonld
+  - type: GraphQL
+    url: graphql/adafruit-io-graphql.md
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#webhooks
+- aid: adafruit-io:adafruit-io-tokens-api
+  name: Adafruit IO Tokens API
+  description: The Tokens API from Adafruit IO — 2 operation(s) for tokens.
+  humanURL: https://io.adafruit.com/api/docs/
+  baseURL: https://io.adafruit.com/api/v2
+  tags:
+  - Tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/adafruit-io-tokens-api-openapi.yml
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#adafruit-io-http-api
+  - type: JSONSchema
+    url: json-schema/adafruit-io-feed-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-data-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-dashboard-schema.json
+  - type: JSONLD
+    url: json-ld/adafruit-io-context.jsonld
+  - type: GraphQL
+    url: graphql/adafruit-io-graphql.md
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#webhooks
+- aid: adafruit-io:adafruit-io-triggers-api
+  name: Adafruit IO Triggers API
+  description: The Triggers API from Adafruit IO — 2 operation(s) for triggers.
+  humanURL: https://io.adafruit.com/api/docs/
+  baseURL: https://io.adafruit.com/api/v2
+  tags:
+  - Triggers
+  properties:
+  - type: OpenAPI
+    url: openapi/adafruit-io-triggers-api-openapi.yml
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#adafruit-io-http-api
+  - type: JSONSchema
+    url: json-schema/adafruit-io-feed-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-data-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-dashboard-schema.json
+  - type: JSONLD
+    url: json-ld/adafruit-io-context.jsonld
+  - type: GraphQL
+    url: graphql/adafruit-io-graphql.md
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#webhooks
+- aid: adafruit-io:adafruit-io-users-api
+  name: Adafruit IO Users API
+  description: The Users API from Adafruit IO — 2 operation(s) for users.
+  humanURL: https://io.adafruit.com/api/docs/
+  baseURL: https://io.adafruit.com/api/v2
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/adafruit-io-users-api-openapi.yml
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#adafruit-io-http-api
+  - type: JSONSchema
+    url: json-schema/adafruit-io-feed-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-data-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-dashboard-schema.json
+  - type: JSONLD
+    url: json-ld/adafruit-io-context.jsonld
+  - type: GraphQL
+    url: graphql/adafruit-io-graphql.md
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#webhooks
 - aid: adafruit-io:adafruit-io-webhooks-api
   name: Adafruit IO Webhooks API
+  description: The Webhooks API from Adafruit IO — 2 operation(s) for webhooks.
+  humanURL: https://io.adafruit.com/api/docs/
+  baseURL: https://io.adafruit.com/api/v2
   tags:
-  - IoT
-  - Internet of Things
   - Webhooks
-  - Feeds
-  humanURL: https://io.adafruit.com/api/docs/#webhooks
-  baseURL: https://io.adafruit.com/api/v2/webhooks
   properties:
-  - url: https://io.adafruit.com/api/docs/#webhooks
-    type: Documentation
-  - url: openapi/adafruit-io-rest-api-openapi.yml
-    type: OpenAPI
-  description: Token-authenticated inbound webhook endpoints that allow third-party
-    services (IFTTT, Zapier, Make, or any HTTP client) to push data into an Adafruit
-    IO feed without an API key. Endpoints include the standard JSON webhook (POST
-    /webhooks/feed/:token), the raw-payload webhook (POST /webhooks/feed/:token/raw)
-    for arbitrary request bodies, and a notify webhook (POST /webhooks/feed/:token/notify)
-    for ping-style triggers. Tokens are generated per-feed and managed in the Adafruit
-    IO UI.
+  - type: OpenAPI
+    url: openapi/adafruit-io-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#adafruit-io-http-api
+  - type: JSONSchema
+    url: json-schema/adafruit-io-feed-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-data-schema.json
+  - type: JSONSchema
+    url: json-schema/adafruit-io-dashboard-schema.json
+  - type: JSONLD
+    url: json-ld/adafruit-io-context.jsonld
+  - type: GraphQL
+    url: graphql/adafruit-io-graphql.md
+  - type: Documentation
+    url: https://io.adafruit.com/api/docs/#webhooks
 name: Adafruit IO
 tags:
 - IoT
@@ -95,7 +324,20 @@ tags:
 - Dashboards
 - Time Series
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/adafruit-io.png
 access: 3rd-Party
 common:
 - type: AgenticAccess
