@@ -1,0 +1,34 @@
+{
+  "provider": "adafruit-io",
+  "sources": [
+    "adafruit-io-activities-api-openapi.yml",
+    "adafruit-io-blocks-api-openapi.yml",
+    "adafruit-io-dashboards-api-openapi.yml",
+    "adafruit-io-data-api-openapi.yml",
+    "adafruit-io-feeds-api-openapi.yml",
+    "adafruit-io-groups-api-openapi.yml",
+    "adafruit-io-permissions-api-openapi.yml",
+    "adafruit-io-tokens-api-openapi.yml",
+    "adafruit-io-triggers-api-openapi.yml",
+    "adafruit-io-users-api-openapi.yml",
+    "adafruit-io-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "adafruit-io-activities-api-openapi.yml",
+    "adafruit-io-blocks-api-openapi.yml",
+    "adafruit-io-dashboards-api-openapi.yml",
+    "adafruit-io-data-api-openapi.yml",
+    "adafruit-io-feeds-api-openapi.yml",
+    "adafruit-io-groups-api-openapi.yml",
+    "adafruit-io-permissions-api-openapi.yml",
+    "adafruit-io-tokens-api-openapi.yml",
+    "adafruit-io-triggers-api-openapi.yml",
+    "adafruit-io-users-api-openapi.yml",
+    "adafruit-io-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
