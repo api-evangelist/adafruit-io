@@ -1,0 +1,3878 @@
+{
+  "item": [
+    {
+      "id": "dc4df712-4647-4674-a9e3-2704b015e754",
+      "name": "Feeds",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "efdbf744-fd34-4569-be6f-9e8499e2f2b1",
+          "name": "All feeds for current user",
+          "request": {
+            "name": "All feeds for current user",
+            "description": {
+              "content": "The Feeds endpoint returns information about the user's feeds. The response includes the latest value of each feed, and other metadata about each feed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":username",
+                "feeds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) a valid username string"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e6d46247-1edc-4e78-8b63-94b044ab320c",
+              "name": "An array of feeds",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 2882.7016359269464,\n    \"name\": \"string\",\n    \"key\": \"string\",\n    \"group\": {\n      \"key_0\": {\n        \"id\": 6327.649419865111,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\"\n      },\n      \"key_1\": {\n        \"id\": 9386.96157868448,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\"\n      },\n      \"key_2\": {\n        \"id\": 6522.759548518321,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\"\n      }\n    },\n    \"groups\": [\n      {\n        \"id\": 1502.4499719346195,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\"\n      },\n      {\n        \"id\": 2627.233944272319,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\"\n      }\n    ],\n    \"description\": \"string\",\n    \"details\": {\n      \"data\": {\n        \"first\": {\n          \"key_0\": {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"feed_id\": 6278.849879137996,\n            \"group_id\": 2857.8327829750638,\n            \"expiration\": \"string\",\n            \"lat\": 8324.174842476355,\n            \"lon\": 583.8008697095021,\n            \"ele\": 6105.6543930131775,\n            \"completed_at\": \"string\",\n            \"created_at\": \"string\",\n            \"updated_at\": \"string\",\n            \"created_epoch\": 4306.429594305451\n          }\n        },\n        \"last\": {\n          \"key_0\": {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"feed_id\": 2653.2063893045633,\n            \"group_id\": 1313.159910633055,\n            \"expiration\": \"string\",\n            \"lat\": 8974.922038272154,\n            \"lon\": 3572.5314867164993,\n            \"ele\": 6482.735296847359,\n            \"completed_at\": \"string\",\n            \"created_at\": \"string\",\n            \"updated_at\": \"string\",\n            \"created_epoch\": 6093.674324640633\n          },\n          \"key_1\": {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"feed_id\": 215.49278224146317,\n            \"group_id\": 1392.5840263210864,\n            \"expiration\": \"string\",\n            \"lat\": 8527.214546194038,\n            \"lon\": 376.1641491713952,\n            \"ele\": 7964.356320784111,\n            \"completed_at\": \"string\",\n            \"created_at\": \"string\",\n            \"updated_at\": \"string\",\n            \"created_epoch\": 931.1796776153614\n          },\n          \"key_2\": {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"feed_id\": 1843.6724307887453,\n            \"group_id\": 4176.999612310791,\n            \"expiration\": \"string\",\n            \"lat\": 5275.59951456896,\n            \"lon\": 63.03559353818877,\n            \"ele\": 3540.9340916758556,\n            \"completed_at\": \"string\",\n            \"created_at\": \"string\",\n            \"updated_at\": \"string\",\n            \"created_epoch\": 1058.1628532649845\n          },\n          \"key_3\": {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"feed_id\": 11.781343514263298,\n            \"group_id\": 9177.709207424614,\n            \"expiration\": \"string\",\n            \"lat\": 5611.712090587699,\n            \"lon\": 7796.902186108182,\n            \"ele\": 6038.167005661115,\n            \"completed_at\": \"string\",\n            \"created_at\": \"string\",\n            \"updated_at\": \"string\",\n            \"created_epoch\": 7807.0318284822915\n          }\n        },\n        \"count\": 7161\n      }\n    },\n    \"unit_type\": \"string\",\n    \"unit_symbol\": \"string\",\n    \"history\": false,\n    \"visibility\": \"private\",\n    \"license\": \"string\",\n    \"enabled\": true,\n    \"last_value\": \"string\",\n    \"status\": \"string\",\n    \"status_notify\": true,\n    \"status_timeout\": 4939,\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\"\n  },\n  {\n    \"id\": 3772.4623979138296,\n    \"name\": \"string\",\n    \"key\": \"string\",\n    \"group\": {\n      \"key_0\": {\n        \"id\": 8936.59813730426,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\"\n      },\n      \"key_1\": {\n        \"id\": 8124.10007877873,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\"\n      }\n    },\n    \"groups\": [\n      {\n        \"id\": 739.3425517979247,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\"\n      },\n      {\n        \"id\": 5397.819368434031,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\"\n      }\n    ],\n    \"description\": \"string\",\n    \"details\": {\n      \"data\": {\n        \"first\": {\n          \"key_0\": {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"feed_id\": 9729.333048451606,\n            \"group_id\": 4423.6535523246,\n            \"expiration\": \"string\",\n            \"lat\": 7703.685311255156,\n            \"lon\": 9197.118243751385,\n            \"ele\": 3596.4273093738875,\n            \"completed_at\": \"string\",\n            \"created_at\": \"string\",\n            \"updated_at\": \"string\",\n            \"created_epoch\": 2298.2431116580983\n          }\n        },\n        \"last\": {\n          \"key_0\": {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"feed_id\": 6231.18252220922,\n            \"group_id\": 7711.518425576684,\n            \"expiration\": \"string\",\n            \"lat\": 6586.942650938049,\n            \"lon\": 20.3860331011374,\n            \"ele\": 4163.792047687231,\n            \"completed_at\": \"string\",\n            \"created_at\": \"string\",\n            \"updated_at\": \"string\",\n            \"created_epoch\": 8111.160082885698\n          },\n          \"key_1\": {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"feed_id\": 2300.5912985017185,\n            \"group_id\": 4739.194725679201,\n            \"expiration\": \"string\",\n            \"lat\": 8354.545929998947,\n            \"lon\": 8429.528755100231,\n            \"ele\": 8155.008715127006,\n            \"completed_at\": \"string\",\n            \"created_at\": \"string\",\n            \"updated_at\": \"string\",\n            \"created_epoch\": 9119.180894301418\n          },\n          \"key_2\": {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"feed_id\": 3275.367978478395,\n            \"group_id\": 6595.475157320035,\n            \"expiration\": \"string\",\n            \"lat\": 4089.0020641086376,\n            \"lon\": 529.2312313305025,\n            \"ele\": 8227.174991885848,\n            \"completed_at\": \"string\",\n            \"created_at\": \"string\",\n            \"updated_at\": \"string\",\n            \"created_epoch\": 770.3911940685326\n          }\n        },\n        \"count\": 7174\n      }\n    },\n    \"unit_type\": \"string\",\n    \"unit_symbol\": \"string\",\n    \"history\": false,\n    \"visibility\": \"private\",\n    \"license\": \"string\",\n    \"enabled\": false,\n    \"last_value\": \"string\",\n    \"status\": \"string\",\n    \"status_notify\": true,\n    \"status_timeout\": 747,\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1029efb6-7ef3-4255-8b34-1011e5676db1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6527f525-b66d-43a5-80b6-eb97199319a4",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "458a6827-e5bd-4541-afe1-5ee5149ad031",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "44675b74-be2e-4534-9f82-4a0847ae6d72",
+              "name": "Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3fff2565-3c72-48fe-8b2c-c8e74a79ce69",
+          "name": "Create a new Feed",
+          "request": {
+            "name": "Create a new Feed",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":username",
+                "feeds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "group_key",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) a valid username string"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "license",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "355d53cb-4426-4242-98a2-f610fe319eba",
+              "name": "New feed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "group_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4026.1073998736742,\n  \"name\": \"string\",\n  \"key\": \"string\",\n  \"group\": {\n    \"key_0\": {\n      \"id\": 2975.14332243488,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    },\n    \"key_1\": {\n      \"id\": 9406.315100590062,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    }\n  },\n  \"groups\": [\n    {\n      \"id\": 214.59080691710653,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    },\n    {\n      \"id\": 3043.0803671113295,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    }\n  ],\n  \"description\": \"string\",\n  \"details\": {\n    \"data\": {\n      \"first\": {\n        \"key_0\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 5704.412229636037,\n          \"group_id\": 111.40661771956384,\n          \"expiration\": \"string\",\n          \"lat\": 5410.228274351153,\n          \"lon\": 1354.63950840496,\n          \"ele\": 2575.556331706991,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 1943.649686942015\n        },\n        \"key_1\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 4760.877378065949,\n          \"group_id\": 6468.926297342095,\n          \"expiration\": \"string\",\n          \"lat\": 7645.017761208337,\n          \"lon\": 7347.379230120053,\n          \"ele\": 3619.5861419492235,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 9726.619699776486\n        },\n        \"key_2\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 5658.532015020855,\n          \"group_id\": 3220.4852924456795,\n          \"expiration\": \"string\",\n          \"lat\": 8032.113056790813,\n          \"lon\": 7533.559206060484,\n          \"ele\": 2609.783230614177,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 2838.8981161407755\n        },\n        \"key_3\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 475.0449794160905,\n          \"group_id\": 358.43936360205777,\n          \"expiration\": \"string\",\n          \"lat\": 9105.371095739425,\n          \"lon\": 8829.069242232572,\n          \"ele\": 1219.3413010455545,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 9785.559329839696\n        }\n      },\n      \"last\": {\n        \"key_0\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 2639.7002352647714,\n          \"group_id\": 7941.250659551377,\n          \"expiration\": \"string\",\n          \"lat\": 4646.733785466488,\n          \"lon\": 9212.036030198788,\n          \"ele\": 2362.829876542195,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 7915.300572546604\n        }\n      },\n      \"count\": 8131\n    }\n  },\n  \"unit_type\": \"string\",\n  \"unit_symbol\": \"string\",\n  \"history\": true,\n  \"visibility\": \"private\",\n  \"license\": \"string\",\n  \"enabled\": true,\n  \"last_value\": \"string\",\n  \"status\": \"string\",\n  \"status_notify\": true,\n  \"status_timeout\": 4410,\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8975b195-6306-498c-b884-8665c46b6014",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "group_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9ee71b23-eae5-4e4a-8b17-25ff2e843698",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "group_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2911b4e5-3525-47f7-8e50-a64fb121dda7",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "group_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "086ab4cf-ee2c-4217-a9ae-65f49ea38b38",
+              "name": "Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "group_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ba51b4c-15e1-4ab5-ac71-7e47e8e52740",
+          "name": "Get feed by feed key",
+          "request": {
+            "name": "Get feed by feed key",
+            "description": {
+              "content": "Returns feed based on the feed key",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":username",
+                "feeds",
+                ":feed_key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) a valid username string"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "feed_key",
+                  "description": "(Required) a valid feed key"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "070b3d77-7e33-438f-9180-85347d2a5f79",
+              "name": "Feed response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4026.1073998736742,\n  \"name\": \"string\",\n  \"key\": \"string\",\n  \"group\": {\n    \"key_0\": {\n      \"id\": 2975.14332243488,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    },\n    \"key_1\": {\n      \"id\": 9406.315100590062,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    }\n  },\n  \"groups\": [\n    {\n      \"id\": 214.59080691710653,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    },\n    {\n      \"id\": 3043.0803671113295,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    }\n  ],\n  \"description\": \"string\",\n  \"details\": {\n    \"data\": {\n      \"first\": {\n        \"key_0\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 5704.412229636037,\n          \"group_id\": 111.40661771956384,\n          \"expiration\": \"string\",\n          \"lat\": 5410.228274351153,\n          \"lon\": 1354.63950840496,\n          \"ele\": 2575.556331706991,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 1943.649686942015\n        },\n        \"key_1\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 4760.877378065949,\n          \"group_id\": 6468.926297342095,\n          \"expiration\": \"string\",\n          \"lat\": 7645.017761208337,\n          \"lon\": 7347.379230120053,\n          \"ele\": 3619.5861419492235,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 9726.619699776486\n        },\n        \"key_2\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 5658.532015020855,\n          \"group_id\": 3220.4852924456795,\n          \"expiration\": \"string\",\n          \"lat\": 8032.113056790813,\n          \"lon\": 7533.559206060484,\n          \"ele\": 2609.783230614177,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 2838.8981161407755\n        },\n        \"key_3\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 475.0449794160905,\n          \"group_id\": 358.43936360205777,\n          \"expiration\": \"string\",\n          \"lat\": 9105.371095739425,\n          \"lon\": 8829.069242232572,\n          \"ele\": 1219.3413010455545,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 9785.559329839696\n        }\n      },\n      \"last\": {\n        \"key_0\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 2639.7002352647714,\n          \"group_id\": 7941.250659551377,\n          \"expiration\": \"string\",\n          \"lat\": 4646.733785466488,\n          \"lon\": 9212.036030198788,\n          \"ele\": 2362.829876542195,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 7915.300572546604\n        }\n      },\n      \"count\": 8131\n    }\n  },\n  \"unit_type\": \"string\",\n  \"unit_symbol\": \"string\",\n  \"history\": true,\n  \"visibility\": \"private\",\n  \"license\": \"string\",\n  \"enabled\": true,\n  \"last_value\": \"string\",\n  \"status\": \"string\",\n  \"status_notify\": true,\n  \"status_timeout\": 4410,\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a1cec2a-f58b-4e6a-be8e-e315dee22026",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f548a17e-686a-481d-9c8c-b0e78d5acfdf",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dfc8e8cc-7dd2-4ca0-b47e-bafb08a42ef8",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "943825ef-588d-4f19-9335-8a3704aa46e6",
+              "name": "Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4eae327-5dcc-4ef0-8080-7c8b3d663b02",
+          "name": "Replace an existing Feed",
+          "request": {
+            "name": "Replace an existing Feed",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":username",
+                "feeds",
+                ":feed_key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) a valid username string"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "feed_key",
+                  "description": "(Required) a valid feed key"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "license",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f53e9f11-8eca-49aa-88c9-9c039c470211",
+              "name": "Updated feed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4026.1073998736742,\n  \"name\": \"string\",\n  \"key\": \"string\",\n  \"group\": {\n    \"key_0\": {\n      \"id\": 2975.14332243488,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    },\n    \"key_1\": {\n      \"id\": 9406.315100590062,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    }\n  },\n  \"groups\": [\n    {\n      \"id\": 214.59080691710653,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    },\n    {\n      \"id\": 3043.0803671113295,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    }\n  ],\n  \"description\": \"string\",\n  \"details\": {\n    \"data\": {\n      \"first\": {\n        \"key_0\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 5704.412229636037,\n          \"group_id\": 111.40661771956384,\n          \"expiration\": \"string\",\n          \"lat\": 5410.228274351153,\n          \"lon\": 1354.63950840496,\n          \"ele\": 2575.556331706991,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 1943.649686942015\n        },\n        \"key_1\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 4760.877378065949,\n          \"group_id\": 6468.926297342095,\n          \"expiration\": \"string\",\n          \"lat\": 7645.017761208337,\n          \"lon\": 7347.379230120053,\n          \"ele\": 3619.5861419492235,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 9726.619699776486\n        },\n        \"key_2\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 5658.532015020855,\n          \"group_id\": 3220.4852924456795,\n          \"expiration\": \"string\",\n          \"lat\": 8032.113056790813,\n          \"lon\": 7533.559206060484,\n          \"ele\": 2609.783230614177,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 2838.8981161407755\n        },\n        \"key_3\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 475.0449794160905,\n          \"group_id\": 358.43936360205777,\n          \"expiration\": \"string\",\n          \"lat\": 9105.371095739425,\n          \"lon\": 8829.069242232572,\n          \"ele\": 1219.3413010455545,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 9785.559329839696\n        }\n      },\n      \"last\": {\n        \"key_0\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 2639.7002352647714,\n          \"group_id\": 7941.250659551377,\n          \"expiration\": \"string\",\n          \"lat\": 4646.733785466488,\n          \"lon\": 9212.036030198788,\n          \"ele\": 2362.829876542195,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 7915.300572546604\n        }\n      },\n      \"count\": 8131\n    }\n  },\n  \"unit_type\": \"string\",\n  \"unit_symbol\": \"string\",\n  \"history\": true,\n  \"visibility\": \"private\",\n  \"license\": \"string\",\n  \"enabled\": true,\n  \"last_value\": \"string\",\n  \"status\": \"string\",\n  \"status_notify\": true,\n  \"status_timeout\": 4410,\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0358b8d-0115-4d51-86a3-5d8f958666c6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "be9609b0-8538-48aa-9e52-3c683703784c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "576918b8-b610-432c-9c5a-8cd60bc4868e",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6c60b7f6-9f69-496e-ae1a-c321a3df9759",
+              "name": "Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3626f7c1-8e25-474f-9488-9f7bc1bf35ae",
+          "name": "Update properties of an existing Feed",
+          "request": {
+            "name": "Update properties of an existing Feed",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":username",
+                "feeds",
+                ":feed_key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) a valid username string"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "feed_key",
+                  "description": "(Required) a valid feed key"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "license",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1d3384df-c7f6-49a1-8b95-e05a117de010",
+              "name": "Updated feed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4026.1073998736742,\n  \"name\": \"string\",\n  \"key\": \"string\",\n  \"group\": {\n    \"key_0\": {\n      \"id\": 2975.14332243488,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    },\n    \"key_1\": {\n      \"id\": 9406.315100590062,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    }\n  },\n  \"groups\": [\n    {\n      \"id\": 214.59080691710653,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    },\n    {\n      \"id\": 3043.0803671113295,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    }\n  ],\n  \"description\": \"string\",\n  \"details\": {\n    \"data\": {\n      \"first\": {\n        \"key_0\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 5704.412229636037,\n          \"group_id\": 111.40661771956384,\n          \"expiration\": \"string\",\n          \"lat\": 5410.228274351153,\n          \"lon\": 1354.63950840496,\n          \"ele\": 2575.556331706991,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 1943.649686942015\n        },\n        \"key_1\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 4760.877378065949,\n          \"group_id\": 6468.926297342095,\n          \"expiration\": \"string\",\n          \"lat\": 7645.017761208337,\n          \"lon\": 7347.379230120053,\n          \"ele\": 3619.5861419492235,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 9726.619699776486\n        },\n        \"key_2\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 5658.532015020855,\n          \"group_id\": 3220.4852924456795,\n          \"expiration\": \"string\",\n          \"lat\": 8032.113056790813,\n          \"lon\": 7533.559206060484,\n          \"ele\": 2609.783230614177,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 2838.8981161407755\n        },\n        \"key_3\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 475.0449794160905,\n          \"group_id\": 358.43936360205777,\n          \"expiration\": \"string\",\n          \"lat\": 9105.371095739425,\n          \"lon\": 8829.069242232572,\n          \"ele\": 1219.3413010455545,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 9785.559329839696\n        }\n      },\n      \"last\": {\n        \"key_0\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 2639.7002352647714,\n          \"group_id\": 7941.250659551377,\n          \"expiration\": \"string\",\n          \"lat\": 4646.733785466488,\n          \"lon\": 9212.036030198788,\n          \"ele\": 2362.829876542195,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 7915.300572546604\n        }\n      },\n      \"count\": 8131\n    }\n  },\n  \"unit_type\": \"string\",\n  \"unit_symbol\": \"string\",\n  \"history\": true,\n  \"visibility\": \"private\",\n  \"license\": \"string\",\n  \"enabled\": true,\n  \"last_value\": \"string\",\n  \"status\": \"string\",\n  \"status_notify\": true,\n  \"status_timeout\": 4410,\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b75692e1-c9ee-4513-b997-efcaf1dd80d2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e6f0ff15-58d0-41f0-8f47-0988c656c18a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b6c1cf1f-6dce-4071-b5bc-525460878bed",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0afc8abd-1c2f-410f-8b67-6f752b358d82",
+              "name": "Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54d15e5d-328e-46dd-b34d-2455a279ff16",
+          "name": "Delete an existing Feed",
+          "request": {
+            "name": "Delete an existing Feed",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":username",
+                "feeds",
+                ":feed_key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) a valid username string"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "feed_key",
+                  "description": "(Required) a valid feed key"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5b799a28-30b6-4a3a-a7f5-b85817f05949",
+              "name": "Deleted feed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "305f3672-af21-46e6-a320-4d6cc1d74cd0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dd5f1c34-253d-4285-a68f-2321010097e2",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "89f58d40-14dc-4f68-ab6e-baa5bed06bf3",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eaf75628-a393-42c9-8c46-8ea8778be05f",
+              "name": "Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e4e166e-48d0-4654-9961-eddc32d33f1f",
+          "name": "Get detailed feed by feed key",
+          "request": {
+            "name": "Get detailed feed by feed key",
+            "description": {
+              "content": "Returns more detailed feed record based on the feed key",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":username",
+                "feeds",
+                ":feed_key",
+                "details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) a valid username string"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "feed_key",
+                  "description": "(Required) a valid feed key"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93cd2dcd-6f86-48ee-b870-ac9d98d15e4b",
+              "name": "Feed response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4026.1073998736742,\n  \"name\": \"string\",\n  \"key\": \"string\",\n  \"group\": {\n    \"key_0\": {\n      \"id\": 2975.14332243488,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    },\n    \"key_1\": {\n      \"id\": 9406.315100590062,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    }\n  },\n  \"groups\": [\n    {\n      \"id\": 214.59080691710653,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    },\n    {\n      \"id\": 3043.0803671113295,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    }\n  ],\n  \"description\": \"string\",\n  \"details\": {\n    \"data\": {\n      \"first\": {\n        \"key_0\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 5704.412229636037,\n          \"group_id\": 111.40661771956384,\n          \"expiration\": \"string\",\n          \"lat\": 5410.228274351153,\n          \"lon\": 1354.63950840496,\n          \"ele\": 2575.556331706991,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 1943.649686942015\n        },\n        \"key_1\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 4760.877378065949,\n          \"group_id\": 6468.926297342095,\n          \"expiration\": \"string\",\n          \"lat\": 7645.017761208337,\n          \"lon\": 7347.379230120053,\n          \"ele\": 3619.5861419492235,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 9726.619699776486\n        },\n        \"key_2\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 5658.532015020855,\n          \"group_id\": 3220.4852924456795,\n          \"expiration\": \"string\",\n          \"lat\": 8032.113056790813,\n          \"lon\": 7533.559206060484,\n          \"ele\": 2609.783230614177,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 2838.8981161407755\n        },\n        \"key_3\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 475.0449794160905,\n          \"group_id\": 358.43936360205777,\n          \"expiration\": \"string\",\n          \"lat\": 9105.371095739425,\n          \"lon\": 8829.069242232572,\n          \"ele\": 1219.3413010455545,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 9785.559329839696\n        }\n      },\n      \"last\": {\n        \"key_0\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 2639.7002352647714,\n          \"group_id\": 7941.250659551377,\n          \"expiration\": \"string\",\n          \"lat\": 4646.733785466488,\n          \"lon\": 9212.036030198788,\n          \"ele\": 2362.829876542195,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 7915.300572546604\n        }\n      },\n      \"count\": 8131\n    }\n  },\n  \"unit_type\": \"string\",\n  \"unit_symbol\": \"string\",\n  \"history\": true,\n  \"visibility\": \"private\",\n  \"license\": \"string\",\n  \"enabled\": true,\n  \"last_value\": \"string\",\n  \"status\": \"string\",\n  \"status_notify\": true,\n  \"status_timeout\": 4410,\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7e73d10-29b8-472b-ab3a-77d05c421faf",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cc082980-a87a-4e94-832f-c0bd97948db0",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6252c14f-c7fc-4f26-93e4-486e386d91bd",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5a596807-5277-485d-95af-8bae8e6fc41f",
+              "name": "Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "feeds",
+                    ":feed_key",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feed_key",
+                      "description": "(Required) a valid feed key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "102dc73a-7896-4042-8850-3539f8aeca33",
+          "name": "Add an existing Feed to a Group",
+          "request": {
+            "name": "Add an existing Feed to a Group",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":username",
+                "groups",
+                ":group_key",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "feed_key",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "group_key",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) a valid username string"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0a8c366f-9559-4480-ad29-686fa9295c35",
+              "name": "Updated group",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "feed_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 844.6958450245768,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"feeds\": [\n    {\n      \"id\": 6898.610787945604,\n      \"name\": \"string\",\n      \"key\": \"string\",\n      \"group\": {\n        \"key_0\": {\n          \"id\": 4908.401919093225,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\"\n        },\n        \"key_1\": {\n          \"id\": 4949.35640143929,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\"\n        },\n        \"key_2\": {\n          \"id\": 6269.6043392573865,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\"\n        }\n      },\n      \"groups\": [\n        {\n          \"id\": 1112.6998325505688,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\"\n        },\n        {\n          \"id\": 5797.273644380314,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\"\n        }\n      ],\n      \"description\": \"string\",\n      \"details\": {\n        \"data\": {\n          \"first\": {\n            \"key_0\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 8527.752658634676,\n              \"group_id\": 5391.688920127187,\n              \"expiration\": \"string\",\n              \"lat\": 7302.275836008302,\n              \"lon\": 1584.728968239375,\n              \"ele\": 7294.963693884379,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 6109.158103490039\n            }\n          },\n          \"last\": {\n            \"key_0\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 4449.4959840408,\n              \"group_id\": 2658.2659913230555,\n              \"expiration\": \"string\",\n              \"lat\": 6604.416933604694,\n              \"lon\": 6873.175056252743,\n              \"ele\": 3961.998578657838,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 5965.922493933225\n            },\n            \"key_1\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 1243.4828956568356,\n              \"group_id\": 8919.034223683331,\n              \"expiration\": \"string\",\n              \"lat\": 9646.040401746457,\n              \"lon\": 9306.664035617945,\n              \"ele\": 105.80762535455257,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 2025.8509591734464\n            },\n            \"key_2\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 9227.707641555544,\n              \"group_id\": 5379.994946490281,\n              \"expiration\": \"string\",\n              \"lat\": 1600.3046470602455,\n              \"lon\": 8462.414107953478,\n              \"ele\": 9847.779099741656,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 6198.715543553976\n            }\n          },\n          \"count\": 9645\n        }\n      },\n      \"unit_type\": \"string\",\n      \"unit_symbol\": \"string\",\n      \"history\": true,\n      \"visibility\": \"private\",\n      \"license\": \"string\",\n      \"enabled\": true,\n      \"last_value\": \"string\",\n      \"status\": \"string\",\n      \"status_notify\": false,\n      \"status_timeout\": 6734,\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    },\n    {\n      \"id\": 8762.800646042086,\n      \"name\": \"string\",\n      \"key\": \"string\",\n      \"group\": {\n        \"key_0\": {\n          \"id\": 4901.762057899894,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\"\n        }\n      },\n      \"groups\": [\n        {\n          \"id\": 6633.781773553684,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\"\n        },\n        {\n          \"id\": 69.24631769615108,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\"\n        }\n      ],\n      \"description\": \"string\",\n      \"details\": {\n        \"data\": {\n          \"first\": {\n            \"key_0\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 1155.8231754855096,\n              \"group_id\": 4332.190833985707,\n              \"expiration\": \"string\",\n              \"lat\": 4472.144536488119,\n              \"lon\": 2394.8294068306996,\n              \"ele\": 6922.1423291253695,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 2049.4477990652517\n            },\n            \"key_1\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 7065.929919389831,\n              \"group_id\": 8153.678918222743,\n              \"expiration\": \"string\",\n              \"lat\": 7990.366981921612,\n              \"lon\": 8175.636215082265,\n              \"ele\": 8026.5575664649505,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 8073.380132869415\n            },\n            \"key_2\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 3877.4920382673704,\n              \"group_id\": 4099.1647031198,\n              \"expiration\": \"string\",\n              \"lat\": 9712.820970358965,\n              \"lon\": 6674.189958026288,\n              \"ele\": 1162.8257502065053,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 2104.5235171586596\n            },\n            \"key_3\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 8849.495947839963,\n              \"group_id\": 2977.3692199337165,\n              \"expiration\": \"string\",\n              \"lat\": 2136.568457041692,\n              \"lon\": 3107.5840935073197,\n              \"ele\": 2761.4816551300614,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 1322.5181352668958\n            }\n          },\n          \"last\": {\n            \"key_0\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 6022.003330402245,\n              \"group_id\": 5007.482338465733,\n              \"expiration\": \"string\",\n              \"lat\": 9603.148991885799,\n              \"lon\": 5896.3357661549835,\n              \"ele\": 9005.76728843526,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 5461.112954017254\n            },\n            \"key_1\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 2559.598431600002,\n              \"group_id\": 3314.0416149722573,\n              \"expiration\": \"string\",\n              \"lat\": 7513.537334799399,\n              \"lon\": 2699.8990151512016,\n              \"ele\": 7201.740874009228,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 3721.505109809946\n            },\n            \"key_2\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 2806.2503089348347,\n              \"group_id\": 8373.48326507031,\n              \"expiration\": \"string\",\n              \"lat\": 6774.402183806609,\n              \"lon\": 6524.818403814966,\n              \"ele\": 6366.476603288763,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 8795.045527397862\n            },\n            \"key_3\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 5152.575546139618,\n              \"group_id\": 2310.241353408071,\n              \"expiration\": \"string\",\n              \"lat\": 8482.285097249998,\n              \"lon\": 3922.7783849312923,\n              \"ele\": 1834.2212687799474,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 684.039505159515\n            }\n          },\n          \"count\": 1489\n        }\n      },\n      \"unit_type\": \"string\",\n      \"unit_symbol\": \"string\",\n      \"history\": false,\n      \"visibility\": \"private\",\n      \"license\": \"string\",\n      \"enabled\": false,\n      \"last_value\": \"string\",\n      \"status\": \"string\",\n      \"status_notify\": true,\n      \"status_timeout\": 2676,\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    }\n  ],\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "39e85b9a-1869-45c4-a330-45543051b968",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "feed_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aa3b468b-c5f0-4e22-8d53-4b39e5f7b477",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "feed_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a6b7bfe0-2d64-4265-8244-220c4096e2a3",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "feed_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a623b8ae-3367-4f03-b747-48301ec89c47",
+              "name": "Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "feed_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78a0490b-bb81-4531-b64c-4cfe0f05e258",
+          "name": "Remove a Feed from a Group",
+          "request": {
+            "name": "Remove a Feed from a Group",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":username",
+                "groups",
+                ":group_key",
+                "remove"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "feed_key",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "group_key",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) a valid username string"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "51cffb80-db02-45cd-bdec-128ce95a3721",
+              "name": "Updated group",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "feed_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2008.6063451256132,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"feeds\": [\n    {\n      \"id\": 988.5725357251885,\n      \"name\": \"string\",\n      \"key\": \"string\",\n      \"group\": {\n        \"key_0\": {\n          \"id\": 7833.477559259473,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\"\n        }\n      },\n      \"groups\": [\n        {\n          \"id\": 3315.2534490307985,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\"\n        },\n        {\n          \"id\": 9532.43168340665,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\"\n        }\n      ],\n      \"description\": \"string\",\n      \"details\": {\n        \"data\": {\n          \"first\": {\n            \"key_0\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 7915.1797663153275,\n              \"group_id\": 9380.757851737824,\n              \"expiration\": \"string\",\n              \"lat\": 8780.617066926528,\n              \"lon\": 6015.567806870188,\n              \"ele\": 6900.095868494595,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 6133.524237505285\n            },\n            \"key_1\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 9268.458041215037,\n              \"group_id\": 480.73840322562455,\n              \"expiration\": \"string\",\n              \"lat\": 4259.43371759799,\n              \"lon\": 5305.826524710633,\n              \"ele\": 8665.495109644247,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 3578.511589347471\n            }\n          },\n          \"last\": {\n            \"key_0\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 9642.941385532638,\n              \"group_id\": 4425.187397434122,\n              \"expiration\": \"string\",\n              \"lat\": 8319.407900808857,\n              \"lon\": 9039.449799851229,\n              \"ele\": 3050.565122347003,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 3136.8379311101767\n            },\n            \"key_1\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 7360.161887679145,\n              \"group_id\": 4424.64663594439,\n              \"expiration\": \"string\",\n              \"lat\": 6734.1642454634075,\n              \"lon\": 9426.658120032662,\n              \"ele\": 5143.178766625699,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 2341.875116975336\n            },\n            \"key_2\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 8852.857167152546,\n              \"group_id\": 5934.619601555651,\n              \"expiration\": \"string\",\n              \"lat\": 6248.327015633731,\n              \"lon\": 1837.2100673421555,\n              \"ele\": 9433.505618876476,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 3995.110825712539\n            },\n            \"key_3\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 4266.245687618003,\n              \"group_id\": 4807.877147972119,\n              \"expiration\": \"string\",\n              \"lat\": 4240.384018397526,\n              \"lon\": 7669.7718745336215,\n              \"ele\": 8892.741624138867,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 8792.684960382934\n            }\n          },\n          \"count\": 8619\n        }\n      },\n      \"unit_type\": \"string\",\n      \"unit_symbol\": \"string\",\n      \"history\": true,\n      \"visibility\": \"private\",\n      \"license\": \"string\",\n      \"enabled\": true,\n      \"last_value\": \"string\",\n      \"status\": \"string\",\n      \"status_notify\": false,\n      \"status_timeout\": 3491,\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    },\n    {\n      \"id\": 7900.459408863617,\n      \"name\": \"string\",\n      \"key\": \"string\",\n      \"group\": {\n        \"key_0\": {\n          \"id\": 3587.776997738625,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\"\n        },\n        \"key_1\": {\n          \"id\": 4968.269780612902,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\"\n        },\n        \"key_2\": {\n          \"id\": 3922.6303207998035,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\"\n        },\n        \"key_3\": {\n          \"id\": 494.7572269847167,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\"\n        }\n      },\n      \"groups\": [\n        {\n          \"id\": 5072.740269877206,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\"\n        },\n        {\n          \"id\": 8713.637097476363,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\"\n        }\n      ],\n      \"description\": \"string\",\n      \"details\": {\n        \"data\": {\n          \"first\": {\n            \"key_0\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 1427.8102709168227,\n              \"group_id\": 1464.039410255372,\n              \"expiration\": \"string\",\n              \"lat\": 8877.265150909407,\n              \"lon\": 4435.859537956879,\n              \"ele\": 6769.701060610105,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 7199.361760835848\n            },\n            \"key_1\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 8532.053099750117,\n              \"group_id\": 956.5026763913387,\n              \"expiration\": \"string\",\n              \"lat\": 6192.680754817399,\n              \"lon\": 4515.582236701764,\n              \"ele\": 7321.044382465356,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 3836.6238133782504\n            },\n            \"key_2\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 1295.0505946515389,\n              \"group_id\": 5342.1049442394715,\n              \"expiration\": \"string\",\n              \"lat\": 4246.237143689201,\n              \"lon\": 1510.8708131539495,\n              \"ele\": 8771.734795902034,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 1004.4093181156744\n            }\n          },\n          \"last\": {\n            \"key_0\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 5717.330083023514,\n              \"group_id\": 5184.703522856704,\n              \"expiration\": \"string\",\n              \"lat\": 272.58947725536495,\n              \"lon\": 7574.174362704797,\n              \"ele\": 819.4747330650342,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 6527.763805277144\n            },\n            \"key_1\": {\n              \"id\": \"string\",\n              \"value\": \"string\",\n              \"feed_id\": 4444.933657781511,\n              \"group_id\": 5334.644935432539,\n              \"expiration\": \"string\",\n              \"lat\": 9457.832877802048,\n              \"lon\": 7491.290433053112,\n              \"ele\": 2257.4372037019043,\n              \"completed_at\": \"string\",\n              \"created_at\": \"string\",\n              \"updated_at\": \"string\",\n              \"created_epoch\": 2410.4009954856274\n            }\n          },\n          \"count\": 7424\n        }\n      },\n      \"unit_type\": \"string\",\n      \"unit_symbol\": \"string\",\n      \"history\": true,\n      \"visibility\": \"private\",\n      \"license\": \"string\",\n      \"enabled\": true,\n      \"last_value\": \"string\",\n      \"status\": \"string\",\n      \"status_notify\": false,\n      \"status_timeout\": 37,\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    }\n  ],\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "27ef5c29-7b0f-4b44-88cd-bb66a2a679ee",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "feed_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d19b766c-1862-4897-a3ed-1bb8b1cab33e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "feed_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e8bc0e1e-9d62-4803-b108-17b5682e1a31",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "feed_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1ab97d23-f67b-438c-a231-c94fe7e64136",
+              "name": "Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "feed_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5554d55b-a65e-4b31-8ae1-ce309ded4d5b",
+          "name": "All feeds for current user in a given group",
+          "request": {
+            "name": "All feeds for current user in a given group",
+            "description": {
+              "content": "The Group Feeds endpoint returns information about the user's feeds. The response includes the latest value of each feed, and other metadata about each feed, but only for feeds within the given group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":username",
+                "groups",
+                ":group_key",
+                "feeds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "group_key",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) a valid username string"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88869892-918a-4395-8358-7e606389d4ff",
+              "name": "An array of feeds",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 7037.340213496349,\n    \"name\": \"string\",\n    \"key\": \"string\",\n    \"group\": {\n      \"key_0\": {\n        \"id\": 4222.769957467752,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\"\n      },\n      \"key_1\": {\n        \"id\": 5379.720513937268,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\"\n      }\n    },\n    \"groups\": [\n      {\n        \"id\": 1173.534121518698,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\"\n      },\n      {\n        \"id\": 6447.933441068,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\"\n      }\n    ],\n    \"description\": \"string\",\n    \"details\": {\n      \"data\": {\n        \"first\": {\n          \"key_0\": {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"feed_id\": 2192.273923332565,\n            \"group_id\": 7335.863727014812,\n            \"expiration\": \"string\",\n            \"lat\": 129.15009044618287,\n            \"lon\": 1768.149836120313,\n            \"ele\": 646.166344325747,\n            \"completed_at\": \"string\",\n            \"created_at\": \"string\",\n            \"updated_at\": \"string\",\n            \"created_epoch\": 8424.584145545037\n          }\n        },\n        \"last\": {\n          \"key_0\": {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"feed_id\": 7984.0337860987165,\n            \"group_id\": 4006.3541881981737,\n            \"expiration\": \"string\",\n            \"lat\": 1681.8626818040639,\n            \"lon\": 2048.370234521194,\n            \"ele\": 1241.5074014425875,\n            \"completed_at\": \"string\",\n            \"created_at\": \"string\",\n            \"updated_at\": \"string\",\n            \"created_epoch\": 1626.8356714695742\n          }\n        },\n        \"count\": 4747\n      }\n    },\n    \"unit_type\": \"string\",\n    \"unit_symbol\": \"string\",\n    \"history\": true,\n    \"visibility\": \"private\",\n    \"license\": \"string\",\n    \"enabled\": true,\n    \"last_value\": \"string\",\n    \"status\": \"string\",\n    \"status_notify\": false,\n    \"status_timeout\": 4280,\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\"\n  },\n  {\n    \"id\": 4136.084564531606,\n    \"name\": \"string\",\n    \"key\": \"string\",\n    \"group\": {\n      \"key_0\": {\n        \"id\": 3852.2959025370264,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\"\n      }\n    },\n    \"groups\": [\n      {\n        \"id\": 8719.101044846553,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\"\n      },\n      {\n        \"id\": 1955.0567844218247,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\"\n      }\n    ],\n    \"description\": \"string\",\n    \"details\": {\n      \"data\": {\n        \"first\": {\n          \"key_0\": {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"feed_id\": 4885.532763304061,\n            \"group_id\": 4749.7986900298065,\n            \"expiration\": \"string\",\n            \"lat\": 7829.34127759571,\n            \"lon\": 2791.4904385352934,\n            \"ele\": 9308.360264696135,\n            \"completed_at\": \"string\",\n            \"created_at\": \"string\",\n            \"updated_at\": \"string\",\n            \"created_epoch\": 9639.92834916852\n          },\n          \"key_1\": {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"feed_id\": 2212.363178488792,\n            \"group_id\": 3831.28298194347,\n            \"expiration\": \"string\",\n            \"lat\": 3038.893397298743,\n            \"lon\": 2936.5650937392375,\n            \"ele\": 5950.253080527313,\n            \"completed_at\": \"string\",\n            \"created_at\": \"string\",\n            \"updated_at\": \"string\",\n            \"created_epoch\": 9670.21476887108\n          }\n        },\n        \"last\": {\n          \"key_0\": {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"feed_id\": 3345.9022510328327,\n            \"group_id\": 3300.3013466326124,\n            \"expiration\": \"string\",\n            \"lat\": 2671.295403218693,\n            \"lon\": 1264.5740730997702,\n            \"ele\": 1568.6989864297773,\n            \"completed_at\": \"string\",\n            \"created_at\": \"string\",\n            \"updated_at\": \"string\",\n            \"created_epoch\": 116.67292289265995\n          },\n          \"key_1\": {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"feed_id\": 1163.061603538147,\n            \"group_id\": 4105.587730214372,\n            \"expiration\": \"string\",\n            \"lat\": 4088.342952726354,\n            \"lon\": 154.1102059908239,\n            \"ele\": 5349.408827726216,\n            \"completed_at\": \"string\",\n            \"created_at\": \"string\",\n            \"updated_at\": \"string\",\n            \"created_epoch\": 1157.6436177904925\n          }\n        },\n        \"count\": 353\n      }\n    },\n    \"unit_type\": \"string\",\n    \"unit_symbol\": \"string\",\n    \"history\": true,\n    \"visibility\": \"private\",\n    \"license\": \"string\",\n    \"enabled\": true,\n    \"last_value\": \"string\",\n    \"status\": \"string\",\n    \"status_notify\": false,\n    \"status_timeout\": 392,\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1167f822-5049-4e51-8d89-6911feb2b72d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c179d3b6-0aa1-4709-9426-b75f0b12ad86",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f6160d6a-6641-4c7c-abb3-3c354ff2ff52",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "07f1f925-6951-4e69-9b1c-f6b962a57f51",
+              "name": "Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3391e10b-cb37-49f6-9103-97ff0e9f9987",
+          "name": "Create a new Feed in a Group",
+          "request": {
+            "name": "Create a new Feed in a Group",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":username",
+                "groups",
+                ":group_key",
+                "feeds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) a valid username string"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "group_key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "license",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d0226e6d-1669-43a1-a8fd-6d3f1885303a",
+              "name": "New feed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4026.1073998736742,\n  \"name\": \"string\",\n  \"key\": \"string\",\n  \"group\": {\n    \"key_0\": {\n      \"id\": 2975.14332243488,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    },\n    \"key_1\": {\n      \"id\": 9406.315100590062,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    }\n  },\n  \"groups\": [\n    {\n      \"id\": 214.59080691710653,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    },\n    {\n      \"id\": 3043.0803671113295,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\"\n    }\n  ],\n  \"description\": \"string\",\n  \"details\": {\n    \"data\": {\n      \"first\": {\n        \"key_0\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 5704.412229636037,\n          \"group_id\": 111.40661771956384,\n          \"expiration\": \"string\",\n          \"lat\": 5410.228274351153,\n          \"lon\": 1354.63950840496,\n          \"ele\": 2575.556331706991,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 1943.649686942015\n        },\n        \"key_1\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 4760.877378065949,\n          \"group_id\": 6468.926297342095,\n          \"expiration\": \"string\",\n          \"lat\": 7645.017761208337,\n          \"lon\": 7347.379230120053,\n          \"ele\": 3619.5861419492235,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 9726.619699776486\n        },\n        \"key_2\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 5658.532015020855,\n          \"group_id\": 3220.4852924456795,\n          \"expiration\": \"string\",\n          \"lat\": 8032.113056790813,\n          \"lon\": 7533.559206060484,\n          \"ele\": 2609.783230614177,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 2838.8981161407755\n        },\n        \"key_3\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 475.0449794160905,\n          \"group_id\": 358.43936360205777,\n          \"expiration\": \"string\",\n          \"lat\": 9105.371095739425,\n          \"lon\": 8829.069242232572,\n          \"ele\": 1219.3413010455545,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 9785.559329839696\n        }\n      },\n      \"last\": {\n        \"key_0\": {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"feed_id\": 2639.7002352647714,\n          \"group_id\": 7941.250659551377,\n          \"expiration\": \"string\",\n          \"lat\": 4646.733785466488,\n          \"lon\": 9212.036030198788,\n          \"ele\": 2362.829876542195,\n          \"completed_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"created_epoch\": 7915.300572546604\n        }\n      },\n      \"count\": 8131\n    }\n  },\n  \"unit_type\": \"string\",\n  \"unit_symbol\": \"string\",\n  \"history\": true,\n  \"visibility\": \"private\",\n  \"license\": \"string\",\n  \"enabled\": true,\n  \"last_value\": \"string\",\n  \"status\": \"string\",\n  \"status_notify\": true,\n  \"status_timeout\": 4410,\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df890b14-27e5-4a7a-afaa-41bb9a0723a0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1c7089a2-40b0-4256-ae1e-a392f60605dc",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0ca2d458-1f85-4941-89e8-f2748ec58ee2",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0fc8659a-0332-48bd-b30e-39bc2cc5a194",
+              "name": "Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":username",
+                    "groups",
+                    ":group_key",
+                    "feeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) a valid username string"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "group_key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-AIO-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://io.adafruit.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-AIO-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ba554892-8a3a-4118-8b5b-deb10e4c1329",
+    "name": "Adafruit IO REST Activities Feeds API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "### The Internet of Things for Everyone\n\nThe Adafruit IO HTTP API provides access to your Adafruit IO data from any programming language or hardware environment that can speak HTTP. The easiest way to get started is with [an Adafruit IO learn guide](https://learn.adafruit.com/series/adafruit-io-basics) and [a simple Internet of Things capable device like the Feather Huzzah](https://www.adafruit.com/product/2821).\n\nThis API documentation is hosted on GitHub Pages and is available at [https://github.com/adafruit/io-api](https://github.com/adafruit/io-api). For questions or comments visit the [Adafruit IO Forums](https://forums.adafruit.com/viewforum.php?f=56) or the [adafruit-io channel on the Adafruit Discord server](https://discord.gg/adafruit).\n\n#### Authentication\n\nAuthentication for every API request happens through the `X-AIO-Key` header or query parameter and your IO API key. A simple cURL request to get all available feeds for a user with the username \"io_username\" and the key \"io_key_12345\" could look like this:\n\n    $ curl -H \"X-AIO-Key: io_key_12345\" https://io.adafruit.com/api/v2/io_username/feeds\n\nOr like this:\n\n    $ curl \"https://io.adafruit.com/api/v2/io_username/feeds?X-AIO-Key=io_key_12345\n\nUsing the node.js [request](https://github.com/request/request) library, IO HTTP requests are as easy as:\n\n```js\nvar request = require('request');\n\nvar options = {\n  url: 'https://io.adafruit.com/api/v2/io_username/feeds',\n  headers: {\n    'X-AIO-Key': 'io_key_12345',\n    'Content-Type': 'application/json'\n  }\n};\n\nfunction callback(error, response, body) {\n  if (!error && response.statusCode == 200) {\n    var feeds = JSON.parse(body);\n    console.log(feeds.length + \" FEEDS AVAILABLE\");\n\n    feeds.forEach(function (feed) {\n      console.log(feed.name, feed.key);\n    })\n  }\n}\n\nrequest(options, callback);\n```\n\nUsing the ESP8266 Arduino HTTPClient library, an HTTPS GET request would look like this (replacing `---` with your own values in the appropriate locations):\n\n```arduino\n/// based on\n/// https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266HTTPClient/examples/Authorization/Authorization.ino\n\n#include <Arduino.h>\n#include <ESP8266WiFi.h>\n#include <ESP8266WiFiMulti.h>\n#include <ESP8266HTTPClient.h>\n\nESP8266WiFiMulti WiFiMulti;\n\nconst char* ssid = \"---\";\nconst char* password = \"---\";\n\nconst char* host = \"io.adafruit.com\";\n\nconst char* io_key = \"---\";\nconst char* path_with_username = \"/api/v2/---/dashboards\";\n\n// Use web browser to view and copy\n// SHA1 fingerprint of the certificate\nconst char* fingerprint = \"77 00 54 2D DA E7 D8 03 27 31 23 99 EB 27 DB CB A5 4C 57 18\";\n\nvoid setup() {\n  Serial.begin(115200);\n\n  for(uint8_t t = 4; t > 0; t--) {\n    Serial.printf(\"[SETUP] WAIT %d...\\n\", t);\n    Serial.flush();\n    delay(1000);\n  }\n\n  WiFi.mode(WIFI_STA);\n  WiFiMulti.addAP(ssid, password);\n\n  // wait for WiFi connection\n  while(WiFiMulti.run() != WL_CONNECTED) {\n    Serial.print('.');\n    delay(1000);\n  }\n\n  Serial.println(\"[WIFI] connected!\");\n\n  HTTPClient http;\n\n  // start request with URL and TLS cert fingerprint for verification\n  http.begin(\"https://\" + String(host) + String(path_with_username), fingerprint);\n\n  // IO API authentication\n  http.addHeader(\"X-AIO-Key\", io_key);\n\n  // start connection and send HTTP header\n  int httpCode = http.GET();\n\n  // httpCode will be negative on error\n  if(httpCode > 0) {\n    // HTTP header has been send and Server response header has been handled\n    Serial.printf(\"[HTTP] GET response: %d\\n\", httpCode);\n\n    // HTTP 200 OK\n    if(httpCode == HTTP_CODE_OK) {\n      String payload = http.getString();\n      Serial.println(payload);\n    }\n\n    http.end();\n  }\n}\n\nvoid loop() {}\n```\n\n#### Client Libraries\n\nWe have client libraries to help you get started with your project: [Python](https://github.com/adafruit/io-client-python), [Ruby](https://github.com/adafruit/io-client-ruby), [Arduino C++](https://github.com/adafruit/Adafruit_IO_Arduino), [Javascript](https://github.com/adafruit/adafruit-io-node), and [Go](https://github.com/adafruit/io-client-go) are available. They're all open source, so if they don't already do what you want, you can fork and add any feature you'd like.\n\n",
+      "type": "text/plain"
+    }
+  }
+}

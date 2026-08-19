@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adafruit IO REST Activities Webhooks API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-AIO-Key",
+      "value": "{{X-AIO-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send data to a feed via webhook URL.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://io.adafruit.com/api/v2/webhooks/feed/:token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send data to a feed via webhook URL."
+        },
+        {
+          "info": {
+            "name": "Send arbitrary data to a feed via webhook URL.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://io.adafruit.com/api/v2/webhooks/feed/:token/raw"
+          },
+          "docs": "The raw data webhook receiver accepts POST requests and stores the raw request body on your feed. This is useful when you don't have control of the webhook sender. If feed history is turned on, payloads will be truncated at 1024 bytes. If feed history is turned off, payloads will be truncated at 100KB."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

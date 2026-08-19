@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adafruit IO REST Activities Users API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-AIO-Key",
+      "value": "{{X-AIO-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get information about the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://io.adafruit.com/api/v2/user"
+          },
+          "docs": "Get information about the current user"
+        },
+        {
+          "info": {
+            "name": "Get the user's data rate limit and current activity level.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://io.adafruit.com/api/v2/:username/throttle",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              }
+            ]
+          },
+          "docs": "Get the user's data rate limit and current activity level."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

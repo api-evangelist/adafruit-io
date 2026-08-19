@@ -1,0 +1,172 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adafruit IO REST Activities Tokens API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-AIO-Key",
+      "value": "{{X-AIO-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "All tokens for current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://io.adafruit.com/api/v2/:username/tokens",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              }
+            ]
+          },
+          "docs": "The Tokens endpoint returns information about the user's tokens.\n"
+        },
+        {
+          "info": {
+            "name": "Create a new Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://io.adafruit.com/api/v2/:username/tokens",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new Token"
+        },
+        {
+          "info": {
+            "name": "Returns Token based on ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://io.adafruit.com/api/v2/:username/tokens/:id",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns Token based on ID"
+        },
+        {
+          "info": {
+            "name": "Replace an existing Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://io.adafruit.com/api/v2/:username/tokens/:id",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace an existing Token"
+        },
+        {
+          "info": {
+            "name": "Update properties of an existing Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://io.adafruit.com/api/v2/:username/tokens/:id",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update properties of an existing Token"
+        },
+        {
+          "info": {
+            "name": "Delete an existing Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://io.adafruit.com/api/v2/:username/tokens/:id",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an existing Token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

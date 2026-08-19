@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adafruit IO REST Activities API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-AIO-Key",
+      "value": "{{X-AIO-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Activities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "All activities for current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://io.adafruit.com/api/v2/:username/activities",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              },
+              {
+                "name": "start_time",
+                "value": "",
+                "type": "query",
+                "description": "Start time for filtering, returns records created after given time."
+              },
+              {
+                "name": "end_time",
+                "value": "",
+                "type": "query",
+                "description": "End time for filtering, returns records created before give time."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records returned."
+              }
+            ]
+          },
+          "docs": "The Activities endpoint returns information about the user's activities."
+        },
+        {
+          "info": {
+            "name": "All activities for current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://io.adafruit.com/api/v2/:username/activities",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              }
+            ]
+          },
+          "docs": "Delete all your activities."
+        },
+        {
+          "info": {
+            "name": "Get activities by type for current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://io.adafruit.com/api/v2/:username/activities/:type",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "start_time",
+                "value": "",
+                "type": "query",
+                "description": "Start time for filtering, returns records created after given time."
+              },
+              {
+                "name": "end_time",
+                "value": "",
+                "type": "query",
+                "description": "End time for filtering, returns records created before give time."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of records returned."
+              }
+            ]
+          },
+          "docs": "The Activities endpoint returns information about the user's activities."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

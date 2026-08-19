@@ -1,0 +1,254 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adafruit IO REST Activities Groups API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-AIO-Key",
+      "value": "{{X-AIO-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "All groups for current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://io.adafruit.com/api/v2/:username/groups",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              }
+            ]
+          },
+          "docs": "The Groups endpoint returns information about the user's groups. The response includes the latest value of each feed in the group, and other metadata about the group.\n"
+        },
+        {
+          "info": {
+            "name": "Create a new Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://io.adafruit.com/api/v2/:username/groups",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new Group"
+        },
+        {
+          "info": {
+            "name": "Returns Group based on ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://io.adafruit.com/api/v2/:username/groups/:group_key",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              },
+              {
+                "name": "group_key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns Group based on ID"
+        },
+        {
+          "info": {
+            "name": "Replace an existing Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://io.adafruit.com/api/v2/:username/groups/:group_key",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              },
+              {
+                "name": "group_key",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace an existing Group"
+        },
+        {
+          "info": {
+            "name": "Update properties of an existing Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://io.adafruit.com/api/v2/:username/groups/:group_key",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              },
+              {
+                "name": "group_key",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update properties of an existing Group"
+        },
+        {
+          "info": {
+            "name": "Delete an existing Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://io.adafruit.com/api/v2/:username/groups/:group_key",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              },
+              {
+                "name": "group_key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an existing Group"
+        },
+        {
+          "info": {
+            "name": "Add an existing Feed to a Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://io.adafruit.com/api/v2/:username/groups/:group_key/add",
+            "params": [
+              {
+                "name": "group_key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              },
+              {
+                "name": "feed_key",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Add an existing Feed to a Group"
+        },
+        {
+          "info": {
+            "name": "Remove a Feed from a Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://io.adafruit.com/api/v2/:username/groups/:group_key/remove",
+            "params": [
+              {
+                "name": "group_key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              },
+              {
+                "name": "feed_key",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Remove a Feed from a Group"
+        },
+        {
+          "info": {
+            "name": "All feeds for current user in a given group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://io.adafruit.com/api/v2/:username/groups/:group_key/feeds",
+            "params": [
+              {
+                "name": "group_key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "a valid username string"
+              }
+            ]
+          },
+          "docs": "The Group Feeds endpoint returns information about the user's feeds. The response includes the latest value of each feed, and other metadata about each feed, but only for feeds within the given group."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
