@@ -7,6 +7,12 @@ apis:
   - IoT
   - Internet of Things
   - MQTT
+  - Real-Time
+  - Feeds
+  tags_raw:
+  - IoT
+  - Internet of Things
+  - MQTT
   - Realtime
   - Feeds
   humanURL: https://io.adafruit.com/api/docs/mqtt.html
@@ -160,6 +166,8 @@ apis:
   humanURL: https://io.adafruit.com/api/docs/
   baseURL: https://io.adafruit.com/api/v2
   tags:
+  - Group
+  tags_raw:
   - Groups
   properties:
   - type: OpenAPI
@@ -264,6 +272,8 @@ apis:
   humanURL: https://io.adafruit.com/api/docs/
   baseURL: https://io.adafruit.com/api/v2
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -290,6 +300,8 @@ apis:
   humanURL: https://io.adafruit.com/api/docs/
   baseURL: https://io.adafruit.com/api/v2
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
