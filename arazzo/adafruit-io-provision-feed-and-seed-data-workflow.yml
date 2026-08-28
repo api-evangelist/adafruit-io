@@ -12,8 +12,11 @@ info:
     the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: adafruitIoApi
-  url: ../openapi/adafruit-io-rest-api-openapi.yml
+- name: dataApi
+  url: ../openapi/adafruit-io-data-api-openapi.yml
+  type: openapi
+- name: feedsApi
+  url: ../openapi/adafruit-io-feeds-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: provision-feed-and-seed-data

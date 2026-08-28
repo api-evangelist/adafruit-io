@@ -13,8 +13,8 @@ info:
     parameter on read, so it is captured here from the response body.
   version: 1.0.0
 sourceDescriptions:
-- name: adafruitIoApi
-  url: ../openapi/adafruit-io-rest-api-openapi.yml
+- name: tokensApi
+  url: ../openapi/adafruit-io-tokens-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: issue-and-verify-token

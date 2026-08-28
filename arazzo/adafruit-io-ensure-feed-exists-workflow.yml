@@ -12,8 +12,11 @@ info:
     parameter and the X-AIO-Key authentication header.
   version: 1.0.0
 sourceDescriptions:
-- name: adafruitIoApi
-  url: ../openapi/adafruit-io-rest-api-openapi.yml
+- name: dataApi
+  url: ../openapi/adafruit-io-data-api-openapi.yml
+  type: openapi
+- name: feedsApi
+  url: ../openapi/adafruit-io-feeds-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: ensure-feed-exists

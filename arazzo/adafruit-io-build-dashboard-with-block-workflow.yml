@@ -15,8 +15,11 @@ info:
     block call, which is required as the block id path parameter on read.
   version: 1.0.0
 sourceDescriptions:
-- name: adafruitIoApi
-  url: ../openapi/adafruit-io-rest-api-openapi.yml
+- name: blocksApi
+  url: ../openapi/adafruit-io-blocks-api-openapi.yml
+  type: openapi
+- name: dashboardsApi
+  url: ../openapi/adafruit-io-dashboards-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: build-dashboard-with-block

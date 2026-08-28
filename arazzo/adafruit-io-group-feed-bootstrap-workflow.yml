@@ -12,8 +12,14 @@ info:
     header.
   version: 1.0.0
 sourceDescriptions:
-- name: adafruitIoApi
-  url: ../openapi/adafruit-io-rest-api-openapi.yml
+- name: dataApi
+  url: ../openapi/adafruit-io-data-api-openapi.yml
+  type: openapi
+- name: feedsApi
+  url: ../openapi/adafruit-io-feeds-api-openapi.yml
+  type: openapi
+- name: groupsApi
+  url: ../openapi/adafruit-io-groups-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: group-feed-bootstrap

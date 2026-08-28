@@ -13,8 +13,8 @@ info:
     it is captured here from the response body.
   version: 1.0.0
 sourceDescriptions:
-- name: adafruitIoApi
-  url: ../openapi/adafruit-io-rest-api-openapi.yml
+- name: triggersApi
+  url: ../openapi/adafruit-io-triggers-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: create-and-verify-trigger
