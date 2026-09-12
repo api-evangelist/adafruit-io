@@ -366,6 +366,8 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/adafruit-io.png
 access: 3rd-Party
 common:
+- type: Website
+  url: https://www.adafruit.com/
 - type: AgenticAccess
   url: agentic-access/adafruit-io-agentic-access.yml
 - type: VulnerabilityDisclosure
