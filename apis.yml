@@ -5,10 +5,9 @@ apis:
   name: Adafruit IO MQTT API
   tags:
   - IoT
-  - Internet of Things
   - MQTT
   - Real-Time
-  - Feeds
+  - Feed
   tags_raw:
   - IoT
   - Internet of Things
@@ -140,6 +139,8 @@ apis:
   humanURL: https://io.adafruit.com/api/docs/
   baseURL: https://io.adafruit.com/api/v2
   tags:
+  - Feed
+  tags_raw:
   - Feeds
   properties:
   - type: OpenAPI
@@ -324,6 +325,17 @@ apis:
     url: https://io.adafruit.com/api/docs/#webhooks
 name: Adafruit IO
 tags:
+- IoT
+- MQTT
+- Maker
+- Hobbyist
+- CircuitPython
+- Arduino
+- ESP32
+- Feather
+- Dashboards
+- Time Series
+tags_raw:
 - IoT
 - Internet of Things
 - MQTT
