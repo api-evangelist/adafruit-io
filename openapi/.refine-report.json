@@ -1,17 +1,7 @@
 {
   "provider": "adafruit-io",
   "sources": [
-    "adafruit-io-activities-api-openapi.yml",
-    "adafruit-io-blocks-api-openapi.yml",
-    "adafruit-io-dashboards-api-openapi.yml",
-    "adafruit-io-data-api-openapi.yml",
-    "adafruit-io-feeds-api-openapi.yml",
-    "adafruit-io-groups-api-openapi.yml",
-    "adafruit-io-permissions-api-openapi.yml",
-    "adafruit-io-tokens-api-openapi.yml",
-    "adafruit-io-triggers-api-openapi.yml",
-    "adafruit-io-users-api-openapi.yml",
-    "adafruit-io-webhooks-api-openapi.yml"
+    "_original/adafruit-io-rest-api-openapi.yml"
   ],
   "outputs": [
     "adafruit-io-activities-api-openapi.yml",
@@ -29,6 +19,33 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "adafruit-io-rest-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "adafruit-io-rest-api-openapi.yml: declared missing tag: Activities",
+    "adafruit-io-rest-api-openapi.yml: declared missing tag: Blocks",
+    "adafruit-io-rest-api-openapi.yml: declared missing tag: Dashboards",
+    "adafruit-io-rest-api-openapi.yml: declared missing tag: Data",
+    "adafruit-io-rest-api-openapi.yml: declared missing tag: Feeds",
+    "adafruit-io-rest-api-openapi.yml: declared missing tag: Groups",
+    "adafruit-io-rest-api-openapi.yml: declared missing tag: Permissions",
+    "adafruit-io-rest-api-openapi.yml: declared missing tag: Tokens",
+    "adafruit-io-rest-api-openapi.yml: declared missing tag: Triggers",
+    "adafruit-io-rest-api-openapi.yml: declared missing tag: Users",
+    "adafruit-io-rest-api-openapi.yml: declared missing tag: Webhooks",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "adafruit-io-activities-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adafruit-io-blocks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adafruit-io-dashboards-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adafruit-io-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adafruit-io-feeds-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adafruit-io-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adafruit-io-permissions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adafruit-io-tokens-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adafruit-io-triggers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adafruit-io-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adafruit-io-webhooks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
