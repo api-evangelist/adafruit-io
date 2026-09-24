@@ -51,8 +51,6 @@ apis:
     url: json-schema/adafruit-io-dashboard-schema.json
   - type: JSONLD
     url: json-ld/adafruit-io-context.jsonld
-  - type: GraphQL
-    url: graphql/adafruit-io-graphql.md
   - type: Documentation
     url: https://io.adafruit.com/api/docs/#webhooks
 - aid: adafruit-io:adafruit-io-blocks-api
@@ -77,8 +75,6 @@ apis:
     url: json-schema/adafruit-io-dashboard-schema.json
   - type: JSONLD
     url: json-ld/adafruit-io-context.jsonld
-  - type: GraphQL
-    url: graphql/adafruit-io-graphql.md
   - type: Documentation
     url: https://io.adafruit.com/api/docs/#webhooks
 - aid: adafruit-io:adafruit-io-dashboards-api
@@ -103,8 +99,6 @@ apis:
     url: json-schema/adafruit-io-dashboard-schema.json
   - type: JSONLD
     url: json-ld/adafruit-io-context.jsonld
-  - type: GraphQL
-    url: graphql/adafruit-io-graphql.md
   - type: Documentation
     url: https://io.adafruit.com/api/docs/#webhooks
 - aid: adafruit-io:adafruit-io-data-api
@@ -129,8 +123,6 @@ apis:
     url: json-schema/adafruit-io-dashboard-schema.json
   - type: JSONLD
     url: json-ld/adafruit-io-context.jsonld
-  - type: GraphQL
-    url: graphql/adafruit-io-graphql.md
   - type: Documentation
     url: https://io.adafruit.com/api/docs/#webhooks
 - aid: adafruit-io:adafruit-io-feeds-api
@@ -157,8 +149,6 @@ apis:
     url: json-schema/adafruit-io-dashboard-schema.json
   - type: JSONLD
     url: json-ld/adafruit-io-context.jsonld
-  - type: GraphQL
-    url: graphql/adafruit-io-graphql.md
   - type: Documentation
     url: https://io.adafruit.com/api/docs/#webhooks
 - aid: adafruit-io:adafruit-io-groups-api
@@ -185,8 +175,6 @@ apis:
     url: json-schema/adafruit-io-dashboard-schema.json
   - type: JSONLD
     url: json-ld/adafruit-io-context.jsonld
-  - type: GraphQL
-    url: graphql/adafruit-io-graphql.md
   - type: Documentation
     url: https://io.adafruit.com/api/docs/#webhooks
 - aid: adafruit-io:adafruit-io-permissions-api
@@ -211,8 +199,6 @@ apis:
     url: json-schema/adafruit-io-dashboard-schema.json
   - type: JSONLD
     url: json-ld/adafruit-io-context.jsonld
-  - type: GraphQL
-    url: graphql/adafruit-io-graphql.md
   - type: Documentation
     url: https://io.adafruit.com/api/docs/#webhooks
 - aid: adafruit-io:adafruit-io-tokens-api
@@ -237,8 +223,6 @@ apis:
     url: json-schema/adafruit-io-dashboard-schema.json
   - type: JSONLD
     url: json-ld/adafruit-io-context.jsonld
-  - type: GraphQL
-    url: graphql/adafruit-io-graphql.md
   - type: Documentation
     url: https://io.adafruit.com/api/docs/#webhooks
 - aid: adafruit-io:adafruit-io-triggers-api
@@ -263,8 +247,6 @@ apis:
     url: json-schema/adafruit-io-dashboard-schema.json
   - type: JSONLD
     url: json-ld/adafruit-io-context.jsonld
-  - type: GraphQL
-    url: graphql/adafruit-io-graphql.md
   - type: Documentation
     url: https://io.adafruit.com/api/docs/#webhooks
 - aid: adafruit-io:adafruit-io-users-api
@@ -291,8 +273,6 @@ apis:
     url: json-schema/adafruit-io-dashboard-schema.json
   - type: JSONLD
     url: json-ld/adafruit-io-context.jsonld
-  - type: GraphQL
-    url: graphql/adafruit-io-graphql.md
   - type: Documentation
     url: https://io.adafruit.com/api/docs/#webhooks
 - aid: adafruit-io:adafruit-io-webhooks-api
@@ -319,8 +299,6 @@ apis:
     url: json-schema/adafruit-io-dashboard-schema.json
   - type: JSONLD
     url: json-ld/adafruit-io-context.jsonld
-  - type: GraphQL
-    url: graphql/adafruit-io-graphql.md
   - type: Documentation
     url: https://io.adafruit.com/api/docs/#webhooks
 name: Adafruit IO
