@@ -824,37 +824,10 @@ paths:
           description: Server Error
 components:
   parameters:
-    EndTime:
-      name: end_time
-      in: query
-      description: End time for filtering, returns records created before give time.
-      schema:
-        type: string
-        format: date-time
-    Limit:
-      name: limit
-      in: query
-      description: Limit the number of records returned.
-      schema:
-        type: integer
-    DataInclude:
-      name: include
-      in: query
-      description: 'List of Data record fields to include in response as comma separated list. Acceptable values are: `value`, `lat`, `lon`, `ele`, `id`, and `created_at`. '
-      schema:
-        type: string
-    StartTime:
-      name: start_time
-      in: query
-      description: Start time for filtering, returns records created after given time.
-      schema:
-        type: string
-        format: date-time
-    UsernamePath:
-      name: username
+    IDPath:
+      name: id
       in: path
       required: true
-      description: a valid username string
       schema:
         type: string
     GroupPath:
@@ -863,6 +836,20 @@ components:
       required: true
       schema:
         type: string
+    EndTime:
+      name: end_time
+      in: query
+      description: End time for filtering, returns records created before give time.
+      schema:
+        type: string
+        format: date-time
+    StartTime:
+      name: start_time
+      in: query
+      description: Start time for filtering, returns records created after given time.
+      schema:
+        type: string
+        format: date-time
     FeedPath:
       name: feed_key
       description: a valid feed key
@@ -870,12 +857,25 @@ components:
       required: true
       schema:
         type: string
-    IDPath:
-      name: id
+    UsernamePath:
+      name: username
       in: path
       required: true
+      description: a valid username string
       schema:
         type: string
+    DataInclude:
+      name: include
+      in: query
+      description: 'List of Data record fields to include in response as comma separated list. Acceptable values are: `value`, `lat`, `lon`, `ele`, `id`, and `created_at`. '
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Limit the number of records returned.
+      schema:
+        type: integer
   schemas:
     DataResponse:
       type: object

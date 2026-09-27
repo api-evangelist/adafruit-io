@@ -298,6 +298,25 @@ paths:
         '500':
           description: Server Error
 components:
+  parameters:
+    GroupPath:
+      name: group_key
+      in: path
+      required: true
+      schema:
+        type: string
+    UsernamePath:
+      name: username
+      in: path
+      required: true
+      description: a valid username string
+      schema:
+        type: string
+    FeedParam:
+      name: feed_key
+      in: query
+      schema:
+        type: string
   schemas:
     Group:
       type: object
@@ -320,55 +339,6 @@ components:
         updated_at:
           readOnly: true
           type: string
-    ShallowGroup:
-      type: object
-      properties:
-        id:
-          type: number
-          readOnly: true
-        name:
-          type: string
-        description:
-          type: string
-        created_at:
-          type: string
-          readOnly: true
-        updated_at:
-          readOnly: true
-          type: string
-    Data:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        value:
-          type: string
-        feed_id:
-          type: number
-        group_id:
-          readOnly: true
-          type: number
-        expiration:
-          type: string
-        lat:
-          type: number
-        lon:
-          type: number
-        ele:
-          type: number
-        completed_at:
-          readOnly: true
-          type: string
-        created_at:
-          readOnly: true
-          type: string
-        updated_at:
-          readOnly: true
-          type: string
-        created_epoch:
-          readOnly: true
-          type: number
     Feed:
       type: object
       properties:
@@ -450,25 +420,55 @@ components:
         updated_at:
           type: string
           readOnly: true
-  parameters:
-    FeedParam:
-      name: feed_key
-      in: query
-      schema:
-        type: string
-    UsernamePath:
-      name: username
-      in: path
-      required: true
-      description: a valid username string
-      schema:
-        type: string
-    GroupPath:
-      name: group_key
-      in: path
-      required: true
-      schema:
-        type: string
+    Data:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        value:
+          type: string
+        feed_id:
+          type: number
+        group_id:
+          readOnly: true
+          type: number
+        expiration:
+          type: string
+        lat:
+          type: number
+        lon:
+          type: number
+        ele:
+          type: number
+        completed_at:
+          readOnly: true
+          type: string
+        created_at:
+          readOnly: true
+          type: string
+        updated_at:
+          readOnly: true
+          type: string
+        created_epoch:
+          readOnly: true
+          type: number
+    ShallowGroup:
+      type: object
+      properties:
+        id:
+          type: number
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        created_at:
+          type: string
+          readOnly: true
+        updated_at:
+          readOnly: true
+          type: string
   requestBodies:
     createGroupGroup:
       content:

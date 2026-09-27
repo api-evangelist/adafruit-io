@@ -130,40 +130,6 @@ paths:
         '500':
           description: Server Error
 components:
-  parameters:
-    EndTime:
-      name: end_time
-      in: query
-      description: End time for filtering, returns records created before give time.
-      schema:
-        type: string
-        format: date-time
-    Limit:
-      name: limit
-      in: query
-      description: Limit the number of records returned.
-      schema:
-        type: integer
-    StartTime:
-      name: start_time
-      in: query
-      description: Start time for filtering, returns records created after given time.
-      schema:
-        type: string
-        format: date-time
-    UsernamePath:
-      name: username
-      in: path
-      required: true
-      description: a valid username string
-      schema:
-        type: string
-    ActivityTypePath:
-      name: type
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
     Activity:
       type: object
@@ -191,6 +157,40 @@ components:
           type: string
           format: dateTime
           readOnly: true
+  parameters:
+    EndTime:
+      name: end_time
+      in: query
+      description: End time for filtering, returns records created before give time.
+      schema:
+        type: string
+        format: date-time
+    StartTime:
+      name: start_time
+      in: query
+      description: Start time for filtering, returns records created after given time.
+      schema:
+        type: string
+        format: date-time
+    ActivityTypePath:
+      name: type
+      in: path
+      required: true
+      schema:
+        type: string
+    UsernamePath:
+      name: username
+      in: path
+      required: true
+      description: a valid username string
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Limit the number of records returned.
+      schema:
+        type: integer
   securitySchemes:
     HeaderKey:
       description: The AIO Key is used to restrict or grant access to your data. The key is unique, and you can generate a key per feed, and control it in many different ways. The easiest process is to just use your automatically generated master key. You can access this key right from the right-hand side of your dashboard or from an individual feed page.

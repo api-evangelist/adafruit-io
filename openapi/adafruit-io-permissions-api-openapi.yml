@@ -215,51 +215,9 @@ paths:
         '500':
           description: Server Error
 components:
-  schemas:
-    Permission:
-      type: object
-      properties:
-        id:
-          type: number
-          readOnly: true
-        user_id:
-          readOnly: true
-          type: number
-        scope:
-          type: string
-          default: public
-          enum:
-          - secret
-          - public
-          - user
-          - organization
-        scope_value:
-          type: string
-        model:
-          type: string
-          default: feed
-          enum:
-          - feed
-          - group
-          - dashboard
-        object_id:
-          type: number
-        created_at:
-          readOnly: true
-          type: string
-        updated_at:
-          readOnly: true
-          type: string
   parameters:
-    UsernamePath:
-      name: username
-      in: path
-      required: true
-      description: a valid username string
-      schema:
-        type: string
-    PermTypePath:
-      name: type
+    IDPath:
+      name: id
       in: path
       required: true
       schema:
@@ -270,8 +228,15 @@ components:
       required: true
       schema:
         type: string
-    IDPath:
-      name: id
+    UsernamePath:
+      name: username
+      in: path
+      required: true
+      description: a valid username string
+      schema:
+        type: string
+    PermTypePath:
+      name: type
       in: path
       required: true
       schema:
@@ -322,6 +287,41 @@ components:
               scope_value:
                 type: string
       required: true
+  schemas:
+    Permission:
+      type: object
+      properties:
+        id:
+          type: number
+          readOnly: true
+        user_id:
+          readOnly: true
+          type: number
+        scope:
+          type: string
+          default: public
+          enum:
+          - secret
+          - public
+          - user
+          - organization
+        scope_value:
+          type: string
+        model:
+          type: string
+          default: feed
+          enum:
+          - feed
+          - group
+          - dashboard
+        object_id:
+          type: number
+        created_at:
+          readOnly: true
+          type: string
+        updated_at:
+          readOnly: true
+          type: string
   securitySchemes:
     HeaderKey:
       description: The AIO Key is used to restrict or grant access to your data. The key is unique, and you can generate a key per feed, and control it in many different ways. The easiest process is to just use your automatically generated master key. You can access this key right from the right-hand side of your dashboard or from an individual feed page.
