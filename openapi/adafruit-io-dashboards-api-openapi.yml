@@ -203,21 +203,53 @@ paths:
         '500':
           description: Server Error
 components:
-  parameters:
-    IDPath:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-    UsernamePath:
-      name: username
-      in: path
-      required: true
-      description: a valid username string
-      schema:
-        type: string
   schemas:
+    ShallowGroup:
+      type: object
+      properties:
+        id:
+          type: number
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        created_at:
+          type: string
+          readOnly: true
+        updated_at:
+          readOnly: true
+          type: string
+    Group:
+      type: object
+      properties:
+        id:
+          type: number
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        feeds:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Feed'
+        created_at:
+          type: string
+          readOnly: true
+        updated_at:
+          readOnly: true
+          type: string
+    BlockFeed:
+      type: object
+      properties:
+        id:
+          type: string
+        feed:
+          $ref: '#/components/schemas/Feed'
+        group:
+          $ref: '#/components/schemas/Group'
     Block:
       type: object
       properties:
@@ -242,27 +274,6 @@ components:
           readOnly: true
           items:
             $ref: '#/components/schemas/BlockFeed'
-    Group:
-      type: object
-      properties:
-        id:
-          type: number
-          readOnly: true
-        name:
-          type: string
-        description:
-          type: string
-        feeds:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/Feed'
-        created_at:
-          type: string
-          readOnly: true
-        updated_at:
-          readOnly: true
-          type: string
     Feed:
       type: object
       properties:
@@ -377,31 +388,6 @@ components:
         created_epoch:
           readOnly: true
           type: number
-    BlockFeed:
-      type: object
-      properties:
-        id:
-          type: string
-        feed:
-          $ref: '#/components/schemas/Feed'
-        group:
-          $ref: '#/components/schemas/Group'
-    ShallowGroup:
-      type: object
-      properties:
-        id:
-          type: number
-          readOnly: true
-        name:
-          type: string
-        description:
-          type: string
-        created_at:
-          type: string
-          readOnly: true
-        updated_at:
-          readOnly: true
-          type: string
     Dashboard:
       type: object
       properties:
@@ -416,6 +402,20 @@ components:
           readOnly: true
           items:
             $ref: '#/components/schemas/Block'
+  parameters:
+    IDPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    UsernamePath:
+      name: username
+      in: path
+      required: true
+      description: a valid username string
+      schema:
+        type: string
   requestBodies:
     createDashboardDashboard:
       content:

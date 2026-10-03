@@ -204,12 +204,6 @@ paths:
           description: Server Error
 components:
   parameters:
-    IDPath:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
     UsernamePath:
       name: username
       in: path
@@ -217,12 +211,12 @@ components:
       description: a valid username string
       schema:
         type: string
-  schemas:
-    Token:
-      type: object
-      properties:
-        token:
-          type: string
+    IDPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
   requestBodies:
     createTokenToken:
       content:
@@ -239,6 +233,12 @@ components:
               token:
                 type: string
       required: true
+  schemas:
+    Token:
+      type: object
+      properties:
+        token:
+          type: string
   securitySchemes:
     HeaderKey:
       description: The AIO Key is used to restrict or grant access to your data. The key is unique, and you can generate a key per feed, and control it in many different ways. The easiest process is to just use your automatically generated master key. You can access this key right from the right-hand side of your dashboard or from an individual feed page.

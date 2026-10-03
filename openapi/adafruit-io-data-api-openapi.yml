@@ -823,15 +823,103 @@ paths:
         '500':
           description: Server Error
 components:
-  parameters:
-    IDPath:
-      name: id
-      in: path
+  requestBodies:
+    batchCreateDataData:
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                value:
+                  type: string
+                created_at:
+                  type: string
+                  format: dateTime
+                lat:
+                  type: string
+                lon:
+                  type: string
+                ele:
+                  type: string
+                epoch:
+                  type: number
+        application/x-www-form-urlencoded:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                value:
+                  type: string
+                created_at:
+                  type: string
+                  format: dateTime
+                lat:
+                  type: string
+                lon:
+                  type: string
+                ele:
+                  type: string
+                epoch:
+                  type: number
+      description: 'A collection of data records including `value` (required) and optionally including: `lat`, `lon`, `ele` (latitude, longitude, and elevation values), and `created_at` (a date/time string).'
       required: true
+    createDataDatum:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              value:
+                type: string
+              created_at:
+                type: string
+                format: dateTime
+              lat:
+                type: string
+              lon:
+                type: string
+              ele:
+                type: string
+              epoch:
+                type: number
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              value:
+                type: string
+              created_at:
+                type: string
+                format: dateTime
+              lat:
+                type: string
+              lon:
+                type: string
+              ele:
+                type: string
+              epoch:
+                type: number
+      description: 'Data record including a `value` field (required) and optionally including: `lat`, `lon`, `ele` (latitude, longitude, and elevation values), and `created_at` (a date/time string).'
+      required: true
+  parameters:
+    DataInclude:
+      name: include
+      in: query
+      description: 'List of Data record fields to include in response as comma separated list. Acceptable values are: `value`, `lat`, `lon`, `ele`, `id`, and `created_at`. '
       schema:
         type: string
-    GroupPath:
-      name: group_key
+    StartTime:
+      name: start_time
+      in: query
+      description: Start time for filtering, returns records created after given time.
+      schema:
+        type: string
+        format: date-time
+    IDPath:
+      name: id
       in: path
       required: true
       schema:
@@ -843,13 +931,18 @@ components:
       schema:
         type: string
         format: date-time
-    StartTime:
-      name: start_time
-      in: query
-      description: Start time for filtering, returns records created after given time.
+    GroupPath:
+      name: group_key
+      in: path
+      required: true
       schema:
         type: string
-        format: date-time
+    Limit:
+      name: limit
+      in: query
+      description: Limit the number of records returned.
+      schema:
+        type: integer
     FeedPath:
       name: feed_key
       description: a valid feed key
@@ -864,18 +957,6 @@ components:
       description: a valid username string
       schema:
         type: string
-    DataInclude:
-      name: include
-      in: query
-      description: 'List of Data record fields to include in response as comma separated list. Acceptable values are: `value`, `lat`, `lon`, `ele`, `id`, and `created_at`. '
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      description: Limit the number of records returned.
-      schema:
-        type: integer
   schemas:
     DataResponse:
       type: object
@@ -937,87 +1018,6 @@ components:
         created_epoch:
           readOnly: true
           type: number
-  requestBodies:
-    createDataDatum:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              value:
-                type: string
-              created_at:
-                type: string
-                format: dateTime
-              lat:
-                type: string
-              lon:
-                type: string
-              ele:
-                type: string
-              epoch:
-                type: number
-        application/x-www-form-urlencoded:
-          schema:
-            type: object
-            properties:
-              value:
-                type: string
-              created_at:
-                type: string
-                format: dateTime
-              lat:
-                type: string
-              lon:
-                type: string
-              ele:
-                type: string
-              epoch:
-                type: number
-      description: 'Data record including a `value` field (required) and optionally including: `lat`, `lon`, `ele` (latitude, longitude, and elevation values), and `created_at` (a date/time string).'
-      required: true
-    batchCreateDataData:
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              type: object
-              properties:
-                value:
-                  type: string
-                created_at:
-                  type: string
-                  format: dateTime
-                lat:
-                  type: string
-                lon:
-                  type: string
-                ele:
-                  type: string
-                epoch:
-                  type: number
-        application/x-www-form-urlencoded:
-          schema:
-            type: array
-            items:
-              type: object
-              properties:
-                value:
-                  type: string
-                created_at:
-                  type: string
-                  format: dateTime
-                lat:
-                  type: string
-                lon:
-                  type: string
-                ele:
-                  type: string
-                epoch:
-                  type: number
-      description: 'A collection of data records including `value` (required) and optionally including: `lat`, `lon`, `ele` (latitude, longitude, and elevation values), and `created_at` (a date/time string).'
-      required: true
   securitySchemes:
     HeaderKey:
       description: The AIO Key is used to restrict or grant access to your data. The key is unique, and you can generate a key per feed, and control it in many different ways. The easiest process is to just use your automatically generated master key. You can access this key right from the right-hand side of your dashboard or from an individual feed page.

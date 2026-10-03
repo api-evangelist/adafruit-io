@@ -216,6 +216,12 @@ paths:
           description: Server Error
 components:
   parameters:
+    PermTypePath:
+      name: type
+      in: path
+      required: true
+      schema:
+        type: string
     IDPath:
       name: id
       in: path
@@ -233,12 +239,6 @@ components:
       in: path
       required: true
       description: a valid username string
-      schema:
-        type: string
-    PermTypePath:
-      name: type
-      in: path
-      required: true
       schema:
         type: string
   requestBodies:

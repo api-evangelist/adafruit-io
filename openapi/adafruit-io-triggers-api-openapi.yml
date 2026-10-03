@@ -204,17 +204,17 @@ paths:
           description: Server Error
 components:
   parameters:
-    IDPath:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
     UsernamePath:
       name: username
       in: path
       required: true
       description: a valid username string
+      schema:
+        type: string
+    IDPath:
+      name: id
+      in: path
+      required: true
       schema:
         type: string
   schemas:

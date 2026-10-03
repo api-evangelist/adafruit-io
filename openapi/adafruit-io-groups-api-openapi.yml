@@ -298,26 +298,23 @@ paths:
         '500':
           description: Server Error
 components:
-  parameters:
-    GroupPath:
-      name: group_key
-      in: path
-      required: true
-      schema:
-        type: string
-    UsernamePath:
-      name: username
-      in: path
-      required: true
-      description: a valid username string
-      schema:
-        type: string
-    FeedParam:
-      name: feed_key
-      in: query
-      schema:
-        type: string
   schemas:
+    ShallowGroup:
+      type: object
+      properties:
+        id:
+          type: number
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        created_at:
+          type: string
+          readOnly: true
+        updated_at:
+          readOnly: true
+          type: string
     Group:
       type: object
       properties:
@@ -453,22 +450,6 @@ components:
         created_epoch:
           readOnly: true
           type: number
-    ShallowGroup:
-      type: object
-      properties:
-        id:
-          type: number
-          readOnly: true
-        name:
-          type: string
-        description:
-          type: string
-        created_at:
-          type: string
-          readOnly: true
-        updated_at:
-          readOnly: true
-          type: string
   requestBodies:
     createGroupGroup:
       content:
@@ -496,6 +477,25 @@ components:
       x-examples:
         application/json: '{"name":"Some Group", "description":"A collection of feeds"}'
         default: '{"name":"Some Group","description":"A collection of feeds"}'
+  parameters:
+    GroupPath:
+      name: group_key
+      in: path
+      required: true
+      schema:
+        type: string
+    FeedParam:
+      name: feed_key
+      in: query
+      schema:
+        type: string
+    UsernamePath:
+      name: username
+      in: path
+      required: true
+      description: a valid username string
+      schema:
+        type: string
   securitySchemes:
     HeaderKey:
       description: The AIO Key is used to restrict or grant access to your data. The key is unique, and you can generate a key per feed, and control it in many different ways. The easiest process is to just use your automatically generated master key. You can access this key right from the right-hand side of your dashboard or from an individual feed page.
