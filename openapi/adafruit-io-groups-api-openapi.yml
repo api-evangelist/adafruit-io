@@ -336,6 +336,39 @@ components:
         updated_at:
           readOnly: true
           type: string
+    Data:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        value:
+          type: string
+        feed_id:
+          type: number
+        group_id:
+          readOnly: true
+          type: number
+        expiration:
+          type: string
+        lat:
+          type: number
+        lon:
+          type: number
+        ele:
+          type: number
+        completed_at:
+          readOnly: true
+          type: string
+        created_at:
+          readOnly: true
+          type: string
+        updated_at:
+          readOnly: true
+          type: string
+        created_epoch:
+          readOnly: true
+          type: number
     Feed:
       type: object
       properties:
@@ -417,39 +450,6 @@ components:
         updated_at:
           type: string
           readOnly: true
-    Data:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        value:
-          type: string
-        feed_id:
-          type: number
-        group_id:
-          readOnly: true
-          type: number
-        expiration:
-          type: string
-        lat:
-          type: number
-        lon:
-          type: number
-        ele:
-          type: number
-        completed_at:
-          readOnly: true
-          type: string
-        created_at:
-          readOnly: true
-          type: string
-        updated_at:
-          readOnly: true
-          type: string
-        created_epoch:
-          readOnly: true
-          type: number
   requestBodies:
     createGroupGroup:
       content:
@@ -478,10 +478,11 @@ components:
         application/json: '{"name":"Some Group", "description":"A collection of feeds"}'
         default: '{"name":"Some Group","description":"A collection of feeds"}'
   parameters:
-    GroupPath:
-      name: group_key
+    UsernamePath:
+      name: username
       in: path
       required: true
+      description: a valid username string
       schema:
         type: string
     FeedParam:
@@ -489,11 +490,10 @@ components:
       in: query
       schema:
         type: string
-    UsernamePath:
-      name: username
+    GroupPath:
+      name: group_key
       in: path
       required: true
-      description: a valid username string
       schema:
         type: string
   securitySchemes:

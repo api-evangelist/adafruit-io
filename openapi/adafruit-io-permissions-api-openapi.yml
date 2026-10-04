@@ -215,32 +215,6 @@ paths:
         '500':
           description: Server Error
 components:
-  parameters:
-    PermTypePath:
-      name: type
-      in: path
-      required: true
-      schema:
-        type: string
-    IDPath:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-    PermTypeIDPath:
-      name: type_id
-      in: path
-      required: true
-      schema:
-        type: string
-    UsernamePath:
-      name: username
-      in: path
-      required: true
-      description: a valid username string
-      schema:
-        type: string
   requestBodies:
     createPermissionPermission:
       content:
@@ -287,6 +261,32 @@ components:
               scope_value:
                 type: string
       required: true
+  parameters:
+    PermTypeIDPath:
+      name: type_id
+      in: path
+      required: true
+      schema:
+        type: string
+    PermTypePath:
+      name: type
+      in: path
+      required: true
+      schema:
+        type: string
+    UsernamePath:
+      name: username
+      in: path
+      required: true
+      description: a valid username string
+      schema:
+        type: string
+    IDPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     Permission:
       type: object

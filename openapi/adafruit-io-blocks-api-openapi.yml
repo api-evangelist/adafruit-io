@@ -226,6 +226,15 @@ components:
         updated_at:
           readOnly: true
           type: string
+    BlockFeed:
+      type: object
+      properties:
+        id:
+          type: string
+        feed:
+          $ref: '#/components/schemas/Feed'
+        group:
+          $ref: '#/components/schemas/Group'
     Group:
       type: object
       properties:
@@ -247,15 +256,6 @@ components:
         updated_at:
           readOnly: true
           type: string
-    BlockFeed:
-      type: object
-      properties:
-        id:
-          type: string
-        feed:
-          $ref: '#/components/schemas/Feed'
-        group:
-          $ref: '#/components/schemas/Group'
     Block:
       type: object
       properties:
@@ -280,6 +280,39 @@ components:
           readOnly: true
           items:
             $ref: '#/components/schemas/BlockFeed'
+    Data:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        value:
+          type: string
+        feed_id:
+          type: number
+        group_id:
+          readOnly: true
+          type: number
+        expiration:
+          type: string
+        lat:
+          type: number
+        lon:
+          type: number
+        ele:
+          type: number
+        completed_at:
+          readOnly: true
+          type: string
+        created_at:
+          readOnly: true
+          type: string
+        updated_at:
+          readOnly: true
+          type: string
+        created_epoch:
+          readOnly: true
+          type: number
     Feed:
       type: object
       properties:
@@ -361,59 +394,6 @@ components:
         updated_at:
           type: string
           readOnly: true
-    Data:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        value:
-          type: string
-        feed_id:
-          type: number
-        group_id:
-          readOnly: true
-          type: number
-        expiration:
-          type: string
-        lat:
-          type: number
-        lon:
-          type: number
-        ele:
-          type: number
-        completed_at:
-          readOnly: true
-          type: string
-        created_at:
-          readOnly: true
-          type: string
-        updated_at:
-          readOnly: true
-          type: string
-        created_epoch:
-          readOnly: true
-          type: number
-  parameters:
-    IDPath:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-    DashboardIDPath:
-      name: dashboard_id
-      in: path
-      required: true
-      schema:
-        type: string
-    UsernamePath:
-      name: username
-      in: path
-      required: true
-      description: a valid username string
-      schema:
-        type: string
   requestBodies:
     createBlockBlock:
       content:
@@ -484,6 +464,26 @@ components:
               properties:
                 type: object
       required: true
+  parameters:
+    UsernamePath:
+      name: username
+      in: path
+      required: true
+      description: a valid username string
+      schema:
+        type: string
+    IDPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    DashboardIDPath:
+      name: dashboard_id
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     HeaderKey:
       description: The AIO Key is used to restrict or grant access to your data. The key is unique, and you can generate a key per feed, and control it in many different ways. The easiest process is to just use your automatically generated master key. You can access this key right from the right-hand side of your dashboard or from an individual feed page.

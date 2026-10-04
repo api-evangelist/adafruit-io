@@ -506,37 +506,6 @@ components:
         updated_at:
           type: string
           readOnly: true
-  parameters:
-    GroupPath:
-      name: group_key
-      in: path
-      required: true
-      schema:
-        type: string
-    FeedParam:
-      name: feed_key
-      in: query
-      schema:
-        type: string
-    GroupParam:
-      name: group_key
-      in: query
-      schema:
-        type: string
-    FeedPath:
-      name: feed_key
-      description: a valid feed key
-      in: path
-      required: true
-      schema:
-        type: string
-    UsernamePath:
-      name: username
-      in: path
-      required: true
-      description: a valid username string
-      schema:
-        type: string
   requestBodies:
     createFeedFeed:
       content:
@@ -565,6 +534,37 @@ components:
               license:
                 type: string
       required: true
+  parameters:
+    GroupParam:
+      name: group_key
+      in: query
+      schema:
+        type: string
+    FeedPath:
+      name: feed_key
+      description: a valid feed key
+      in: path
+      required: true
+      schema:
+        type: string
+    UsernamePath:
+      name: username
+      in: path
+      required: true
+      description: a valid username string
+      schema:
+        type: string
+    FeedParam:
+      name: feed_key
+      in: query
+      schema:
+        type: string
+    GroupPath:
+      name: group_key
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     HeaderKey:
       description: The AIO Key is used to restrict or grant access to your data. The key is unique, and you can generate a key per feed, and control it in many different ways. The easiest process is to just use your automatically generated master key. You can access this key right from the right-hand side of your dashboard or from an individual feed page.

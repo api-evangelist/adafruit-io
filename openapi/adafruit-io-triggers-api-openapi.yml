@@ -203,6 +203,22 @@ paths:
         '500':
           description: Server Error
 components:
+  requestBodies:
+    createTriggerTrigger:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+      required: true
   parameters:
     UsernamePath:
       name: username
@@ -223,22 +239,6 @@ components:
       properties:
         name:
           type: string
-  requestBodies:
-    createTriggerTrigger:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              name:
-                type: string
-        application/x-www-form-urlencoded:
-          schema:
-            type: object
-            properties:
-              name:
-                type: string
-      required: true
   securitySchemes:
     HeaderKey:
       description: The AIO Key is used to restrict or grant access to your data. The key is unique, and you can generate a key per feed, and control it in many different ways. The easiest process is to just use your automatically generated master key. You can access this key right from the right-hand side of your dashboard or from an individual feed page.

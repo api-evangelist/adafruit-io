@@ -138,13 +138,6 @@ components:
       schema:
         type: string
         format: date-time
-    EndTime:
-      name: end_time
-      in: query
-      description: End time for filtering, returns records created before give time.
-      schema:
-        type: string
-        format: date-time
     Limit:
       name: limit
       in: query
@@ -164,6 +157,13 @@ components:
       description: a valid username string
       schema:
         type: string
+    EndTime:
+      name: end_time
+      in: query
+      description: End time for filtering, returns records created before give time.
+      schema:
+        type: string
+        format: date-time
   schemas:
     Activity:
       type: object
