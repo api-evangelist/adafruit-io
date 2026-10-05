@@ -1,0 +1,12 @@
+{
+ "url": "https://raw.githubusercontent.com/adafruit/io-api/gh-pages/v2.json",
+ "requested_url": "https://raw.githubusercontent.com/adafruit/io-api/gh-pages/v2.json",
+ "status": 200,
+ "content_type": "text/plain; charset=utf-8",
+ "bytes": 150377,
+ "sha256": "b16cd6123537897d87feec0b7c251db8a76c0111fbae216113f2bebd8b73945b",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
