@@ -147,3 +147,46 @@ plans:
       - label: Includes all Plus monthly features
         name: bundled
         type: feature
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - seat
+  - subscription
+  units:
+  - period
+  - request
+  - seat
+  plans:
+  - name: Adafruit IO Free
+    access: free
+    model: seat
+    model_how: derived
+    units:
+    - other
+    - period
+    - request
+    - seat
+    periods:
+    - minute
+    - month
+  - name: Adafruit IO Plus (Monthly)
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - other
+    - period
+    - request
+    - seat
+    periods:
+    - minute
+    - month
+  - name: Adafruit IO Plus (Annual)
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - seat
+    periods:
+    - year
