@@ -204,6 +204,29 @@ paths:
           description: Server Error
 components:
   schemas:
+    Dashboard:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        key:
+          type: string
+        blocks:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Block'
+    BlockFeed:
+      type: object
+      properties:
+        id:
+          type: string
+        feed:
+          $ref: '#/components/schemas/Feed'
+        group:
+          $ref: '#/components/schemas/Group'
     ShallowGroup:
       type: object
       properties:
@@ -220,15 +243,6 @@ components:
         updated_at:
           readOnly: true
           type: string
-    BlockFeed:
-      type: object
-      properties:
-        id:
-          type: string
-        feed:
-          $ref: '#/components/schemas/Feed'
-        group:
-          $ref: '#/components/schemas/Group'
     Group:
       type: object
       properties:
@@ -250,44 +264,6 @@ components:
         updated_at:
           readOnly: true
           type: string
-    Dashboard:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        key:
-          type: string
-        blocks:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/Block'
-    Block:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        key:
-          type: string
-        visual_type:
-          type: string
-        column:
-          type: number
-        row:
-          type: number
-        size_x:
-          type: number
-        size_y:
-          type: number
-        block_feeds:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/BlockFeed'
     Data:
       type: object
       properties:
@@ -402,6 +378,44 @@ components:
         updated_at:
           type: string
           readOnly: true
+    Block:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        key:
+          type: string
+        visual_type:
+          type: string
+        column:
+          type: number
+        row:
+          type: number
+        size_x:
+          type: number
+        size_y:
+          type: number
+        block_feeds:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/BlockFeed'
+  parameters:
+    IDPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    UsernamePath:
+      name: username
+      in: path
+      required: true
+      description: a valid username string
+      schema:
+        type: string
   requestBodies:
     createDashboardDashboard:
       content:
@@ -426,20 +440,6 @@ components:
               key:
                 type: string
       required: true
-  parameters:
-    UsernamePath:
-      name: username
-      in: path
-      required: true
-      description: a valid username string
-      schema:
-        type: string
-    IDPath:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     HeaderKey:
       description: The AIO Key is used to restrict or grant access to your data. The key is unique, and you can generate a key per feed, and control it in many different ways. The easiest process is to just use your automatically generated master key. You can access this key right from the right-hand side of your dashboard or from an individual feed page.

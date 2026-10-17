@@ -354,6 +354,65 @@ paths:
         '500':
           description: Server Error
 components:
+  parameters:
+    FeedPath:
+      name: feed_key
+      description: a valid feed key
+      in: path
+      required: true
+      schema:
+        type: string
+    GroupParam:
+      name: group_key
+      in: query
+      schema:
+        type: string
+    UsernamePath:
+      name: username
+      in: path
+      required: true
+      description: a valid username string
+      schema:
+        type: string
+    GroupPath:
+      name: group_key
+      in: path
+      required: true
+      schema:
+        type: string
+    FeedParam:
+      name: feed_key
+      in: query
+      schema:
+        type: string
+  requestBodies:
+    createFeedFeed:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              key:
+                type: string
+              description:
+                type: string
+              license:
+                type: string
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              key:
+                type: string
+              description:
+                type: string
+              license:
+                type: string
+      required: true
   schemas:
     ShallowGroup:
       type: object
@@ -365,27 +424,6 @@ components:
           type: string
         description:
           type: string
-        created_at:
-          type: string
-          readOnly: true
-        updated_at:
-          readOnly: true
-          type: string
-    Group:
-      type: object
-      properties:
-        id:
-          type: number
-          readOnly: true
-        name:
-          type: string
-        description:
-          type: string
-        feeds:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/Feed'
         created_at:
           type: string
           readOnly: true
@@ -425,6 +463,27 @@ components:
         created_epoch:
           readOnly: true
           type: number
+    Group:
+      type: object
+      properties:
+        id:
+          type: number
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        feeds:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Feed'
+        created_at:
+          type: string
+          readOnly: true
+        updated_at:
+          readOnly: true
+          type: string
     Feed:
       type: object
       properties:
@@ -506,65 +565,6 @@ components:
         updated_at:
           type: string
           readOnly: true
-  requestBodies:
-    createFeedFeed:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              name:
-                type: string
-              key:
-                type: string
-              description:
-                type: string
-              license:
-                type: string
-        application/x-www-form-urlencoded:
-          schema:
-            type: object
-            properties:
-              name:
-                type: string
-              key:
-                type: string
-              description:
-                type: string
-              license:
-                type: string
-      required: true
-  parameters:
-    GroupParam:
-      name: group_key
-      in: query
-      schema:
-        type: string
-    FeedPath:
-      name: feed_key
-      description: a valid feed key
-      in: path
-      required: true
-      schema:
-        type: string
-    UsernamePath:
-      name: username
-      in: path
-      required: true
-      description: a valid username string
-      schema:
-        type: string
-    FeedParam:
-      name: feed_key
-      in: query
-      schema:
-        type: string
-    GroupPath:
-      name: group_key
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     HeaderKey:
       description: The AIO Key is used to restrict or grant access to your data. The key is unique, and you can generate a key per feed, and control it in many different ways. The easiest process is to just use your automatically generated master key. You can access this key right from the right-hand side of your dashboard or from an individual feed page.

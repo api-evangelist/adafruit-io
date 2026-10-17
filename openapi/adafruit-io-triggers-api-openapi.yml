@@ -203,6 +203,20 @@ paths:
         '500':
           description: Server Error
 components:
+  parameters:
+    UsernamePath:
+      name: username
+      in: path
+      required: true
+      description: a valid username string
+      schema:
+        type: string
+    IDPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
   requestBodies:
     createTriggerTrigger:
       content:
@@ -219,20 +233,6 @@ components:
               name:
                 type: string
       required: true
-  parameters:
-    UsernamePath:
-      name: username
-      in: path
-      required: true
-      description: a valid username string
-      schema:
-        type: string
-    IDPath:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
     Trigger:
       type: object

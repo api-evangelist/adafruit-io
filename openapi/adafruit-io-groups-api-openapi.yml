@@ -298,6 +298,33 @@ paths:
         '500':
           description: Server Error
 components:
+  requestBodies:
+    createGroupGroup:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              description:
+                type: string
+              key:
+                type: string
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              description:
+                type: string
+              key:
+                type: string
+      required: true
+      x-examples:
+        application/json: '{"name":"Some Group", "description":"A collection of feeds"}'
+        default: '{"name":"Some Group","description":"A collection of feeds"}'
   schemas:
     ShallowGroup:
       type: object
@@ -309,27 +336,6 @@ components:
           type: string
         description:
           type: string
-        created_at:
-          type: string
-          readOnly: true
-        updated_at:
-          readOnly: true
-          type: string
-    Group:
-      type: object
-      properties:
-        id:
-          type: number
-          readOnly: true
-        name:
-          type: string
-        description:
-          type: string
-        feeds:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/Feed'
         created_at:
           type: string
           readOnly: true
@@ -369,6 +375,27 @@ components:
         created_epoch:
           readOnly: true
           type: number
+    Group:
+      type: object
+      properties:
+        id:
+          type: number
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        feeds:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/Feed'
+        created_at:
+          type: string
+          readOnly: true
+        updated_at:
+          readOnly: true
+          type: string
     Feed:
       type: object
       properties:
@@ -450,33 +477,6 @@ components:
         updated_at:
           type: string
           readOnly: true
-  requestBodies:
-    createGroupGroup:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              name:
-                type: string
-              description:
-                type: string
-              key:
-                type: string
-        application/x-www-form-urlencoded:
-          schema:
-            type: object
-            properties:
-              name:
-                type: string
-              description:
-                type: string
-              key:
-                type: string
-      required: true
-      x-examples:
-        application/json: '{"name":"Some Group", "description":"A collection of feeds"}'
-        default: '{"name":"Some Group","description":"A collection of feeds"}'
   parameters:
     UsernamePath:
       name: username
