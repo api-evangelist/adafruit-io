@@ -55,6 +55,47 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-agent-skills.py
   first_seen: '2026-10-20'
+- partner_name: APIs.guru OpenAPI Directory
+  partner: apis-guru
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: third-party
+  evidence: https://apis.guru/
+  category: API definition directory listing (OpenAPI)
+  contract_reference:
+    register: APIs.guru OpenAPI Directory
+    spec_file: null
+    standard: APIs.guru OpenAPI Directory
+    role: listed-in-directory
+    directory_provider: adafruit.com
+    matched_domain: adafruit.com
+    matched_by: domain
+    apis_listed: 1
+    version_count: 1
+    first_added: '2018-02-10'
+    last_updated: '2021-06-21'
+    origin_publisher_hosted: false
+    origin_hosts:
+    - raw.githubusercontent.com
+    categories:
+    - iot
+    own_openapi_files: 11
+    listings:
+    - key: adafruit.com
+      title: Adafruit IO REST API
+      preferred: 2.0.0
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/adafruit.com/2.0.0/swagger.json
+      origin_url: https://raw.githubusercontent.com/adafruit/io-api/gh-pages/v2.json
+      openapi_version: '2.0'
+    signal_note: 'participation only: a community directory listing (APIs.guru collects definitions; the provider
+      did not file them). Signals: version_count, apis_listed, origin_publisher_hosted.'
+    detected_by: sweep-openapi-directory-apis-guru.py
+    detected: '2026-10-22'
+  detected_by: sweep-openapi-directory-apis-guru.py
+  first_seen: '2026-10-22'
 method: searched
 checked:
 - https://zapier.com/api/v4/apps/
@@ -64,5 +105,7 @@ checked:
 - https://officialskills.sh/sitemap.xml
 - https://skillsmp.com/sitemap.xml
 - https://www.skills.sh/sitemap.xml
+- https://api.apis.guru/v2/list.json
+- https://api.apis.guru/v2/providers.json
 source:
 - https://zapier.com/api/v4/apps/
