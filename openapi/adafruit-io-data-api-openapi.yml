@@ -1034,3 +1034,9 @@ components:
       type: apiKey
       in: header
       name: X-AIO-Signature
+x-provenance:
+  method: harvested
+  publisher: Adafruit IO
+  source: https://raw.githubusercontent.com/adafruit/io-api/gh-pages/v2.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
