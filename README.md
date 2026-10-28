@@ -1,4 +1,4 @@
-# Adafruit IO (adafruit-io)
+# Adafruit IO
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,152 +66,206 @@
 
 Adafruit IO is a cloud Internet of Things platform from Adafruit Industries built for makers, hobbyists, students, and STEM educators. It provides feed-based time-series storage, drag-and-drop dashboards with 20+ visualization block types, actions/triggers for SMS/voice/email/webhook notifications, built-in services (time, weather, randomizer, air quality), and a complete REST + MQTT API surface for Adafruit Feather and Metro boards, ESP32 / ESP8266 / Pico microcontrollers, Raspberry Pi, and any other HTTP- or MQTT-capable hardware. First-class Arduino, CircuitPython, and Python client libraries plus the no-code Wippersnapper firmware make it the easiest way for hobbyists to get their projects onto the Internet of Things.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/adafruit-io/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/adafruit-io/refs/heads/main/apis.yml)
+**Areas:** IoT · MQTT · Maker · Hobbyist · CircuitPython · Arduino · ESP32 · Feather · Dashboards · Time Series
 
-## Scope
+## Adafruit IO on APIs.io
 
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for Adafruit IO is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/adafruit-io/](https://apis.io/providers/adafruit-io/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (12)
 
-- IoT
-- Internet of Things
-- MQTT
-- Maker
-- Hobbyist
-- CircuitPython
-- Arduino
-- ESP32
-- Feather
-- Dashboards
-- Time Series
+- [Adafruit IO MQTT API](https://apis.io/apis/adafruit-io/adafruit-io-mqtt-api/) — MQTT broker at io.adafruit.com for publish/subscribe access to Adafruit IO feeds and groups. TLS on port 8883, plaintext on 1883, and MQTT-over-WebSocket on…
+- [Adafruit IO Activities API](https://apis.io/apis/adafruit-io/adafruit-io-activities-api/) — The Activities API from Adafruit IO — 2 operation(s) for activities.
+- [Adafruit IO Blocks API](https://apis.io/apis/adafruit-io/adafruit-io-blocks-api/) — The Blocks API from Adafruit IO — 2 operation(s) for blocks.
+- [Adafruit IO Dashboards API](https://apis.io/apis/adafruit-io/adafruit-io-dashboards-api/) — The Dashboards API from Adafruit IO — 2 operation(s) for dashboards.
+- [Adafruit IO Data API](https://apis.io/apis/adafruit-io/adafruit-io-data-api/) — The Data API from Adafruit IO — 14 operation(s) for data.
+- [Adafruit IO Feeds API](https://apis.io/apis/adafruit-io/adafruit-io-feeds-api/) — The Feeds API from Adafruit IO — 6 operation(s) for feeds.
+- [Adafruit IO Groups API](https://apis.io/apis/adafruit-io/adafruit-io-groups-api/) — The Groups API from Adafruit IO — 5 operation(s) for groups.
+- [Adafruit IO Permissions API](https://apis.io/apis/adafruit-io/adafruit-io-permissions-api/) — The Permissions API from Adafruit IO — 2 operation(s) for permissions.
+- [Adafruit IO Tokens API](https://apis.io/apis/adafruit-io/adafruit-io-tokens-api/) — The Tokens API from Adafruit IO — 2 operation(s) for tokens.
+- [Adafruit IO Triggers API](https://apis.io/apis/adafruit-io/adafruit-io-triggers-api/) — The Triggers API from Adafruit IO — 2 operation(s) for triggers.
+- [Adafruit IO Users API](https://apis.io/apis/adafruit-io/adafruit-io-users-api/) — The Users API from Adafruit IO — 2 operation(s) for users.
+- [Adafruit IO Webhooks API](https://apis.io/apis/adafruit-io/adafruit-io-webhooks-api/) — The Webhooks API from Adafruit IO — 2 operation(s) for webhooks.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-25T00:00:00.000Z
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Arazzo workflows (9)
 
-### Adafruit IO REST API
+Multi-step workflows that chain operations into a business task.
 
-REST API for Adafruit IO providing CRUD operations across feeds, time-series data points, groups, dashboards, dashboard blocks, triggers (reactive and scheduled actions), API tokens, permissions/ACL, account activities, and inbound webhooks. Base URL https://io.adafruit.com/api/v2 — authenticated via the X-AIO-Key header or query parameter using an Adafruit IO API key. Supports batch data writes, chart-aggregated reads, positional queries (first/last/previous/next/retain), and Link-header pagination up to 1000 records per page.
+- [Adafruit IO Attach Feed to Group](https://apis.io/arazzos/adafruit-io/adafruit-io-attach-feed-to-group-workflow/)
+- [Adafruit IO Batch Ingest and Chart](https://apis.io/arazzos/adafruit-io/adafruit-io-batch-ingest-and-chart-workflow/)
+- [Adafruit IO Build Dashboard with Block](https://apis.io/arazzos/adafruit-io/adafruit-io-build-dashboard-with-block-workflow/)
+- [Adafruit IO Create and Verify Trigger](https://apis.io/arazzos/adafruit-io/adafruit-io-create-and-verify-trigger-workflow/)
+- [Adafruit IO Ensure Feed Exists](https://apis.io/arazzos/adafruit-io/adafruit-io-ensure-feed-exists-workflow/)
+- [Adafruit IO Group Feed Bootstrap](https://apis.io/arazzos/adafruit-io/adafruit-io-group-feed-bootstrap-workflow/)
+- [Adafruit IO Group Multi-Feed Publish](https://apis.io/arazzos/adafruit-io/adafruit-io-group-multifeed-publish-workflow/)
+- [Adafruit IO Issue and Verify Token](https://apis.io/arazzos/adafruit-io/adafruit-io-issue-and-verify-token-workflow/)
+- [Adafruit IO Provision Feed and Seed Data](https://apis.io/arazzos/adafruit-io/adafruit-io-provision-feed-and-seed-data-workflow/)
 
-- **Human URL:** [https://io.adafruit.com/api/docs/](https://io.adafruit.com/api/docs/)
-- **Base URL:** `https://io.adafruit.com/api/v2`
+#### GraphQL (1)
 
-#### Tags
+GraphQL schemas.
 
-- IoT
-- Internet of Things
-- Feeds
-- Data
-- Dashboards
-- Maker
+- [Moved to /providers/adafruit-io/](https://apis.io/graphqls/adafruit-io/adafruit-io-graphql/)
 
-#### Properties
+#### Agentic access (1)
 
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Adafruit Io Agentic Access](https://apis.io/agentic-access/adafruit-io/adafruit-io-agentic-access/)
+
+#### JSON Schema (3)
+
+The data models the API reads and writes.
+
+- [Adafruit IO Dashboard](https://apis.io/schemas/adafruit-io/adafruit-io-dashboard/)
+- [Adafruit IO Data Point](https://apis.io/schemas/adafruit-io/adafruit-io-data/)
+- [Adafruit IO Feed](https://apis.io/schemas/adafruit-io/adafruit-io-feed/)
+
+#### JSON Structure (2)
+
+Data models expressed in JSON Structure.
+
+- [Adafruit Io Dashboard Structure](https://apis.io/json-structure/adafruit-io/adafruit-io-dashboard-structure/)
+- [Adafruit Io Feed Structure](https://apis.io/json-structure/adafruit-io/adafruit-io-feed-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Adafruit Io Context](https://apis.io/jsonld/adafruit-io/adafruit-io-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Adafruit Io Vocabulary](https://apis.io/vocabularies/adafruit-io/adafruit-io-vocabulary/)
+
+#### Examples (3)
+
+Example requests and responses.
+
+- [Adafruit Io Batch Data Example](https://apis.io/examples/adafruit-io/adafruit-io-batch-data-example/)
+- [Adafruit Io Create Data Example](https://apis.io/examples/adafruit-io/adafruit-io-create-data-example/)
+- [Adafruit Io Create Feed Example](https://apis.io/examples/adafruit-io/adafruit-io-create-feed-example/)
+
+#### Collections (13)
+
+Postman and Open Collection request collections.
+
+- [Adafruit IO REST Activities API](https://apis.io/collections/adafruit-io/open-adafruit-io-activities-api/)
+- [Adafruit IO REST Activities Blocks API](https://apis.io/collections/adafruit-io/open-adafruit-io-blocks-api/)
+- [Adafruit IO REST Activities Dashboards API](https://apis.io/collections/adafruit-io/open-adafruit-io-dashboards-api/)
+- [Adafruit IO REST Activities Data API](https://apis.io/collections/adafruit-io/open-adafruit-io-data-api/)
+- [Adafruit IO REST Activities Feeds API](https://apis.io/collections/adafruit-io/open-adafruit-io-feeds-api/)
+- [Adafruit IO REST Activities Groups API](https://apis.io/collections/adafruit-io/open-adafruit-io-groups-api/)
+- [Adafruit IO REST Activities Permissions API](https://apis.io/collections/adafruit-io/open-adafruit-io-permissions-api/)
+- [Adafruit IO REST API](https://apis.io/collections/adafruit-io/open-adafruit-io-rest-api/)
+- [Adafruit IO REST Activities Tokens API](https://apis.io/collections/adafruit-io/open-adafruit-io-tokens-api/)
+- [Adafruit IO REST Activities Triggers API](https://apis.io/collections/adafruit-io/open-adafruit-io-triggers-api/)
+- [Adafruit IO REST Activities Users API](https://apis.io/collections/adafruit-io/open-adafruit-io-users-api/)
+- [Adafruit IO REST Activities Webhooks API](https://apis.io/collections/adafruit-io/open-adafruit-io-webhooks-api/)
+- [Adafruit IO REST API](https://apis.io/collections/adafruit-io/postman-adafruit-io-rest-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Adafruit IO — jsonschema rules](https://apis.io/rules/adafruit-io/adafruit-io-jsonschema-spectral-rules/)
+- [Adafruit IO API Rules](https://apis.io/rules/adafruit-io/adafruit-io-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Adafruit Io Authentication](https://apis.io/security/adafruit-io/adafruit-io-authentication/)
+- [Adafruit Io Domain Security](https://apis.io/security/adafruit-io/adafruit-io-domain-security/)
+- [Adafruit Io Vulnerability Disclosure](https://apis.io/security/adafruit-io/adafruit-io-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Adafruit Io Plans Pricing](https://apis.io/plans/adafruit-io/adafruit-io-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Adafruit Io Rate Limits](https://apis.io/rate-limits/adafruit-io/adafruit-io-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Adafruit Io Finops](https://apis.io/finops/adafruit-io/adafruit-io-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.adafruit.com/)
 - [Documentation](https://io.adafruit.com/api/docs/)
-- [Documentation](https://io.adafruit.com/api/docs/#adafruit-io-http-api)
-- [OpenAPI](openapi/adafruit-io-rest-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/adafruit-io-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/adafruit-io-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/adafruit-io-feed-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/adafruit-io-data-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/adafruit-io-dashboard-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/adafruit-io-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-
-### Adafruit IO MQTT API
-
-MQTT broker at io.adafruit.com for publish/subscribe access to Adafruit IO feeds and groups. TLS on port 8883, plaintext on 1883, and MQTT-over-WebSocket on port 443. Authenticate with your Adafruit IO username and API key. Supports QoS 0 and QoS 1 (QoS 2 not supported); MQTT retain flag is not honored — use the /get topic modifier to fetch the last value of a feed instead. Topic structure includes feed topics ({username}/feeds/{key}), compact aliases ({username}/f/{key}), JSON/CSV suffixes, group topics ({username}/groups/{key}), throttle ({username}/throttle), and errors ({username}/errors). Wildcard subscriptions with `+` and `#` are supported for feed discovery.
-
-- **Human URL:** [https://io.adafruit.com/api/docs/mqtt.html](https://io.adafruit.com/api/docs/mqtt.html)
-- **Base URL:** `mqtts://io.adafruit.com:8883`
-
-#### Tags
-
-- IoT
-- Internet of Things
-- MQTT
-- Realtime
-- Feeds
-
-#### Properties
-
-- [Documentation](https://io.adafruit.com/api/docs/mqtt.html)
-- [Documentation](https://io.adafruit.com/api/docs/mqtt.html#mqtt-topics)
-- [Postman Collection](collections/adafruit-io-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/adafruit-io-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Adafruit IO Webhooks API
-
-Token-authenticated inbound webhook endpoints that allow third-party services (IFTTT, Zapier, Make, or any HTTP client) to push data into an Adafruit IO feed without an API key. Endpoints include the standard JSON webhook (POST /webhooks/feed/:token), the raw-payload webhook (POST /webhooks/feed/:token/raw) for arbitrary request bodies, and a notify webhook (POST /webhooks/feed/:token/notify) for ping-style triggers. Tokens are generated per-feed and managed in the Adafruit IO UI.
-
-- **Human URL:** [https://io.adafruit.com/api/docs/#webhooks](https://io.adafruit.com/api/docs/#webhooks)
-- **Base URL:** `https://io.adafruit.com/api/v2/webhooks`
-
-#### Tags
-
-- IoT
-- Internet of Things
-- Webhooks
-- Feeds
-
-#### Properties
-
-- [Documentation](https://io.adafruit.com/api/docs/#webhooks)
-- [OpenAPI](openapi/adafruit-io-rest-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/adafruit-io-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/adafruit-io-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [Arazzo Workflows](arazzo/) — [Arazzo Specification](https://spec.openapis.org/arazzo/latest.html)
-- [Portal](https://io.adafruit.com)
-- [Documentation](https://io.adafruit.com/api/docs/)
-- [Documentation](https://io.adafruit.com/api/docs/cookbook.html)
-- [Documentation](https://io.adafruit.com/api/docs/mqtt.html)
-- [Getting Started](https://learn.adafruit.com/series/adafruit-io-basics)
-- [Getting Started](https://learn.adafruit.com/welcome-to-adafruit-io)
-- [Blog](https://io.adafruit.com/blog)
-- [Changelog](https://io.adafruit.com/blog/changelog/)
-- [Forum](https://forums.adafruit.com/viewforum.php?f=56)
-- [Forum](https://discord.gg/adafruit)
-- [Sign Up](https://io.adafruit.com/signup)
-- [Login](https://io.adafruit.com/login)
-- [Documentation](https://www.adafruit.com/iot)
+- [Getting started](https://learn.adafruit.com/series/adafruit-io-basics)
 - [Pricing](https://io.adafruit.com/plus)
-- [Rate Limits](https://io.adafruit.com/api/docs/#rate-limiting)
-- [Errors](https://io.adafruit.com/api/docs/#errors)
-- [Authentication](https://io.adafruit.com/api/docs/#authentication)
-- [Privacy Policy](https://www.adafruit.com/privacy)
-- [Terms of Service](https://www.adafruit.com/termsofservice)
-- [GitHub Organization](https://github.com/adafruit)
-- [Source Code](https://github.com/adafruit/io-api)
-- [SDK](https://github.com/adafruit/Adafruit_IO_Python)
-- [SDK](https://github.com/adafruit/Adafruit_IO_Arduino)
-- [SDK](https://github.com/adafruit/Adafruit_CircuitPython_AdafruitIO)
-- [SDK](https://github.com/adafruit/io-client-ruby)
-- [SDK](https://github.com/adafruit/adafruit-io-node)
-- [SDK](https://github.com/adafruit/io-client-go)
-- [Tool](https://github.com/adafruit/Adafruit_MQTT_Library)
-- [Code Examples](https://github.com/adafruit/adafruit-io-basics)
-- [Tool](https://github.com/adafruit/io-swagger-templates)
-- [Tool](https://github.com/adafruit/adafruit-io-node-tunnel)
-- [Documentation](https://www.adafruit.com/category/1011)
-- [Documentation](https://www.adafruit.com/category/943)
-- [Documentation](https://learn.adafruit.com/welcome-to-circuitpython)
-- [Integrations](https://ifttt.com/adafruit)
-- [Integrations](https://zapier.com/apps/adafruit-io/integrations)
-- [Plans](https://io.adafruit.com/plus)
-- [Plans](plans/adafruit-io-plans-pricing.yml)
-- [Rate Limits](rate-limits/adafruit-io-rate-limits.yml)
-- [Fin Ops](finops/adafruit-io-finops.yml)
-- [Features](undefined)
+- [Changelog](https://io.adafruit.com/blog/changelog/)
+- [Blog](https://io.adafruit.com/blog)
+- [Terms of service](https://www.adafruit.com/termsofservice)
+- [Privacy policy](https://www.adafruit.com/privacy)
+- [GitHub](https://github.com/adafruit)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 52.1** — developing · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 57.8 |
+| Contract governance | 13.6 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 67.9 |
+| Access clarity | 52.6 |
+
+**Agent readiness 23.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 30.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/adafruit-io/](https://apis.io/providers/adafruit-io/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Adafruit IO: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/adafruit-io/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
