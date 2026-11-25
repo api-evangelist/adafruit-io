@@ -66,7 +66,7 @@
 
 Adafruit IO is a cloud Internet of Things platform from Adafruit Industries built for makers, hobbyists, students, and STEM educators. It provides feed-based time-series storage, drag-and-drop dashboards with 20+ visualization block types, actions/triggers for SMS/voice/email/webhook notifications, built-in services (time, weather, randomizer, air quality), and a complete REST + MQTT API surface for Adafruit Feather and Metro boards, ESP32 / ESP8266 / Pico microcontrollers, Raspberry Pi, and any other HTTP- or MQTT-capable hardware. First-class Arduino, CircuitPython, and Python client libraries plus the no-code Wippersnapper firmware make it the easiest way for hobbyists to get their projects onto the Internet of Things.
 
-**Areas:** IoT · MQTT · Maker · Hobbyist · CircuitPython · Arduino · ESP32 · Feather · Dashboards · Time Series
+**Areas:** IoT · MQTT · Maker · Hobbyist · Circuit Python · Arduino · ESP32 · Feather · Dashboards · Time Series
 
 ## Adafruit IO on APIs.io
 
@@ -115,7 +115,7 @@ GraphQL schemas.
 
 Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Adafruit Io Agentic Access](https://apis.io/agentic-access/adafruit-io/adafruit-io-agentic-access/)
+- [Adafruit IO Agentic Access](https://apis.io/agentic-access/adafruit-io/adafruit-io-agentic-access/)
 
 #### JSON Schema (3)
 
@@ -129,8 +129,8 @@ The data models the API reads and writes.
 
 Data models expressed in JSON Structure.
 
-- [Adafruit Io Dashboard Structure](https://apis.io/json-structure/adafruit-io/adafruit-io-dashboard-structure/)
-- [Adafruit Io Feed Structure](https://apis.io/json-structure/adafruit-io/adafruit-io-feed-structure/)
+- [Adafruit IO Dashboard Structure](https://apis.io/json-structure/adafruit-io/adafruit-io-dashboard-structure/)
+- [Adafruit IO Feed Structure](https://apis.io/json-structure/adafruit-io/adafruit-io-feed-structure/)
 
 #### JSON-LD (1)
 
@@ -148,9 +148,9 @@ The provider's domain terms, defined.
 
 Example requests and responses.
 
-- [Adafruit Io Batch Data Example](https://apis.io/examples/adafruit-io/adafruit-io-batch-data-example/)
-- [Adafruit Io Create Data Example](https://apis.io/examples/adafruit-io/adafruit-io-create-data-example/)
-- [Adafruit Io Create Feed Example](https://apis.io/examples/adafruit-io/adafruit-io-create-feed-example/)
+- [Adafruit IO Batch Data Example](https://apis.io/examples/adafruit-io/adafruit-io-batch-data-example/)
+- [Adafruit IO Create Data Example](https://apis.io/examples/adafruit-io/adafruit-io-create-data-example/)
+- [Adafruit IO Create Feed Example](https://apis.io/examples/adafruit-io/adafruit-io-create-feed-example/)
 
 #### Collections (13)
 
@@ -181,27 +181,27 @@ Spectral rulesets for the provider's contracts.
 
 Authentication, trust centre, and vulnerability disclosure.
 
-- [Adafruit Io Authentication](https://apis.io/security/adafruit-io/adafruit-io-authentication/)
-- [Adafruit Io Domain Security](https://apis.io/security/adafruit-io/adafruit-io-domain-security/)
-- [Adafruit Io Vulnerability Disclosure](https://apis.io/security/adafruit-io/adafruit-io-vulnerability-disclosure/)
+- [Adafruit IO Authentication](https://apis.io/security/adafruit-io/adafruit-io-authentication/)
+- [Adafruit IO Domain Security](https://apis.io/security/adafruit-io/adafruit-io-domain-security/)
+- [Adafruit IO Vulnerability Disclosure](https://apis.io/security/adafruit-io/adafruit-io-vulnerability-disclosure/)
 
 #### Plans and pricing (1)
 
 Published plans, tiers and prices.
 
-- [Adafruit Io Plans Pricing](https://apis.io/plans/adafruit-io/adafruit-io-plans-pricing/)
+- [Adafruit IO Plans Pricing](https://apis.io/plans/adafruit-io/adafruit-io-plans-pricing/)
 
 #### Rate limits (1)
 
 Published request limits.
 
-- [Adafruit Io Rate Limits](https://apis.io/rate-limits/adafruit-io/adafruit-io-rate-limits/)
+- [Adafruit IO Rate Limits](https://apis.io/rate-limits/adafruit-io/adafruit-io-rate-limits/)
 
 #### FinOps (1)
 
 What the API costs to run, by operation.
 
-- [Adafruit Io Finops](https://apis.io/finops/adafruit-io/adafruit-io-finops/)
+- [Adafruit IO Finops](https://apis.io/finops/adafruit-io/adafruit-io-finops/)
 
 ## Where to find this API
 
@@ -219,18 +219,18 @@ Links to the company's own pages. This repository publishes no copy of their spe
 
 ## API Evangelist rating
 
-**Kin Score 53.5** — developing · rubric 0.25.0 · scored 2026-10-23
+**Kin Score 53.1** — developing · rubric 0.28.1 · scored 2026-11-21
 
 | Facet | Score |
 |---|---|
 | Discoverability | 66.1 |
-| Contract quality | 57.8 |
+| Contract quality | 62.6 |
 | Contract governance | 13.6 |
-| Operational transparency | 39.5 |
+| Operational transparency | 35.7 |
 | Developer ergonomics | 67.9 |
-| Access clarity | 52.6 |
+| Access clarity | 46.8 |
 
-**Agent readiness 23.6** — agent-aware
+**Agent readiness 23.2** — agent-aware
 
 | Agent-readiness dimension | Result |
 |---|---|
@@ -255,6 +255,10 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Agentic Commerce | — |
 | Pagination Ratio | — |
 | Operation Distinctiveness | mostly (partial credit) |
+| MCP Tool Quality | na |
+| Onboarding Descriptor | — |
+| Dns Aid Index | na |
+| Markdown Negotiation | na |
 
 **Regulatory alignment 30.4** — Horizontal (data, software, accessibility, platform)
 
